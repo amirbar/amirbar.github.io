@@ -152,6 +152,37 @@
         </table>
 
         <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <tr>
+            <td style="width: 35%; text-align: center">
+              <div class="one" style="width: 85%; margin: auto">
+                <div class="two" style="width: 100%">
+                    <img src='images/stop_before.png' style="width: 80%" id="stop" onmouseout="stop_start()" onmouseover="stop_stop()">
+                </div>
+              <img src="images/stop_after.png" style="width: 80%" />
+              </div>
+              <script type="text/javascript">
+                function stop_start() {
+                  document.getElementById('stop').style.opacity = "1";
+                }
+                function stop_stop() {
+                  document.getElementById('stop').style.opacity = "0";
+                }
+              </script>
+            </td>
+            <td valign="middle" width="75%">
+              <p>
+                <a href="https://arxiv.org/abs/2308.00566">
+                <papertitle>Stochastic positional embeddings improve masked image modeling</papertitle> </a>&nbsp; &nbsp;
+                <br>
+                <b>Amir Bar</b>, Florian Bordes, Assaf Shocher, Mahmoud Assran, Pascal Vincent, Nicolas Ballas, Trevor Darrell, Amir Globerson, Yann LeCun
+                <br>
+                <em>Technical Report</em>, 2024<br>
+                <a href="https://github.com/amirbar/StoP">Code/Models</a>
+                <br>
+                <p>Modeling location uncertainties via stochastic positional embeddings (StoP) improve I-JEPA.
+                </p>
+                </td>
+          </tr>
 
           <!-- IMProv -->
           <tr>
