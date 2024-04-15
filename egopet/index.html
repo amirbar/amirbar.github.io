@@ -234,12 +234,35 @@ seconds, although the duration displays considerable variability, as indicated b
 <br>
 
 <table align=center>
-    <center><h1 id="viz">Tasks</h1></center>
+    <center><h1 id="viz">EgoPet Tasks</h1></center>
 </table>
 <p>
-    Qualitative examples of DETReg unsupervised box predictions. This shows the pixel-level gradient norm for the x/y bounding box center and the object embedding. These gradient norms indicate how sensitive the predicted values are to perturbations of the input pixels. For the first three columns, DETReg attends to the object edges for the x/y predictions and z for the predicted object embedding. The final column shows a limitation where the space surrounding the object is used for the embedding.
+To measure progress in modeling and learning from animals, we propose three new tasks that aim to capture perception and action (see Fig. 1): Visual Interaction Prediction (VIP), Locomotion Prediction (LP), and Vision to Proprioception Prediction (VPP). Together with these tasks, we provide annotated training and validation data used for downstream evaluation.
 </p>
-<center><img src="data/viz.png" align="middle"></center>
+<table align=center>
+    <center><h2 id="viz">Visual Interaction Prediction (VIP)</h2></center>
+</table>
+<p>
+    The VIP task aims to detect and classify animal interactions and is inspired by human-object interaction tasks [43]. We temporally annotated a subset of the EgoPet videos with the start and end times of visual interactions and the object of the interaction category. The categories, which include person, cat, and dog, were chosen based on how commonly they occurred as objects (for all the categories refer to Supplementary Section Figure credits).
+</p>
+<center><img src="data/VIP_2.png" align="middle"></center>
+<br>
+<table align=center>
+    <center><h2 id="viz">Locomotion Prediction (LP)</h2></center>
+</table>
+<p>
+    The goal of the LP task is to predict the future 4 second trajectory of the pet. This is useful for learning basic pet skills like avoiding obstacles or navigating. We extracted pseudo ground truth trajectories using Deep Patch Visual Odometry (DPVO) [49], the best-performing SLAM system for our dataset. We manually filtered inaccurate trajectories in the validation data to ensure high-quality evaluation.
+</p>
+<center><img src="data/LP_2.png" align="middle"></center>
+<br>
+<table align=center>
+    <center><h2 id="viz">Vision to Proprioception Prediction (VPP)</h2></center>
+</table>
+<p>
+    Finally, in the VPP task, we study EgoPet’s utility for a downstream robotic task: legged locomotion. Given a video observation from a forward-facing camera mounted on a quadruped robot, the goal is to predict the features of the terrain perceived by the robot’s proprioception across its trajectory. Making accurate predictions requires perceiving the landscape and anticipating the robot controls. This differs from previous works on robot visual prediction [30, 45, 31], which require conditioning over current robot controls and are thus challenging to train at scale. To assess performance in this task, we gathered data utilizing a quadruped robodog. This data includes paired videos and proprioception features, which are then utilized for subsequent training and evaluation processes.
+</p>
+
+<center><img src="data/VPP_2.png" align="middle"></center>
 
 <br><br>
 <hr>
@@ -252,7 +275,8 @@ seconds, although the duration displays considerable variability, as indicated b
                                                                 src="data/paper.png"/></a></td>
         <td><a href="./"></a></td>
         <td>
-        <span style="font-size:14pt"> <i>DETReg: Unsupervised Pretraining with Region Priors for Object Detection</i><br>Amir Bar, Xin Wang, Vadim Kantorov, Colorado J Reed, Roei Herzig, <br>Gal Chechik, Anna Rohrbach, Trevor Darrell, Amir Globerson<br>
+        <span style="font-size:14pt"> <i>EgoPet: Egomotion and Interaction Data from an Animal's Perspective
+</i><br>Amir Bar, Arya Bakhtiar, Danny Tran, Antonio Loquercio <br>  Jathushan Rajasegaran, Yann LeCun, Amir Globerson, Trevor Darrell<br>
 
             Arxiv<br>
             Hosted on <a href="./">arXiv</a>
