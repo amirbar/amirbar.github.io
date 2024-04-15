@@ -1,0 +1,295 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<!-- ======================================================================= -->
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+<style type="text/css">
+    table {
+        margin-bottom: 5px;
+        margin-top: 5px;
+    }
+    body {
+        font-family: "Titillium Web", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        font-weight: 300;
+        font-size: 18px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 60%;
+    }
+
+    h1 {
+        font-weight: 300;
+    }
+
+    .disclaimerbox {
+        background-color: #eee;
+        border: 1px solid #eeeeee;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        padding: 20px;
+    }
+
+    video.header-vid {
+        height: 140px;
+        border: 1px solid black;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+    }
+
+    img {
+        width: 100%
+    }
+
+    img.header-img {
+        height: 140px;
+        border: 1px solid black;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+    }
+
+    img.rounded {
+        border: 1px solid #eeeeee;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+    }
+
+    a:link, a:visited {
+        color: #1367a7;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: #208799;
+    }
+
+    td.dl-link {
+        height: 160px;
+        text-align: center;
+        font-size: 22px;
+    }
+
+    .layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+        box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.35), /* The top layer shadow */ 5px 5px 0 0px #fff, /* The second layer */ 5px 5px 1px 1px rgba(0, 0, 0, 0.35), /* The second layer shadow */ 10px 10px 0 0px #fff, /* The third layer */ 10px 10px 1px 1px rgba(0, 0, 0, 0.35), /* The third layer shadow */ 15px 15px 0 0px #fff, /* The fourth layer */ 15px 15px 1px 1px rgba(0, 0, 0, 0.35), /* The fourth layer shadow */ 20px 20px 0 0px #fff, /* The fifth layer */ 20px 20px 1px 1px rgba(0, 0, 0, 0.35), /* The fifth layer shadow */ 25px 25px 0 0px #fff, /* The fifth layer */ 25px 25px 1px 1px rgba(0, 0, 0, 0.35); /* The fifth layer shadow */
+        margin-left: 10px;
+        margin-right: 45px;
+    }
+
+
+    .layered-paper { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+        box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.35), /* The top layer shadow */ 5px 5px 0 0px #fff, /* The second layer */ 5px 5px 1px 1px rgba(0, 0, 0, 0.35), /* The second layer shadow */ 10px 10px 0 0px #fff, /* The third layer */ 10px 10px 1px 1px rgba(0, 0, 0, 0.35); /* The third layer shadow */
+        margin-top: 5px;
+        margin-left: 10px;
+        margin-right: 30px;
+        margin-bottom: 5px;
+    }
+
+    .vert-cent {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    hr {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    }
+
+
+    #authors td {
+        padding-bottom: 5px;
+        padding-top: 30px;
+    }
+</style>
+
+
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108048997-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-108048997-1');
+  </script>
+
+    <title>EgoPet: Egomotion and Interaction Data from an Animal's Perspective</title>
+    <meta property="og:title" content="EgoPet: Egomotion and Interaction Data from an Animal's Perspective"/>
+</head>
+
+<body>
+<br>
+<center>
+    <span style="font-size:36px">EgoPet: Egomotion and Interaction Data from an Animal's Perspective</span>
+
+    <br>
+    <br>
+
+        <span style="font-size:24px">Arxiv 2024</span>
+
+
+    <br>
+    <br>
+
+    <table align=center>
+        <tr>
+            <span style="font-size:24px"><a href="http://www.amirbar.net/">Amir Bar</a><sup>1,2</sup></span> &nbsp;
+            <span style="font-size:24px"><a href="./">Arya Bakhtiar</a><sup>2</sup></span> &nbsp;
+            <span style="font-size:24px"><a href="./">Danny Tran</a><sup>2</sup></span> &nbsp;
+            <span style="font-size:24px"><a href="https://antonilo.github.io/">Antonio Loquercio</a><sup>2</sup></span> &nbsp;
+        </tr><br>
+        <tr>
+            <span style="font-size:24px"><a href="https://people.eecs.berkeley.edu/~jathushan/">Jathushan Rajasegaran</a><sup>2</sup></span> &nbsp;
+            <span style="font-size:24px"><a href="https://yann.lecun.com/">Yann LeCun</a><sup>3</sup></span> &nbsp;
+            <span style="font-size:24px"><a href="https://cs3801.wixsite.com/amirgloberson/">Amir Globerson</a><sup>1</sup></span> &nbsp;
+            <span style="font-size:24px"><a href="https://people.eecs.berkeley.edu/~trevor/">Trevor Darrell</a><sup>2</sup></span> &nbsp;
+        </tr>
+    </table>
+
+
+<!--    <br><br><br>-->
+
+<!--    <br><br>-->
+
+
+    <table align=center>
+        <tr>
+            <td align=center>
+                <center>
+                    <span style="font-size:20px">
+                        <sup>1</sup>Tel-Aviv University &nbsp;<sup>2</sup>Berkeley AI Research &nbsp;<sup>3</sup>New York University
+                    </span>
+                </center>
+            </td>
+        </tr>
+    </table>
+<!--    <br>-->
+
+
+<!--    <span style="font-size:24px">Preprint. Under review.</span>-->
+
+
+
+</center>
+<!--<left>    <span style="font-size:18px"><sup>*</sup>Equally contributed</span> </left>-->
+<center><img src="data/teaser.jpg" align="middle"></center>
+<br>
+    <table align=center>
+        <tr>
+            <td align=center>
+                <center>
+                    <span style="font-size:24px"><a href="./"> [Paper]</a></span>
+                </center>
+            </td>
+            <td align=center>
+                <center>
+                        <span style="font-size:24px"><a href='https://github.com/bakhtiararya/EgoPet_dataset_download'> [Data]</a></span>
+                </center>
+            </td>
+            <td align=center>
+                <center>
+                        <span style="font-size:24px"><a href='https://github.com/DannyTran123/egopet/'> [Code]</a></span>
+                </center>
+            </td>
+
+            <td align=center>
+                <center>
+                        <span style="font-size:24px"><a href='./'> [Bibtex]</a></span>
+                </center>
+            </td>
+        </tr>
+    </table>
+
+<br><br>
+<hr>
+
+<table align=center>
+    <center><h1>Abstract</h1></center>
+</table>
+
+Animals perceive the world to plan their actions and interact with other agents to accomplish complex tasks, demonstrating capabilities that are still unmatched by AI systems. To advance our understanding and reduce the gap between the capabilities of animals and AI systems, we introduce a dataset of pet egomotion imagery with diverse examples of simultaneous egomotion and multi-agent interaction. Current video datasets separately contain egomotion and interaction examples, but rarely both at the same time. In addition, EgoPet offers a radically distinct perspective from existing egocentric datasets of humans or vehicles. We define two in-domain benchmark tasks that capture animal behavior, and a third benchmark to assess the utility of EgoPet as a pretraining resource to robotic quadruped locomotion, showing that models trained from EgoPet outperform those trained from prior datasets.
+
+<br><br><br>
+
+<hr>
+<br>
+
+<table align=center>
+    <center><h1 id="model">EgoPet</h1></center>
+</table>
+<p>
+The EgoPet dataset is an extensive collection composed of 6,646 video segments distilled from 819 unique videos. High level statistics are provided in the figure below. These original videos were sourced predominantly from TikTok, accounting for
+482 videos, while the remaining 338 were obtained from YouTube. The aggregate length of all video segments amounts to approximately 84 hours, which reflects a substantial volume of data for in-depth analysis. In terms of video duration, the segments exhibit an average span of 45.55
+seconds, although the duration displays considerable variability, as indicated by the standard deviation of 192.19 seconds. This variation underscores the range of contexts captured within the dataset, from brief encounters to prolonged interactions.
+
+<center><img src="data/descriptive2.jpg" align="middle"></center>
+<br><br>
+
+<hr>
+<br>
+
+<table align=center>
+    <center><h1 id="viz">Tasks</h1></center>
+</table>
+<p>
+    Qualitative examples of DETReg unsupervised box predictions. This shows the pixel-level gradient norm for the x/y bounding box center and the object embedding. These gradient norms indicate how sensitive the predicted values are to perturbations of the input pixels. For the first three columns, DETReg attends to the object edges for the x/y predictions and z for the predicted object embedding. The final column shows a limitation where the space surrounding the object is used for the embedding.
+</p>
+<center><img src="data/viz.png" align="middle"></center>
+
+<br><br>
+<hr>
+<br>
+
+<table align=center>
+    <center><h1>Paper</h1></center>
+    <tr>
+        <td><a href="./"><img class="layered-paper-big" style="height:175px; width: 150px; margin-bottom: 50px"
+                                                                src="data/paper.png"/></a></td>
+        <td><a href="./"></a></td>
+        <td>
+        <span style="font-size:14pt"> <i>DETReg: Unsupervised Pretraining with Region Priors for Object Detection</i><br>Amir Bar, Xin Wang, Vadim Kantorov, Colorado J Reed, Roei Herzig, <br>Gal Chechik, Anna Rohrbach, Trevor Darrell, Amir Globerson<br>
+
+            Arxiv<br>
+            Hosted on <a href="./">arXiv</a>
+                </span>
+            <br>
+        </td>
+        <span style="font-size:4pt"><a href="./"><br></a></span>
+    </tr>
+</table>
+<hr>
+    <br><br>
+
+<table align=center>
+    <center><h1>Related Works</h1></center>
+    <tr>
+        <td>If you found our work interesting, please also consider looking into some closely related works like <a href="https://arxiv.org/abs/1803.10827">Who Let The Dogs Out? Modeling Dog Behavior From Visual Data
+</a>.
+        </td>
+    </tr>
+</table>
+
+    <br><br>
+
+
+<hr>
+    <br><br>
+
+<table align=center style="margin-bottom: 50px">
+    <tr>
+        <td>
+            <left>
+                <center><h1>Acknowledgements</h1></center>
+We thank Justin Kerr for helpful discussions. Many of the figures use images taken from web videos. For each figure, we include the URL to its source videos in the Suppl., Figure credits section. This project has received funding from the European Research Council (ERC) under the European Unions Horizon 2020 research and innovation programme (grant ERC HOLI 819080). Prof. Darrell’s group was supported in part by DoD including DARPA’s LwLL and/or SemaFor programs, as well as BAIR’s industrial alliance programs.</left>
+        </td>
+    </tr>
+</table>
+
+
+</body>
+</html>
