@@ -237,13 +237,13 @@ seconds, although the duration displays considerable variability, as indicated b
     <center><h1 id="viz">EgoPet Tasks</h1></center>
 </table>
 <p>
-To measure progress in modeling and learning from animals, we propose three new tasks that aim to capture perception and action (see Fig. 1): Visual Interaction Prediction (VIP), Locomotion Prediction (LP), and Vision to Proprioception Prediction (VPP). Together with these tasks, we provide annotated training and validation data used for downstream evaluation.
+To measure progress in modeling and learning from animals, we propose three new tasks that aim to capture perception and action: Visual Interaction Prediction (VIP), Locomotion Prediction (LP), and Vision to Proprioception Prediction (VPP). Together with these tasks, we provide annotated training and validation data used for downstream evaluation, and initial benchmark results.
 </p>
 <table align=center>
     <center><h2 id="viz">Visual Interaction Prediction (VIP)</h2></center>
 </table>
 <p>
-    The VIP task aims to detect and classify animal interactions and is inspired by human-object interaction tasks [43]. We temporally annotated a subset of the EgoPet videos with the start and end times of visual interactions and the object of the interaction category. The categories, which include person, cat, and dog, were chosen based on how commonly they occurred as objects (for all the categories refer to Supplementary Section Figure credits).
+    The VIP task aims to detect and classify animal interactions and is inspired by human-object interaction tasks. We temporally annotated a subset of the EgoPet videos with the start and end times of visual interactions and the object of the interaction category. The categories, which include person, cat, and dog, were chosen based on how commonly they occurred as objects (for all the categories refer to Supplementary Material of the paper).
 </p>
 <center><img src="data/VIP_2.png" align="middle"></center>
 <br>
@@ -251,7 +251,7 @@ To measure progress in modeling and learning from animals, we propose three new 
     <center><h2 id="viz">Locomotion Prediction (LP)</h2></center>
 </table>
 <p>
-    The goal of the LP task is to predict the future 4 second trajectory of the pet. This is useful for learning basic pet skills like avoiding obstacles or navigating. We extracted pseudo ground truth trajectories using Deep Patch Visual Odometry (DPVO) [49], the best-performing SLAM system for our dataset. We manually filtered inaccurate trajectories in the validation data to ensure high-quality evaluation.
+    The goal of the LP task is to predict the future 4 second trajectory of the pet. This is useful for learning basic pet skills like avoiding obstacles or navigating. We extracted pseudo ground truth trajectories using Deep Patch Visual Odometry (DPVO), the best-performing SLAM system for our dataset. We manually filtered inaccurate trajectories in the validation data to ensure high-quality evaluation.
 </p>
 <center><img src="data/LP_2.png" align="middle"></center>
 <br>
@@ -259,7 +259,7 @@ To measure progress in modeling and learning from animals, we propose three new 
     <center><h2 id="viz">Vision to Proprioception Prediction (VPP)</h2></center>
 </table>
 <p>
-    Finally, in the VPP task, we study EgoPet’s utility for a downstream robotic task: legged locomotion. Given a video observation from a forward-facing camera mounted on a quadruped robot, the goal is to predict the features of the terrain perceived by the robot’s proprioception across its trajectory. Making accurate predictions requires perceiving the landscape and anticipating the robot controls. This differs from previous works on robot visual prediction [30, 45, 31], which require conditioning over current robot controls and are thus challenging to train at scale. To assess performance in this task, we gathered data utilizing a quadruped robodog. This data includes paired videos and proprioception features, which are then utilized for subsequent training and evaluation processes.
+    Finally, in the VPP task, we study EgoPet's utility for a downstream robotic task: legged locomotion. Given a video observation from a forward-facing camera mounted on a quadruped robot, the goal is to predict the features of the terrain perceived by the robot’s proprioception across its trajectory. Making accurate predictions requires perceiving the landscape and anticipating the robot controls. This differs from previous works on robot visual prediction, which require conditioning over current robot controls and are thus challenging to train at scale. To assess performance in this task, we gathered data utilizing a quadruped robodog. This data includes paired videos and proprioception features, which are then utilized for subsequent training and evaluation processes.
 </p>
 
 <center><img src="data/VPP_2.png" align="middle"></center>
@@ -278,7 +278,7 @@ To measure progress in modeling and learning from animals, we propose three new 
         <span style="font-size:14pt"> <i>EgoPet: Egomotion and Interaction Data from an Animal's Perspective
 </i><br>Amir Bar, Arya Bakhtiar, Danny Tran, Antonio Loquercio <br>  Jathushan Rajasegaran, Yann LeCun, Amir Globerson, Trevor Darrell<br>
 
-            Arxiv<br>
+            <br>
             Hosted on <a href="./">arXiv</a>
                 </span>
             <br>
@@ -289,27 +289,12 @@ To measure progress in modeling and learning from animals, we propose three new 
 <hr>
     <br><br>
 
-<table align=center>
-    <center><h1>Related Works</h1></center>
-    <tr>
-        <td>If you found our work interesting, please also consider looking into some closely related works like <a href="https://arxiv.org/abs/1803.10827">Who Let The Dogs Out? Modeling Dog Behavior From Visual Data
-</a>.
-        </td>
-    </tr>
-</table>
-
-    <br><br>
-
-
-<hr>
-    <br><br>
-
 <table align=center style="margin-bottom: 50px">
     <tr>
         <td>
             <left>
                 <center><h1>Acknowledgements</h1></center>
-We thank Justin Kerr for helpful discussions. Many of the figures use images taken from web videos. For each figure, we include the URL to its source videos in the Suppl., Figure credits section. This project has received funding from the European Research Council (ERC) under the European Unions Horizon 2020 research and innovation programme (grant ERC HOLI 819080). Prof. Darrell’s group was supported in part by DoD including DARPA’s LwLL and/or SemaFor programs, as well as BAIR’s industrial alliance programs.</left>
+We thank Justin Kerr for helpful discussions. Many of the figures use images taken from web videos. For each figure, we include the URL to its source videos in the Supplementary Material of the paper. This project has received funding from the European Research Council (ERC) under the European Unions Horizon 2020 research and innovation programme (grant ERC HOLI 819080). Prof. Darrell’s group was supported in part by DoD including DARPA’s LwLL and/or SemaFor programs, as well as BAIR’s industrial alliance programs.</left>
         </td>
     </tr>
 </table>
