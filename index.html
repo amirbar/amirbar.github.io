@@ -172,6 +172,76 @@
 
           <tr>
             <td style="width: 35%; text-align: center">
+              <div class="one" style="width: 100%; margin: auto" onmouseout="nwm_stop()" onmouseover="nwm_start()">
+                <div class="two" style="width: 100%; margin: auto">
+                  <img src="images/before_nwm.png" style="width: 100%" id="nwm_img"  />
+                </div>
+                <video controls autoplay muted loop style="width: 75%; opacity: 0" id="nwm">
+                  <source src="images/after_nwm.mp4">
+                </video>
+  
+              </div>
+              <script type="text/javascript">
+                function nwm_start() {
+                  document.getElementById('nwm_img').style.opacity = "0";
+                  document.getElementById('nwm').style.opacity = "1";
+                }
+                function nwm_stop() {
+                  document.getElementById('nwm').style.opacity = "0";
+                  document.getElementById('nwm_img').style.opacity = "1";
+                }
+              </script>
+            </td>
+
+            <td valign="middle" width="100%">
+              <p>
+                <a href="./">
+                <papertitle>Navigation World Models</papertitle> </a>
+                <br>
+                <b>Amir Bar</b>, Gaoyue Zhou, Danny Tran, Trevor Darrell, Yann LeCun
+                <br>
+                <em>Technical Report</em>, 2024<br>
+                <a href="index.html">Project Page</a> | <a href="index.html">Code</a>
+                <br>
+                <p>Using video world models to plan.
+                </p>
+                </td>
+          </tr>
+          
+          <tr>
+            <td style="width: 35%; text-align: center">
+              <div class="one" style="width: 100%; margin: auto">
+                <div class="two" style="width: 100%; margin: auto">
+                    <img src='images/after_cmtask.png' style="width: 100%; opacity: 0" id="ctaskvp" onmouseout="ctaskvp_stop()" onmouseover="ctaskvp_start()">
+                </div>
+              <img src="images/before_cmtask.png" style="width: 70%" />
+              </div>
+              <script type="text/javascript">
+                function ctaskvp_start() {
+                  document.getElementById('ctaskvp').style.opacity = "1";
+                }
+                function ctaskvp_stop() {
+                  document.getElementById('ctaskvp').style.opacity = "0";
+                }
+              </script>
+            </td>
+            <td valign="middle" width="100%">
+              <p>
+                <a href="https://arxiv.org/abs/2404.09991">
+                <papertitle>Task Vectors are Cross-Modal</papertitle> </a>
+                <br>
+                Grace Luo, Trevor Darrell, <b>Amir Bar</b>
+                <br>
+                <em>Technical Report</em>, 2024<br>
+                <a href="https://task-vectors-are-cross-modal.github.io/">Project Page</a> | <a href="https://github.com/g-luo/task_vectors_are_cross_modal/">Code</a>
+                <br>
+                <p>To answer questions, VLMs map inputs to cross-modal task representations 
+                </p>
+                </td>
+          </tr>
+
+          <tr>
+            <td style="width: 35%; text-align: center">
               <div class="one" style="width: 100%; margin: auto">
               <video controls autoplay muted loop width="75%">
                 <source src="images/egopet.mov">
