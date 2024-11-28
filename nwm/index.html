@@ -193,6 +193,38 @@ header .authors a:hover {
     color: #666;
     margin-top: 10px;
 }
+/* BibTeX Section Styling */
+.bibtex-section {
+    padding: 40px 20px;
+    margin: 20px 0;
+    background: #ffffff; /* White box for the BibTeX code */
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'Courier New', Courier, monospace; /* Monospaced font for code */
+}
+
+.bibtex-section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #2b2d42; /* Dark gray text for heading */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #8d99ae;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.bibtex-section pre {
+    font-size: 1em;
+    color: #333; /* Dark text for BibTeX content */
+    background: #e8e8e8;
+    
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    overflow-x: auto; /* Allow horizontal scrolling if needed */
+}
+
     </style>
 
 
@@ -344,10 +376,10 @@ header .authors a:hover {
             </video>
         </section>
 
-        <section id="baselines-ablation" class="section">
+        <section id="baselines-ablation custom-video2" class="section">
             <h2>Baselines & Ablations</h2>
             <p>Qualitative comparisons of different models, showcasing video generation examples.</p>
-            <video class="custom-hover" muted loop playsinline>
+            <video class="custom-hover " muted loop playsinline>
                 <source src="assets/ablations/1.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -386,7 +418,19 @@ header .authors a:hover {
                 Your browser does not support the video tag.
             </video>
         </section>
-    </div>
+        
+        <section id="bibtex" class="bibtex-section">
+            <h2>BibTeX</h2>
+            <pre>
+        @inproceedings{nwm2025,
+          title={Navigation World Models},
+          author={Amir Bar and Gaoyue Zhou and Danny Tran and Trevor Darrell and Yann LeCun},
+          booktitle={TODO},
+          year={2025}
+        }
+            </pre>
+        </section>
+            </div>
     <script>
         // Set playback speed for all videos
         document.querySelectorAll('.custom-video2').forEach(video => {
@@ -407,8 +451,8 @@ header .authors a:hover {
 
     </script>
     
-    <footer>
+    <!-- <footer>
         <p>&copy; 2025 Navigation World Models | <a href="#">Contact Us</a></p>
-    </footer>
+    </footer> -->
 </body>
 </html>
