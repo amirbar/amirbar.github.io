@@ -1,9 +1,9 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-  <!-- Hi There! please do not copy the following line, this is for google analytics tracking only -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108048997-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -13,846 +13,740 @@
     gtag('config', 'UA-108048997-1');
   </script>
 
-  <!-- <meta name=viewport content="width=800"> -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style type="text/css">
-    /* Color scheme stolen from Sergey Karayev */
+  <title>Amir Bar - Publications</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+/* General Body Styling */
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
 
-    a {
-      color: #1772d0;
-      text-decoration: none;
-    }
+a {
+  color: #1772d0;
+  text-decoration: none;
+}
 
-    a:focus,
-    a:hover {
-      color: #f09228;
-      text-decoration: none;
-    }
+a:hover {
+  color: #f09228;
+}
 
-    body,
-    td,
-    th,
-    tr,
-    p,
-    a {
-      font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-      font-size: 14px
-    }
+/* Layout Container */
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
 
-    strong {
-      font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-      font-size: 14px;
-    }
+/* Profile Section Styling */
+.profile-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
 
-    heading {
-      font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-      font-size: 22px;
-    }
+.profile-text {
+  flex: 1 1 60%;
+  padding: 20px;
+}
 
-    papertitle {
-      font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-      font-size: 14px;
-      font-weight: 700
-    }
+.profile-text h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
 
-    name {
-      font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-      font-size: 32px;
-    }
+.profile-text p {
+  margin: 10px 0;
+}
 
-    .one {
-      width: 160px;
-      height: 160px;
-      position: relative;
-    }
+.profile-image {
+  flex: 1 1 30%;
+  text-align: center;
+}
 
-    .two {
-      width: 160px;
-      height: 160px;
-      position: absolute;
-      transition: opacity .2s ease-in-out;
-      -moz-transition: opacity .2s ease-in-out;
-      -webkit-transition: opacity .2s ease-in-out;
-    }
+.profile-image img {
+  max-width: 200px;
+  /* border-radius: 50%; */
+}
 
-    .fade {
-      transition: opacity .2s ease-in-out;
-      -moz-transition: opacity .2s ease-in-out;
-      -webkit-transition: opacity .2s ease-in-out;
-    }
+/* Social Links */
+.social-links {
+  text-align: center;
+  margin: 20px 0;
+}
 
-    span.highlight {
-      background-color: #ffffd0;
-    }
+.social-links a {
+  margin: 0 10px;
+}
+
+/* Section Styling */
+.section {
+  margin-bottom: 40px;
+}
+
+.section-heading {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* List Styling */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Publications Section */
+.publication {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  overflow: hidden; /* Ensures child elements stay within the border */
+}
+
+.publication-media {
+  flex: 1 1 35%; /* Allocates 35% of the space for media */
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 1; /* Ensures a square layout */
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.publication-media img,
+.publication-media video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensures the image or video fills the container */
+  transition: opacity 0.3s ease-in-out;
+}
+
+.publication-media .one {
+  opacity: 1; /* Show the "before" image by default */
+  z-index: 1; /* Ensure it is on top */
+}
+
+.publication-media .two {
+  opacity: 0; /* Hide the "after" image by default */
+  z-index: 2; /* Stack it above the "before" image */
+}
+
+.publication-media:hover .one {
+  opacity: 0; /* Hide the "before" image on hover */
+}
+
+.publication-media:hover .two {
+  opacity: 1; /* Show the "after" image on hover */
+}
+
+
+.publication-details {
+  flex: 1 1 60%;
+}
+
+.publication-details p {
+  margin: 10px 0;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .profile-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-text {
+    text-align: center;
+  }
+
+  .publication {
+    flex-direction: column;
+  }
+
+  .publication-media {
+    flex: 1 1 100%;
+  }
+
+  .publication-details {
+    flex: 1 1 100%;
+  }
+}
+
+.news-section {
+  margin-bottom: 40px;
+}
+
+.news-list {
+  list-style-type: disc;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.news-list li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.news-list a {
+  color: #1772d0;
+  text-decoration: none;
+}
+
+.news-list a:hover {
+  color: #f09228;
+}
+.researchers-section {
+  margin-bottom: 40px;
+}
+
+.researchers-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.researchers-list li {
+  margin-bottom: 10px;
+}
+
+.researchers-list a {
+  color: #1772d0;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.researchers-list a:hover {
+  color: #f09228;
+}
+.researchers-section {
+  margin-bottom: 40px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+/* Patents Section */
+.patents-section {
+  margin-bottom: 40px;
+}
+
+.section-heading {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.patents-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.patents-list li {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.publication {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.publication:hover {
+  transform: scale(1.02); /* Slight zoom on hover */
+  box-shadow: 0 0 15px; /* Intensify glow on hover */
+}
+.coming-soon .coming-soon-badge {
+  display: inline-block;
+  background-color: #f09228;
+  color: white;
+  padding: 2px 8px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border-radius: 12px;
+  margin-top: 5px;
+}
+.coming-soon img {
+  opacity: 0.5; /* Optional: Make the placeholder image look subdued */
+}
+
+
   </style>
-  <link rel="icon" type="image/png" href="images/favicon.png">
-  <title>Amir Bar</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 </head>
 
-
 <body>
-  <table style="max-width: 800px; width: 100%; margin: auto;" border="0" align="center" cellspacing="0" cellpadding="0">
-    <tr>
-      <td>
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <tr>
-            <td width="67%" valign="middle" style="font-size: 16px">
-              <p align="center">
-                <name>Amir Bar</name>
-              </p>
-              <h2>Shalom!</h2>
-              <p>
-                I am a Postdoctoral Researcher at Meta AI (FAIR), working with <a href="http://yann.lecun.com/">Yann LeCun</a>. Prior to this, I was a <i>Ph.D. candidate</i> at Tel Aviv University and <a href="https://bair.berkeley.edu/">UC Berkeley</a>, where I was advised by <a href="https://cs3801.wixsite.com/amirgloberson">Amir Globerson</a> and <a href="https://people.eecs.berkeley.edu/~trevor/">Trevor Darrell</a>.
-              </p>
-                <p>
-                    My goal is to teach computers to <b>perceive, reason, and act</b> in the world from visual data, using little to no supervision. I've pioneered AI for medical imaging as an <i>AI Research Lead</i> at <a href="https://www.zebra-med.com/">Zebra Medical Vision</a> (acquired). My research team developed multiple FDA cleared algorithms for automatic analysis of medical images (e.g, [<a href="https://www.businesswire.com/news/home/20200518005487/en/Zebra-Medical-Vision-Secures-5th-FDA-Clearance">1</a>, <a href="https://www.radiologybusiness.com/topics/artificial-intelligence/ai-triage-brain-bleeds-gains-fda-clearance">2</a>]).
-                </p>
-             <p>
-                 If you are a student interested in collaborating on research projects or looking for advice, please reach out.
-             </p>
-               <p><strong>I am on the 2024-2025 academic job market</strong>
-              </p>
+  <div class="container">
+    <!-- Profile Section -->
+    <div class="profile-section">
+      <div class="profile-text">
+        <h1>Amir Bar</h1>
+        <!-- <h2>Shalom!</h2> -->
+        <p>
+          I am a Postdoctoral Researcher at Meta AI (FAIR), working with <a href="http://yann.lecun.com/">Yann LeCun</a>.
+          Prior to this, I was a <i>Ph.D. candidate</i> at Tel Aviv University and <a href="https://bair.berkeley.edu/">UC Berkeley</a>, advised by <a href="https://cs3801.wixsite.com/amirgloberson">Amir Globerson</a> and <a href="https://people.eecs.berkeley.edu/~trevor/">Trevor Darrell</a>.
+        </p>
+        <p>My goal is to teach computers to <b>perceive, reason, and act</b> in the world from visual data, using little to no supervision.</p>
+        <p><strong>I am on the 2024-2025 academic job market</strong></p>
+      </div>
+      <div class="profile-image">
+        <img src="images/DSC06400.jpg" alt="Amir Bar">
+      </div>
+    </div>
 
-              <p align=center>
-                <a href="mailto:amirb4r@gmail.com">Email</a> &nbsp/&nbsp
-                <a href="https://twitter.com/_amirbar"> Twitter </a> &nbsp/&nbsp
-                <a href="https://github.com/amirbar">GitHub</a> &nbsp/&nbsp
-                <a href="https://scholar.google.co.il/citations?user=L__n1LUAAAAJ&hl=en">Google Scholar</a> &nbsp/&nbsp
-                <a href="https://www.linkedin.com/in/amirbar/"> LinkedIn </a> &nbsp/&nbsp
-                <a href="Amir_CV_Sept24.pdf"> CV </a>
-              </p>
-            </td>
-            <td width="33%" style="text-align: center">
-              <img src="images/DSC06400.jpg" style="
-      margin-top: 75px;
-      height: 250px;
+    <!-- Social Links -->
+    <div class="social-links">
+      <a href="mailto:amirb4r@gmail.com">Email</a>
+      <a href="https://twitter.com/_amirbar">Twitter</a>
+      <a href="https://github.com/amirbar">GitHub</a>
+      <a href="https://scholar.google.co.il/citations?user=L__n1LUAAAAJ&hl=en">Google Scholar</a>
+      <a href="https://www.linkedin.com/in/amirbar/">LinkedIn</a>
+      <a href="Amir_CV_Sept24.pdf">CV</a>
+    </div>
 
-    ">
-            </td>
-          </tr>
-        </table>
-
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <tr>
-            <td width="100%" valign="middle">
-              <heading>News</heading>
-            </td>
-          </tr>
-        </table>
-        <ul>
-          
-<li>I was a guest on the <a href="https://twimlai.com/podcast/twimlai/decoding-animal-behavior-to-train-robots-with-egopet/">TWIML AI</a> podcast where I talked about my recent research.</li>            
-            <li>I organized the first workshop on <a href="https://prompting-in-vision.github.io/index_cvpr24.html">Prompting in Vision</a> at CVPR 24'.</li>
-          <li>I served as an Assistant Program Chair at <a href="https://nips.cc/Conferences/2023/Committees">NeurIPS 2023</a>.</li>
+    <div class="section news-section">
+        <h2 class="section-heading">News</h2>
+        <ul class="news-list">
+          <!-- <li>I gave a talk at Brown University.</li> -->
+          <li>
+            I was a guest on the <a href="https://twimlai.com/podcast/twimlai/decoding-animal-behavior-to-train-robots-with-egopet/" target="_blank">TWIML AI podcast</a> where I talked about my recent research.
+          </li>
+          <li>
+            I organized the first workshop on <a href="https://prompting-in-vision.github.io/index_cvpr24.html" target="_blank">Prompting in Vision</a> at CVPR 24'.
+          </li>
+          <li>I served as an Assistant Program Chair at <a href="https://nips.cc/Conferences/2023/Committees" target="_blank">NeurIPS 2023</a>.</li>
         </ul>
+      </div>
+      
 
-<!--         <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <tr>
-            <td width="100%" valign="middle">
-              <heading>Preprints</heading>
-            </td>
-          </tr>
-        </table>
- -->
-<!--         <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+    <!-- Publications Section -->
+    <section class="section">
+      <div class="section-heading">Selected Publications</div>
 
-        </table>
-        <br></br>
-
- -->
-
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <tr>
-            <td width="100%" valign="middle">
-              <heading>Selected Publications</heading>
-            </td>
-          </tr>
-        </table>
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-
-          <tr>
-            <td style="width: 35%; text-align: center">
-              <div class="one" style="width: 100%; margin: auto" onmouseout="nwm_stop()" onmouseover="nwm_start()">
-                <div class="two" style="width: 100%; margin: auto; align-content: space-evenly;">
-                  <img src="images/before_nwm.png" style="width: 100%" id="nwm_img"  />
-                </div>
-                <video autoplay muted loop style="width: 75%; opacity: 0" id="nwm">
-                  <source src="images/after_nwm.mp4">
-                </video>
-  
-              </div>
-              <script type="text/javascript">
-                function nwm_start() {
-                  document.getElementById('nwm_img').style.opacity = "0";
-                  document.getElementById('nwm').style.opacity = "1";
-                }
-                function nwm_stop() {
-                  document.getElementById('nwm').style.opacity = "0";
-                  document.getElementById('nwm_img').style.opacity = "1";
-                }
-              </script>
-            </td>
-
-            <td valign="middle" width="100%">
-              <p>
-                <a href="./">
-                <papertitle>Navigation World Models</papertitle> </a>
-                <br>
-                <b>Amir Bar</b>, Gaoyue Zhou, Danny Tran, Trevor Darrell, Yann LeCun
-                <br>
-                <em>Technical Report</em>, 2024<br>
-                <a href="index.html">Project Page</a> | <a href="index.html">Code</a>
-                <br>
-                <p>Planning trajectories by simulating them using a video world model.
-                </p>
-                </td>
-          </tr>
-          
-          <tr>
-            <td style="width: 35%; text-align: center">
-              <div class="one" style="width: 100%; margin: auto">
-                <div class="two" style="width: 100%; margin: auto">
-                    <img src='images/after_cmtask.png' style="width: 100%; opacity: 0" id="ctaskvp" onmouseout="ctaskvp_stop()" onmouseover="ctaskvp_start()">
-                </div>
-              <img src="images/before_cmtask.png" style="width: 70%" />
-              </div>
-              <script type="text/javascript">
-                function ctaskvp_start() {
-                  document.getElementById('ctaskvp').style.opacity = "1";
-                }
-                function ctaskvp_stop() {
-                  document.getElementById('ctaskvp').style.opacity = "0";
-                }
-              </script>
-            </td>
-            <td valign="middle" width="100%">
-              <p>
-                <a href="https://arxiv.org/abs/2410.22330">
-                <papertitle>Task Vectors are Cross-Modal</papertitle> </a>
-                <br>
-                Grace Luo, Trevor Darrell, <b>Amir Bar</b>
-                <br>
-                <em>Technical Report</em>, 2024<br>
-                <a href="https://task-vectors-are-cross-modal.github.io/">Project Page</a> | <a href="https://github.com/g-luo/task_vectors_are_cross_modal/">Code</a>
-                <br>
-                <p>To answer questions, VLMs map inputs to cross-modal task representations 
-                </p>
-                </td>
-          </tr>
-
-          <tr>
-            <td style="width: 35%; text-align: center">
-              <div class="one" style="width: 100%; margin: auto">
-              <video controls autoplay muted loop width="75%">
-                <source src="images/egopet.mov">
-              </video>
-
-              </div>
-            </td>
-            <td valign="middle" width="100%">
-              <p>
-                <a href="https://arxiv.org/abs/2404.09991">
-                <papertitle>EgoPet: Egomotion and Interaction Data from an Animal's Perspective</papertitle> </a>
-                <br>
-                <b>Amir Bar</b>, Arya Bakhtiar, Danny Tran, Antonio Loquercio, Jathushan Rajasegaran, Yann LeCun, Amir Globerson, Trevor Darrell
-                <br>
-                <em>ECCV</em>, 2024<br>
-                <a href="https://www.amirbar.net/egopet/">Project Page</a> | <a href="https://github.com/bakhtiararya/EgoPet_dataset_download/">Data</a> | <a href="https://github.com/dannyTran123/egopet/">Code</a>
-                <br>
-                <p>We present EgoPet, a new egocentric video dataset of animals.
-                </p>
-                </td>
-          </tr>
-          <tr>
-            <td style="width: 35%; text-align: center">
-              <div class="one" style="width: 100%; margin: auto">
-                <div class="two" style="width: 100%">
-                    <img src='images/vp.png' style="width: 100%" id="taskvp" onmouseout="taskvp_stop()" onmouseover="taskvp_start()">
-                </div>
-              <img src="images/vp.png" style="width: 100%" />
-              </div>
-              <script type="text/javascript">
-                function taskvp_start() {
-                  document.getElementById('taskvp').style.opacity = "1";
-                }
-                function taskvp_stop() {
-                  document.getElementById('taskvp').style.opacity = "0";
-                }
-              </script>
-            </td>
-            <td valign="middle" width="100%">
-              <p>
-                <a href="https://arxiv.org/abs/2404.05729">
-                <papertitle>Finding Visual Task Vectors</papertitle> </a>&nbsp; &nbsp;
-                <br>
-                Alberto Hojel, Yutong Bai, Trevor Darrell, Amir Globerson, <b>Amir Bar</b>
-                <br>
-                <em>ECCV</em>, 2024<br>
-                <a href="https://github.com/alhojel/visual_task_vectors">Code</a>
-                <br>
-                <p>We find "Task Vectors", latent activations that can guide models to perform computer vision tasks.
-                </p>
-                </td>
-          </tr>
-
+      <!-- Example Publication -->
+      <div class="publication highlighted">
+        <div class="publication-media">
+            <img src="images/before_nwm.png" class="one" alt="Before Image" />
+            <video autoplay muted loop id="nwm" class="two">
+                <source src="images/after_nwm.mp4">
+            </video>          
+        </div>
+        <div class="publication-details">
             
-            <tr>
-            <td style="width: 35%; text-align: center">
-              <div class="one" style="width: 85%; margin: auto">
-                <div class="two" style="width: 100%">
-                    <img src='images/stop_before.png' style="width: 80%" id="stop" onmouseout="stop_start()" onmouseover="stop_stop()">
-                </div>
-              <img src="images/stop_after.png" style="width: 80%" />
-              </div>
-              <script type="text/javascript">
-                function stop_start() {
-                  document.getElementById('stop').style.opacity = "1";
-                }
-                function stop_stop() {
-                  document.getElementById('stop').style.opacity = "0";
-                }
-              </script>
-            </td>
-            <td valign="middle" width="75%">
-              <p>
-                <a href="https://arxiv.org/abs/2308.00566">
-                <papertitle>Stochastic positional embeddings improve masked image modeling</papertitle> </a>&nbsp; &nbsp;
-                <br>
-                <b>Amir Bar</b>, Florian Bordes, Assaf Shocher, Mahmoud Assran, Pascal Vincent, Nicolas Ballas, Trevor Darrell, Amir Globerson, Yann LeCun
-                <br>
-                <em>ICML</em>, 2024<br>
-                <a href="https://github.com/amirbar/StoP">Code</a>
-                <br>
-                <p>Modeling location uncertainties via stochastic positional embeddings (StoP) improve masked image modeling.
-                </p>
-              </td>
-          </tr>
+          <p>
+            <a href="./"><strong>Navigation World Models</strong></a> (<span class="coming-soon-badge">coming soon</span>)<br>
+            Amir Bar, Gaoyue Zhou, Danny Tran, Trevor Darrell, Yann LeCun<br> 
+            <em>Technical Report</em>, 2024<br>
+            
+            <a href="index.html">Project Page</a> | <a href="index.html">Code</a>
+          </p>
+          <p>Planning trajectories by simulating them using a video world model. Our conditional diffusion transformer (CDiT) generates videos that enable planning, counterfactual reasoning, and action.</p>
+        </div>
+      </div>
 
-          <!-- IMProv -->
-          <tr>
-            <td style="width: 35%; text-align: center">
-              <div class="one" style="width: 85%; margin: auto">
-                <div class="two" style="width: 100%">
-                    <img src='images/improv_before.png' style="width: 80%" id="improv" onmouseout="improv_start()" onmouseover="improv_stop()">
-                </div>
-              <img src="images/improv_after.png" style="width: 80%" />
-              </div>
-              <script type="text/javascript">
-                function improv_start() {
-                  document.getElementById('improv').style.opacity = "1";
-                }
-                function improv_stop() {
-                  document.getElementById('improv').style.opacity = "0";
-                }
-              </script>
-            </td>
-            <td valign="middle" width="75%">
-              <p>
-                <a href="https://arxiv.org/abs/2312.01771">
-                <papertitle>IMProv: Inpainting-based Multimodal Prompting for Computer Vision Tasks</papertitle> </a>&nbsp; &nbsp;
-                <br>
-                Jiarui Xu, Yossi Gandelsman, <b>Amir Bar</b>, Jianwei Yang, Jianfeng Gao, Trevor Darrell, Xiaolong Wang
-                <br>
-                To appear in <em>TMLR</em>, 2024<br>
-                <a href="https://jerryxu.net/IMProv">Project Page</a> | <a href="https://github.com/xvjiarui/IMProv">Code/Data</a> | <a href="https://colab.research.google.com/drive/1mJlZutYhVcwW9AMFcuEZ-d2SvuLnXLIh?usp=sharing">Demo</a>
-                <br>
-                <p>IMProv performs multimodal in-context learning to solve computer vision tasks.
-                </p>
-                </td>
-          </tr>
+      <div class="publication">
+        <div class="publication-media">
+            <img src="images/before_cmtask.png" class="one" alt="Before Image" />
+            <img src="images/after_cmtask.png" class="two" alt="After Image" />
+        </div>
+        <div class="publication-details">
+          <p>
+            <a href="https://arxiv.org/abs/2410.22330"><strong>Task Vectors are Cross-Modal</strong></a><br>
+            Grace Luo, Trevor Darrell, Amir Bar<br>
+            <em>Technical Report</em>, 2024<br>
+            <a href="https://task-vectors-are-cross-modal.github.io/">Project Page</a> | <a href="https://github.com/g-luo/task_vectors_are_cross_modal/">Code</a>
+          </p>
+          <p>Vision-Language Models (VLMs) answer questions by mapping inputs to shared cross-modal task representations, an important inductive bias that helps explain VLM's success.</p>
+        </div>
+      </div>
+      
+      <!-- Publication: EgoPet -->
+      <div class="publication">
+        <div class="publication-media">
+            <video muted loop preload="metadata">
+              <source src="images/egopet.mov" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        <div class="publication-details">
+          <p>
+            <a href="https://arxiv.org/abs/2404.09991"><strong>EgoPet: Egomotion and Interaction Data from an Animal's Perspective</strong></a><br>
+            Amir Bar, Arya Bakhtiar, Danny Tran, Antonio Loquercio, Jathushan Rajasegaran, Yann LeCun, Amir Globerson, Trevor Darrell<br>
+            <em>ECCV</em>, 2024<br>
+            <a href="https://www.amirbar.net/egopet/">Project Page</a> | <a href="https://github.com/bakhtiararya/EgoPet_dataset_download/">Data</a> | <a href="https://github.com/dannyTran123/egopet/">Code</a>
+          </p>
+          <p>We present EgoPet, a new egocentric video dataset of animals.</p>
+        </div>
+      </div>
+      
+      <!-- Publication: Finding Visual Task Vectors -->
+      <div class="publication">
+        <div class="publication-media">
+            <img src="images/vp2.png" class="one" alt="Before Image" />
+            <img src="images/vp.png" class="two" alt="After Image" />
+          </div>
+        <div class="publication-details">
+          <p>
+            <a href="https://arxiv.org/abs/2404.05729"><strong>Finding Visual Task Vectors</strong></a><br>
+            Alberto Hojel, Yutong Bai, Trevor Darrell, Amir Globerson, Amir Bar<br>
+            <em>ECCV</em>, 2024<br>
+            <a href="https://github.com/alhojel/visual_task_vectors">Code</a>
+          </p>
+          <p>We discover Task Vectors, latent representations in a model's activation space that encode task information. We propose a method to find and use them to guide models for performing tasks.</p>
+        </div>
+      </div>
+      
+      <!-- Publication: Stochastic Positional Embeddings -->
+      <div class="publication">
+        <div class="publication-media">
+          <img src="images/stop_before.png" class="one" alt="Before Image" />
+          <img src="images/stop_after.png" class="two" alt="After Image" />
+        </div>
+        <div class="publication-details">
+          <p>
+            <a href="https://arxiv.org/abs/2308.00566"><strong>Stochastic Positional Embeddings Improve Masked Image Modeling</strong></a><br>
+            Amir Bar, Florian Bordes, Assaf Shocher, Mahmoud Assran, Pascal Vincent, Nicolas Ballas, Trevor Darrell, Amir Globerson, Yann LeCun<br>
+            <em>ICML</em>, 2024<br>
+            <a href="https://github.com/amirbar/StoP">Code</a>
+          </p>
+          <p>Modeling location uncertainties via stochastic positional embeddings (StoP) improves masked image modeling.</p>
+        </div>
+      </div>
+            
+      <!-- Publication: IMProv -->
+      <div class="publication">
+        <div class="publication-media">
+            <img src="images/improv_before.png" class="one" alt="Before Image" />
+            <img src="images/improv_after.png" class="two" alt="After Image" />
+        </div>
+        <div class="publication-details">
+          <p>
+            <a href="https://arxiv.org/abs/2312.01771"><strong>IMProv: Inpainting-based Multimodal Prompting for Computer Vision Tasks</strong></a><br>
+            Jiarui Xu, Yossi Gandelsman, Amir Bar, Jianwei Yang, Jianfeng Gao, Trevor Darrell, Xiaolong Wang<br>
+            <em>TMLR</em>, 2024<br>
+            <a href="https://jerryxu.net/IMProv">Project Page</a> | <a href="https://github.com/xvjiarui/IMProv">Code/Data</a> | <a href="https://colab.research.google.com/drive/1mJlZutYhVcwW9AMFcuEZ-d2SvuLnXLIh?usp=sharing">Demo</a>
+          </p>
+          <p>IMProv performs multimodal in-context learning to solve computer vision tasks.</p>
+        </div>
+      </div>
 
-           
-          <!-- LVM -->
-          <tr>
-            <td style="width: 35%; text-align: center">
-              <div class="one" style="width: 85%; margin: auto">
-              <img src="images/lvm_after.png" style="width: 100%; padding-top: 20px" />
-              </div>
-              <script type="text/javascript">
-                function lvm_start() {
-                  document.getElementById('lvm').style.opacity = "1";
-                }
-                function lvm_stop() {
-                  document.getElementById('lvm').style.opacity = "0";
-                }
-              </script>
-            </td>
-            <td valign="middle" width="75%">
+      <!-- Publication: Sequential Modeling Enables Scalable Learning -->
+<div class="publication">
+    <div class="publication-media">
+      <img src="images/lvm_after.png" alt="LVM">
+    </div>
+    <div class="publication-details">
+      <p>
+        <a href="https://arxiv.org/abs/2312.00785"><strong>Sequential Modeling Enables Scalable Learning for Large Vision Models</strong></a><br>
+        Yutong Bai, Xinyang Geng, Karttikeya Mangalam, Amir Bar, Alan Yuille, Trevor Darrell, Jitendra Malik, Alexei A Efros<br>
+        <em>CVPR</em>, 2024<br>
+        <a href="https://yutongbai.com/lvm.html">Project Page</a> | <a href="https://github.com/ytongbai/LVM">Code</a>
+      </p>
+      <p>Large Vision Model trained on 420B tokens; exhibits interesting in-context learning capabilities.</p>
+    </div>
+  </div>
+  
+  <!-- Publication: Visual Prompting via Image Inpainting -->
+  <div class="publication">
+    <div class="publication-media">
+        <img src="images/vp_before.png" class="one" alt="Before Image" />
+        <img src="images/vp_after.png" class="two" alt="After Image" />
+    </div>
+    <div class="publication-details">
+      <p>
+        <a href="https://arxiv.org/abs/2209.00647"><strong>Visual Prompting via Image Inpainting</strong></a><br>
+        Amir Bar*, Yossi Gandelsman*, Trevor Darrell, Amir Globerson, Alexei A. Efros<br>
+        <em>NeurIPS</em>, 2022<br>
+        <a href="https://yossigandelsman.github.io/visual_prompt/">Project Page</a> | <a href="https://github.com/amirbar/visual_prompting">Code/Data</a>
+      </p>
+      <p>Adapt a pre-trained visual model to novel downstream tasks without task-specific fine-tuning or any model modification. * Equally contributed.</p>
+    </div>
+  </div>
+  
+  <!-- Publication: Bringing Image Scene Structure to Video -->
+  <div class="publication">
+    <div class="publication-media">
+        <img src="images/svit.png" alt="SViT Image" />
+    </div>
+          <div class="publication-details">
+      <p>
+        <a href="https://arxiv.org/abs/2206.06346"><strong>Bringing Image Scene Structure to Video via Frame-Clip Consistency of Object Tokens</strong></a><br>
+        Elad Ben-Avraham, Roei Herzig, Karttikeya Mangalam, Amir Bar, Anna Rohrbach, Leonid Karlinsky, Trevor Darrell, Amir Globerson<br>
+        <em>NeurIPS</em>, 2022<br>
+        <a href="https://eladb3.github.io/SViT/">Project Page</a> | <a href="https://github.com/eladb3/SViT">Code</a>
+      </p>
+      <p>Incorporating image-level scene structure during training improves video transformers.</p>
+    </div>
+  </div>
+  
+  <!-- Publication: Object-Region Video Transformers -->
+  <div class="publication">
+    <div class="publication-media">
+        <img src="images/ORViT.gif" alt="ORViT Animation" />
+      </div>
+    <div class="publication-details">
+      <p>
+        <a href="https://arxiv.org/abs/2110.06915"><strong>Object-Region Video Transformers</strong></a><br>
+        Roei Herzig, Elad Ben-Avraham, Karttikeya Mangalam, Amir Bar, Gal Chechik, Anna Rohrbach, Trevor Darrell, Amir Globerson<br>
+        <em>CVPR</em>, 2022<br>
+        <a href="https://roeiherz.github.io/ORViT/">Project Page</a> | <a href="https://github.com/roeiherz/ORViT">Code</a>
+      </p>
+      <p>Incorporating objects into transformer layers improves video transformers.</p>
+    </div>
+  </div>
+  
+  <!-- Publication: DETReg -->
+  <div class="publication">
+    <div class="publication-media">
+        <img src="images/detreg_before.png" class="one" alt="Before Image" />
+        <img src="images/detreg_after.png" class="two" alt="After Image" />
+      </div>
+          <div class="publication-details">
+      <p>
+        <a href="https://arxiv.org/abs/2106.04550"><strong>DETReg: Unsupervised Pretraining with Region Priors for Object Detection</strong></a><br>
+        Amir Bar, Xin Wang, Vadim Kantorov, Colorado J Reed, Roei Herzig, Gal Chechik, Anna Rohrbach, Trevor Darrell, Amir Globerson<br>
+        <em>CVPR</em>, 2022<br>
+        <a href="https://www.amirbar.net/detreg/">Project Page</a> | <a href="https://github.com/amirbar/detreg">Code</a> | <a href="https://youtu.be/1rxz_SWB7gQ?t=443">Video</a> | <a href="https://colab.research.google.com/drive/1ByFXJClyzNVelS7YdT53_bMbwYeMoeNb?usp=sharing">Demo</a>
+      </p>
+      <p>Pretraining transformers to localize potential objects improves object detection.</p>
+    </div>
+  </div>
+  
+  <!-- Publication: Compositional Video Synthesis with Action Graphs -->
+  <div class="publication">
+    <div class="publication-media">
+        <img src="images/ag2vid_task.gif" alt="Action Graphs Animation" />
+      </div>
+    <div class="publication-details">
+      <p>
+        <a href="https://arxiv.org/abs/2006.15327"><strong>Compositional Video Synthesis with Action Graphs</strong></a><br>
+        Amir Bar*, Roei Herzig*, Xiaolong Wang, Anna Rohrbach, Gal Chechik, Trevor Darrell, Amir Globerson<br>
+        <em>ICML</em>, 2021<br>
+        <a href="https://roeiherz.github.io/AG2Video/">Project Page</a> | <a href="https://github.com/roeiherz/AG2Video">Code</a> | <a href="https://www.youtube.com/watch?v=9HOFC4ffOuY&feature=youtu.be&t=8660">Video</a>
+      </p>
+      <p>We introduce Action Graphs, a structure that can better capture the compositional and hierarchical nature of actions. * Equally contributed.</p>
+    </div>
+  </div>
+  
+  <!-- Publication: Learning Canonical Representations for Scene Graphs -->
+  <div class="publication">
+    <div class="publication-media">
+        <img src="images/canonical_baseline.png" class="one" alt="Before Image" />
+        <img src="images/canonical_ours.png" class="two" alt="After Image" />
+      </div>
+          <div class="publication-details">
+      <p>
+        <a href="https://arxiv.org/abs/1912.07414"><strong>Learning Canonical Representations for Scene Graph to Image Generation</strong></a><br>
+        Roei Herzig*, Amir Bar*, Huijuan Xu, Gal Chechik, Trevor Darrell, Amir Globerson<br>
+        <em>ECCV</em>, 2020<br>
+        <a href="https://roeiherz.github.io/CanonicalSg2Im/">Project Page</a> | <a href="https://github.com/roeiherz/CanonicalSg2Im">Code</a> | <a href="https://youtu.be/9HOFC4ffOuY?t=8543">Video</a>
+      </p>
+      <p>We present a model for Scene Graph to Image generation which is more robust to complex input scene graphs. * Equally contributed.</p>
+    </div>
+  </div>
+  
+  <!-- Publication: Learning Individual Styles of Conversational Gesture -->
+  <div class="publication">
+    <div class="publication-media">
+        <img src="images/gestures_CVPR_2019_demo.gif" alt="Gestures Animation" />
+    </div>
+          <div class="publication-details">
+      <p>
+        <a href="https://arxiv.org/abs/1906.04160"><strong>Learning Individual Styles of Conversational Gesture</strong></a><br>
+        Shiry Ginosar*, Amir Bar*, Gefen Kohavi, Caroline Chan, Andrew Owens, Jitendra Malik<br>
+        <em>CVPR</em>, 2019<br>
+        <a href="https://people.eecs.berkeley.edu/~shiry/projects/speech2gesture/index.html">Project Page</a> | <a href="https://github.com/amirbar/speech2gesture">Code</a> | <a href="https://drive.google.com/drive/folders/1qvvnfGwas8DUBrwD4DoBnvj8anjSLldZ?usp=sharing">Data</a>
+      </p>
+      <p>We predict plausible gestures to go along with someone's speech. * Equally contributed.</p>
+    </div>
+  </div>
+  
+  <!-- Publication: Language Generation with RNNs -->
+  <div class="publication">
+    <div class="publication-media">
+        <code>
+          <h4>Sample:</h4>
+          The man allowed that about health captain played that alleged to Marks live up in the club comes the handed up moved to a brief
+        </code>
+      </div>
+          <div class="publication-details">
+      <p>
+        <a href="https://arxiv.org/abs/1706.01399"><strong>Language Generation with Recurrent Generative Adversarial Networks without Pre-training</strong></a><br>
+        Ofir Press*, Amir Bar*, Ben Bogin*, Jonathan Berant, Lior Wolf<br>
+        <em>1st Workshop on Learning to Generate Natural Language at ICML</em>, 2017<br>
+        <a href="https://github.com/amirbar/rnn.wgan">Code</a>
+      </p>
+      <p>We show that recurrent neural networks can be trained to generate text with GANs from scratch and vastly improve the quality of generated sequences compared to a convolutional baseline. * Equally contributed.</p>
+    </div>
+  </div>
+  
+    
+    </section>
+  
+    <div class="section medical-section">
+        <h2 class="section-heading">Medical Papers</h2>
+      
+        <!-- Medical Paper 1 -->
+        <div class="publication">
+          <div class="publication-media">
+            <img src="images/cf_before.png" class="one" alt="Before Image">
+            <img src="images/cf_after.png" class="two" alt="After Image">
+          </div>
+          <div class="publication-details">
+            <p>
+              <a href="https://arxiv.org/abs/2010.03739"><strong>3D Convolutional Sequence to Sequence Model for Vertebral Compression Fractures Identification in CT</strong></a><br>
+              David Chettrit, Tomer Meir, Hila Lebel, Mila Orlovsky, Ronen Gordon, Ayelet Akselrod-Ballin, <b>Amir Bar</b><br>
+              <em>MICCAI</em>, 2020<br>
+              Press: <a href="https://nocamels.com/2020/05/fda-zebra-medical-compression-fractures/">1</a>, <a href="https://www.businesswire.com/news/home/20200518005487/en/Zebra-Medical-Vision-Secures-5th-FDA-Clearance">2</a>
+            </p>
+            <p>We present a novel architecture used to detect vertebral compression fractures in Chest and Abdomen CT.</p>
+          </div>
+        </div>
+      
+        <!-- Medical Paper 2 -->
+        <div class="publication">
+          <div class="publication-media">
+            <img src="images/nature.png" alt="Nature Paper Image">
+          </div>
+          <div class="publication-details">
+            <p>
+              <a href="https://www.nature.com/articles/s41591-019-0720-z"><strong>Automated Opportunistic Osteoporotic Fracture Risk Assessment Using Computed Tomography Scans to Aid in FRAX Underutilization</strong></a><br>
+              Noa Dagan, Eldad Elnekave, Noam Barda, Orna Bregman-Amitai, <strong>Amir Bar</strong>, Mila Orlovsky, Eitan Bachmat, Ran D. Balicer<br>
+              <em>Nature Medicine</em>, 2020<br>
+              Press: <a href="https://www.healthdatamanagement.com/news/algorithm-assess-ct-scans-to-find-patients-at-risk-for-bone-fractures">1</a>, <a href="https://www.prnewswire.com/il/news-releases/new-study-published-on-nature-medicine-unveils-the-power-of-ai-in-predicting-osteoporotic-fractures-300990287.html">2</a>
+            </p>
+            <p>We demonstrate it is feasible to automatically evaluate risk based on routine abdomen or chest computed tomography (CT) scans.</p>
+          </div>
+        </div>
+      
+        <div class="publication">
+            <div class="publication-media">
+              <img src="images/ich.png" alt="ICH Classification">
+            </div>
+            <div class="publication-details">
               <p>
-                <a href="https://arxiv.org/abs/2312.00785">
-                <papertitle>Sequential Modeling Enables Scalable Learning for Large Vision Models</papertitle> </a>
-                <br>
-                Yutong Bai, Xinyang Geng, Karttikeya Mangalam, <b>Amir Bar</b>, Alan Yuille, Trevor Darrell, Jitendra Malik, Alexei A Efros
-                <br>
-                <em>CVPR</em>, 2024<br>
-                <a href="https://yutongbai.com/lvm.html">Project Page</a> | <a href="https://github.com/ytongbai/LVM">Code</a>
-                <br>
-                <p> Large Vision Model trained on 420B tokens; exhibits interesting in-context learning capabilities.
-                </p>
-                </td>
-          </tr>
-
-          <!-- VP -->
-          <tr>
-            <td style="width: 35%; text-align: center">
-              <div class="one" style="width: 85%; margin: auto">
-                <div class="two" style="width: 100%">
-                    <img src='images/vp_before.png' style="width: 80%" id="vp" onmouseout="vp_start()" onmouseover="vp_stop()">
-                </div>
-              <img src="images/vp_after.png" style="width: 80%" />
-              </div>
-              <script type="text/javascript">
-                function vp_start() {
-                  document.getElementById('vp').style.opacity = "1";
-                }
-                function vp_stop() {
-                  document.getElementById('vp').style.opacity = "0";
-                }
-              </script>
-            </td>
-            <td valign="middle" width="75%">
-              <p>
-                <a href="https://arxiv.org/abs/2209.00647">
-                <papertitle>Visual Prompting via Image Inpainting</papertitle> </a>&nbsp; &nbsp;
-
-                <br>
-                <b>Amir Bar*</b>, Yossi Gandelsman*, Trevor Darrell, Amir Globerson, Alexei A. Efros
-                <br>
-                <em>NeurIPS</em>, 2022 <br>
-                <a href="https://yossigandelsman.github.io/visual_prompt/">Project Page</a> | <a href="https://github.com/amirbar/visual_prompting">Code/Data</a>
-                <br>
-                <p>Adapt a pre-trained visual model to novel downstream tasks without task-specific finetuning or any model modification.
-                </p>
-              * Equally contributed.
-                </td>
-          </tr>
-          <!-- SViT -->
-          <tr>
-              <td style="width: 35%; text-align: center">
-                <img src="images/svit.png" alt="fast-texture" width="200" height="120">
-              </td>
-              <td style="padding:20px;width:75%;vertical-align:middle">
-                <a href="https://arxiv.org/abs/2206.06346">
-                  <papertitle>Bringing Image Scene Structure to Video via Frame-Clip Consistency of Object Tokens</papertitle>
-                </a>
-                <br>
-                Elad Ben-Avraham, Roei Herzig, Karttikeya Mangalam, <b>Amir Bar</b>, Anna Rohrbach, Leonid Karlinsky, Trevor Darrell, Amir Globerson
-                <br>
-                <em>NeurIPS</em>, 2022
-                <br>
-                <a href="https://eladb3.github.io/SViT/">Project Page</a> |
-                <a href="https://github.com/eladb3/SViT">Code</a>
-                <br>
-                <div>
-                  Incorporating image level scene structure during training improves video transformers.
-                </div>
-                <br>
-                <div style="color: #808011">Winner of the Ego4D CVPR'22 PNR Temporal Localization Challenge</div>
-
-              </td>
-        </tr>
-          <!-- ORViT -->
-          <tr>
-              <td style="width: 35%; text-align: center">
-                <img src="images/ORViT.gif" alt="fast-texture" width="200" height="120">
-              </td>
-              <td style="padding:20px;width:75%;vertical-align:middle">
-                <a href="https://arxiv.org/abs/2110.06915">
-                  <papertitle>Object-Region Video Transformers</papertitle>
-                </a>
-                <br>
-                Roei Herzig,
-                Elad Ben-Avraham,
-                Karttikeya Mangalam,
-                <strong>Amir Bar</strong>,
-                Gal Chechik,
-                <br>
-                Anna Rohrbach,
-                Trevor Darrell,
-                Amir Globerson
-                <br>
-                <em>CVPR</em>, 2022
-                <br>
-                <a href="https://roeiherz.github.io/ORViT/">Project Page</a> |
-                <a href="https://github.com/roeiherz/ORViT">Code</a>
-                <br>
-                <p></p>
-                <p>
-                  Incorporating objects into transformer layers improves video transformers.
-                </p>
-              </td>
-        </tr>
-          <!-- DETReg -->
-          <tr>
-            <td style="width: 35%; text-align: center">
-              <div class="one" style="width: 100%;">
-                <div class="two" style="width: 100%">
-                  <img src='images/detreg_before.png' style="width: 80%" id="detreg" onmouseout="detreg_start()" onmouseover="detreg_stop()">
-                </div>
-                <img src='images/detreg_after.png' style="width: 80%">
-              </div>
-              <script type="text/javascript">
-                function detreg_start() {
-                  document.getElementById('detreg').style.opacity = "1";
-                }
-                function detreg_stop() {
-                  document.getElementById('detreg').style.opacity = "0";
-                }
-              </script>
-            </td>
-            <td valign="middle" width="75%">
-              <p>
-                <a href="https://arxiv.org/abs/2106.04550">
-                <papertitle>DETReg: Unsupervised Pretraining with Region Priors for Object Detection</papertitle> </a>
-                <br>
-                <b>Amir Bar</b>, Xin Wang, Vadim Kantorov, Colorado J Reed, Roei Herzig, Gal Chechik, Anna Rohrbach, Trevor Darrell, Amir Globerson
-                <br>
-                <em>CVPR</em>, 2022 <br>
-                <a href="https://www.amirbar.net/detreg/">Project Page</a> | <a href="https://github.com/amirbar/detreg"> Code </a> | <a href="https://youtu.be/1rxz_SWB7gQ?t=443">Video</a> | <a href="https://colab.research.google.com/drive/1ByFXJClyzNVelS7YdT53_bMbwYeMoeNb?usp=sharing">Demo</a>
-                <br>
-                <p>Pretraining transformers to localize potential objects improves object detection.
-                </p>
-                </td>
-          </tr>
-          <!-- Compositional Video Synthesis with Action Graphs -->
-          <tr>
-            <td style="width: 35%; text-align: center">
-              <div class="one" style="width: 100%;">
-                <img src='images/ag2vid_task.gif' style="width: 100%">
-              </div>
-            </td>
-            <td valign="middle" width="75%">
-              <p>
-                <a href="https://arxiv.org/abs/2006.15327">
-                <papertitle>Compositional Video Synthesis with Action Graphs</papertitle> </a>&nbsp; &nbsp;
-                <br>
-                <b>Amir Bar</b>*, Roei Herzig*, Xiaolong Wang, Anna Rohrbach, Gal Chechik, Trevor Darrell, Amir Globerson
-                <br>
-                <em>ICML</em>, 2021 <br>
-                <a href="https://roeiherz.github.io/AG2Video/">Project Page</a> | <a href="https://github.com/roeiherz/AG2Video"> Code </a> | <a href="https://www.youtube.com/watch?v=9HOFC4ffOuY&feature=youtu.be&t=8660">Video</a>
-                <br>
-                <p>We introduce Action Graphs, a structure that can better capture the compositional and hierrchical nature of actions. We propose a goal-oriented video synthesis task of *Action Graph to Video*
-                </p>
-                * Equally contributed.
-            </td>
-          </tr>
-          <!-- Learning Canonical Representations for Scene Graph to Image Generation -->
-          <tr>
-            <td style="width: 35%; text-align: center">
-              <div class="one" style="width: 100%;">
-                <div class="two" style="width: 100%">
-                  <img src='images/canonical_baseline.png' style="width: 100%" id="canonical" onmouseout="can_stop()" onmouseover="can_start()">
-                </div>
-                <img src='images/canonical_ours.png' style="width: 100%">
-              </div>
-              <script type="text/javascript">
-                function can_start() {
-                  document.getElementById('canonical').style.opacity = "1";
-                }
-                function can_stop() {
-                  document.getElementById('canonical').style.opacity = "0";
-                }
-                can_stop()
-              </script>
-            </td>
-            <td valign="middle" width="75%">
-              <p>
-                <a href="https://arxiv.org/abs/1912.07414">
-                <papertitle>Learning Canonical Representations for Scene Graph to Image Generation</papertitle> </a>
-                <br>
-                Roei Herzig*, <b>Amir Bar</b>*, Huijuan Xu, Gal Chechik, Trevor Darrell, Amir Globerson
-                <br>
-                <em>ECCV</em>, 2020 <br>
-                <a href="https://roeiherz.github.io/CanonicalSg2Im/">Project Page</a> | <a href="https://github.com/roeiherz/CanonicalSg2Im">Code</a> | <a href="https://youtu.be/9HOFC4ffOuY?t=8543">Video</a>
-                <br>
-                <p>We present a model for Scene Graph to Image generation which is more robust to complex input scene graphs.
-                </p>
-                * Equally contributed.
-            </td>
-          </tr>
-          <!-- Gestures -->
-          <tr>
-            <td style="width: 35%; text-align: center">
-              <div>
-                <img src='images/gestures_CVPR_2019_demo.gif' style="width: 100%">
-              </div>
-            </td>
-            <td valign="middle" width="75%">
-              <p>
-                <a href="https://arxiv.org/abs/1906.04160">
-                  <papertitle>Learning Individual Styles of Conversational Gesture</papertitle> &nbsp;
-                </a>
-                <br>
-                Shiry Ginosar*, <strong> Amir Bar*</strong>, Gefen Kohavi, Caroline Chan, Andrew Owens, Jitendra Malik
-                <br>
-                <em>CVPR</em>, 2019
-                <br>
-                <a href="https://www.sciencemag.org/news/2019/06/watch-artificial-intelligence-predict-conan-o-brien-s-gestures-just-sound-his-voice">Press</a> |
-                <a href="https://people.eecs.berkeley.edu/~shiry/projects/speech2gesture/index.html">Project Page</a> |
-                <a href="https://github.com/amirbar/speech2gesture">Code</a> |
-                <a href="https://drive.google.com/drive/folders/1qvvnfGwas8DUBrwD4DoBnvj8anjSLldZ?usp=sharing">Data</a>
-                <p>We predict plausible gestures to go along with someone's speech.
-                </p>
-                * Equally contributed.
-            </td>
-          </tr>
-          <!--Language Generation with Recurrent Generative Adversarial Networks without Pre-training  -->
-          <tr>
-            <td style="width: 35%; text-align: left">
-              <div class="one" style="width: 70%;  margin-left: auto; margin-right: auto;">
-                <code><h4>Sample:</h4> The man allowed that about health captain played that alleged to Marks live up in the club comes the handed up moved to a brief</code>
-              </div>
-            </td>
-            <td valign="middle" width="75%" >
-              <p>
-                <a href="https://arxiv.org/abs/1706.01399">
-                  <papertitle>Language Generation with Recurrent Generative Adversarial Networks without Pre-training</papertitle>
-                </a>
-                <br>
-                Ofir Press*, <strong>Amir Bar*</strong>, Ben Bogin*, Jonathan Berant, Lior Wolf
-                <br>
-                <em>1st Workshop on Learning to Generate Natural Language at ICML</em>, 2017
-                <br>
-                <a href="https://github.com/amirbar/rnn.wgan">Code</a>
-                <p>We show that recurrent neural networks can be trained to generate text with GANs from scratch and vastly improve the quality of generated sequences compared to a convolutional baseline.</p>
-                * Equally contributed.
-            </td>
-          </tr>
-        </table>
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <tr>
-            <td width="100%" valign="middle">
-              <heading>Medical</heading>
-            </td>
-          </tr>
-        </table>
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <!-- Learning Individual Styles of Conversational Gesture -->
-          <tr>
-            <td style="width: 35%; text-align: center">
-              <div class="one" style="width: 100%;">
-                <div class="two" style="width: 100%">
-                  <img src='images/cf_after.png' style="width: 70%" id="cf2" onmouseout="cf2_stop()" onmouseover="cf2_start()">
-                </div>
-                <img src='images/cf_before.png' style="width: 70%">
-              </div>
-              <script type="text/javascript">
-                function cf2_start() {
-                  document.getElementById('cf2').style.opacity = "1";
-                }
-                function cf2_stop() {
-                  document.getElementById('cf2').style.opacity = "0";
-                }
-                cf2_stop()
-              </script>
-            </td>
-            <td valign="middle" width="75%">
-              <p>
-                <a href="https://arxiv.org/abs/2010.03739">
-                  <papertitle>3D Convolutional Sequence to Sequence Model for Vertebral Compression Fractures Identification in CT</papertitle>
-                </a>
-                <br>
-                David Chettrit, Tomer Meir, Hila Lebel, Mila Orlovsky, Ronen Gordon, Ayelet Akselrod-Ballin*, <b>Amir Bar</b>*
-                <br>
-                <em>MICCAI</em>, 2020
-                <br>
-                Press <a href="https://nocamels.com/2020/05/fda-zebra-medical-compression-fractures/#:~:text=FDA%20Clears%20Zebra%20Medical%20AI%20Solution%20For%20Identifying%20Compression%20Fractures,-By%20NoCamels%20Team&text=Zebra%20Medical%20Vision%2C%20the%20deep,of%20compression%20fractures%20in%20scans">1</a> <a href="https://www.businesswire.com/news/home/20200518005487/en/Zebra-Medical-Vision-Secures-5th-FDA-Clearance">2</a>
-                <br>
-                <p>We present a novel architecture used to detect vertebral compression fractures in Chest and Abdomen CT.
-                </p>
-                * Equally advised.
-                <br>
-            </td>
-          </tr>
-          <!-- Automated opportunistic osteoporotic fracture risk assessment using computed tomography scans to aid in FRAX underutilization -->
-          <tr>
-            <td style="width: 35%; text-align: center">
-              <div>
-                <img src='images/nature.png' style="width: 70%">
-              </div>
-            </td>
-            <td valign="middle" width="75%">
-              <p>
-                <a href="https://www.nature.com/articles/s41591-019-0720-z">
-                  <papertitle>Automated opportunistic osteoporotic fracture risk assessment using computed tomography scans to aid in FRAX underutilization</papertitle> &nbsp; &nbsp;
-                </a>
-                <br>
-                Noa Dagan, Eldad Elnekave, Noam Barda, Orna Bregman-Amitai, <strong> Amir Bar</strong>, Mila Orlovsky, Eitan Bachmat & Ran D. Balicer
-                <br>
-                <em>Nature Medicine</em>, 2020
-                <br>
-                Press <a href="https://www.healthdatamanagement.com/news/algorithm-assess-ct-scans-to-find-patients-at-risk-for-bone-fractures">1</a> <a href="https://www.prnewswire.com/il/news-releases/new-study-published-on-nature-medicine-unveils-the-power-of-ai-in-predicting-osteoporotic-fractures-300990287.html">2</a>
-                <p>Methods for identifying patients at high risk for osteoporotic fractures are underutilized. We demonstrate it is feasibile to automatically evaluate risk based on routine abdomen or chest computed tomography (CT) scan.
-                </p>
-            </td>
-          </tr>
-
-          <!-- Improved ICH classification using task-dependent learning -->
-          <tr >
-            <td style="text-align: center; width: 35%">
-              <div class="one" style="width: 100%">
-                <div class="two" style="width: 100%">
-                  <img src='images/ich.png' style="width: 70%">
-                </div>
-              </div>
-            </td>
-            <td valign="middle" style="width: 100%;">
-              <p>
-                <a href="https://arxiv.org/abs/1907.00148">
-                  <papertitle>Improved ICH classification using task-dependent learning</papertitle> &nbsp;
-                </a>
-                <br>
-                <strong>Amir Bar</strong>, Michal Mauda-Havakuk, Yoni Turner, Michal Safadi, Eldad Elnekave
-                <br>
-                <em>ISBI</em>, 2019
-                <br>
+                <a href="https://arxiv.org/abs/1907.00148"><strong>Improved ICH Classification Using Task-Dependent Learning</strong></a><br>
+                <strong>Amir Bar</strong>, Michal Mauda-Havakuk, Yoni Turner, Michal Safadi, Eldad Elnekave<br>
+                <em>ISBI</em>, 2019<br>
                 <a href="https://sg.finance.yahoo.com/news/zebra-medical-vision-announces-ce-140400903.html">Press</a>
-                <p>Intracranial hemorrhage (ICH) is among the most critical and timesensitive findings to be detected on Head CT. We present a new architecture designed for optimal triaging of Head CTs, with the goal of decreasing the time from CT acquisition to accurate ICH detection. These results are comparable to previously reported results with smaller number of tagged studies.</p>
-            </td>
-          </tr>
-
-          <!-- Simulating Dual-Energy X-Ray Absorptiometry in CT Using Deep Learning Segmentation Cascade -->
-          <tr>
-            <td style="width: 35%; text-align: center"  onmouseout="dexa_stop()" onmouseover="dexa_start()">
-              <div class="one" style="width: 100%">
-                <div class="two" style="width: 100%">
-                  <img src='images/after_dexa.png' style="width: 70%" id='dexa'>
-                </div>
-                <img src='images/before_dexa.png' style="width: 70%">
-              </div>
-              <script type="text/javascript">
-                function dexa_start() {
-                  document.getElementById('dexa').style.opacity = "1";
-                }
-                function dexa_stop() {
-                  document.getElementById('dexa').style.opacity = "0";
-                }
-                dexa_stop()
-              </script>
-            </td>
-            <td valign="middle" width="75%">
+              </p>
               <p>
-                <a href="https://arxiv.org/pdf/1706.01671">
-                  <papertitle>Simulating Dual-Energy X-Ray Absorptiometry in CT Using Deep-Learning Segmentation Cascade</papertitle>
-                </a>
-                <br>
-                Arun Krishnaraj, Spencer Barrett, Orna Bregman-Amitai , Michael Cohen-Sfady, <strong>Amir Bar</strong>, David Chettrit, Mila Orlovsky, Eldad Elnekave
-                <br>
+                Intracranial hemorrhage (ICH) is among the most critical and time-sensitive findings to be detected on Head CT. We present a new architecture designed for optimal triaging of Head CTs, with the goal of decreasing the time from CT acquisition to accurate ICH detection.
+              </p>
+            </div>
+          </div>
+        
+          <!-- Medical Paper: Dual-Energy X-Ray Absorptiometry -->
+          <div class="publication">
+            <div class="publication-media">
+              <img src="images/before_dexa.png" class="one" alt="Before Image">
+              <img src="images/after_dexa.png" class="two" alt="After Image">
+            </div>
+            <div class="publication-details">
+              <p>
+                <a href="https://arxiv.org/pdf/1706.01671"><strong>Simulating Dual-Energy X-Ray Absorptiometry in CT Using Deep-Learning Segmentation Cascade</strong></a><br>
+                Arun Krishnaraj, Spencer Barrett, Orna Bregman-Amitai, Michael Cohen-Sfady, <strong>Amir Bar</strong>, David Chettrit, Mila Orlovsky, Eldad Elnekave<br>
                 <em>Journal of the American College of Radiology</em>, 2019
-                <p>Osteoporosis is an underdiagnosed condition despite effective screening modalities. The purpose of this study was to describe a method to simulate lumbar DEXA scores from routinely acquired CT studies using a machine-learning algorithm.</p>
-            </td>
-          </tr>
-
-          <!--PHT-bot: a deep learning based system for automatic risk stratification of COPD patients based upon signs of pulmonary hypertension -->
-          <tr>
-            <td style="width: 35%; text-align: center" onmouseout="pht_stop()" onmouseover="pht_start()">
-              <div class="one" style="width: 100%">
-                <div class="two" id='pht' style="width: 100%">
-                  <img src='images/pht_after.png' style="width: 70%; margin-top: 20%">
-                </div>
-                <img src='images/pht_before.png' style="width: 70%; margin-top: 20%">
-              </div>
-              <script type="text/javascript">
-                function pht_start() {
-                  document.getElementById('pht').style.opacity = "1";
-                }
-                function pht_stop() {
-                  document.getElementById('pht').style.opacity = "0";
-                }
-                pht_stop()
-              </script>
-            </td>
-            <td valign="middle" width="75%">
+              </p>
               <p>
-                <a href="https://arxiv.org/pdf/1905.11773">
-                  <papertitle>PHT-bot: a deep learning based system for automatic risk stratification of COPD patients based upon signs of pulmonary hypertension</papertitle>
-                </a>
-                <br>
-                David Chettrit, Orna Bregman Amitai, Itamar Tamir, <strong>Amir Bar</strong> and Eldad Elnekave
-                <br>
+                Osteoporosis is an underdiagnosed condition despite effective screening modalities. This study describes a method to simulate lumbar DEXA scores from routine CT studies using a machine-learning algorithm.
+              </p>
+            </div>
+          </div>
+        
+          <!-- Medical Paper: PHT-bot -->
+          <div class="publication">
+            <div class="publication-media">
+              <img src="images/pht_before.png" class="one" alt="Before Image">
+              <img src="images/pht_after.png" class="two" alt="After Image">
+            </div>
+            <div class="publication-details">
+              <p>
+                <a href="https://arxiv.org/pdf/1905.11773"><strong>PHT-bot: A Deep Learning-Based System for Automatic Risk Stratification of COPD Patients Based Upon Signs of Pulmonary Hypertension</strong></a><br>
+                David Chettrit, Orna Bregman Amitai, Itamar Tamir, <strong>Amir Bar</strong>, and Eldad Elnekave<br>
                 <em>SPIE</em>, 2019
-                <br>
-                <p></p>
-                <p>Chronic Obstructive Pulmonary Disease (COPD) is a leading cause of morbidity and mortality worldwide. We apply deep learning algorithm to detect those at risk.</p>
-            </td>
-          </tr>
-                    <!--Compression Fractures Detection on CT  -->
-          <tr>
-            <td style="width: 35%; text-align: center">
-              <div class="one" style="width: 100%;">
-                <div class="two" style="width: 100%">
-                  <img src='images/cf_after.png' style="width: 70%" id="cf" onmouseout="cf_stop()" onmouseover="cf_start()">
-                </div>
-                <img src='images/cf_before.png' style="width: 70%">
-              </div>
-              <script type="text/javascript">
-                function cf_start() {
-                  document.getElementById('cf').style.opacity = "1";
-                }
-                function cf_stop() {
-                  document.getElementById('cf').style.opacity = "0";
-                }
-                cf_stop()
-              </script>
-            </td>
-            <td valign="middle" width="75%">
+              </p>
               <p>
-                <a href="https://arxiv.org/abs/1706.01671">
-                  <papertitle>Compression Fractures Detection on CT</papertitle>
-                </a>
-                <br>
-                   <strong>Amir Bar</strong>, Lior Wolf, Orna Bregman Amitai, Eyal Toledano, Eldad Elnekave
-                <br>
-                <em>SPIE</em>, 2017
-                <br>
-                Press <a href="https://www.businesswire.com/news/home/20170117005827/en/Zebra-Medical-Vision-Announces-New-Algorithm-Detect">1</a> <a href="https://www.calcalist.co.il/internet/articles/0,7340,L-3705948,00.html">2</a>
-                <p>The presence of a vertebral compression fracture is highly indicative of osteoporosis and represents the single most robust predictor for development of a second osteoporotic fracture in the spine or elsewhere. We present an automated method for detecting spine compression fractures in Computed Tomography (CT) scans.</p>
-            </td>
-          </tr>
+                Chronic Obstructive Pulmonary Disease (COPD) is a leading cause of morbidity and mortality worldwide. We applied a deep learning algorithm to detect those at risk.
+              </p>
+            </div>
+          </div>
+        
+          <!-- Medical Paper: Compression Fractures Detection -->
+          <div class="publication">
+            <div class="publication-media">
+              <img src="images/cf_before.png" class="one" alt="Before Image">
+              <img src="images/cf_after.png" class="two" alt="After Image">
+            </div>
+            <div class="publication-details">
+              <p>
+                <a href="https://arxiv.org/abs/1706.01671"><strong>Compression Fractures Detection on CT</strong></a><br>
+                <strong>Amir Bar</strong>, Lior Wolf, Orna Bregman Amitai, Eyal Toledano, Eldad Elnekave<br>
+                <em>SPIE</em>, 2017<br>
+                Press: <a href="https://www.businesswire.com/news/home/20170117005827/en/Zebra-Medical-Vision-Announces-New-Algorithm-Detect">1</a>, <a href="https://www.calcalist.co.il/internet/articles/0,7340,L-3705948,00.html">2</a>
+              </p>
+              <p>
+                The presence of a vertebral compression fracture is highly indicative of osteoporosis and represents the single most robust predictor for development of a second osteoporotic fracture. We present an automated method for detecting spine compression fractures in CT scans.
+              </p>
+            </div>
+          </div>
+            </div>
+    <div class="section patents-section">
+        <h2 class="section-heading">Patents</h2>
+        <ul class="patents-list">
+            <li>Systems and methods for automated detection of visual objects in medical images. US Patent 11,776,243</li>
+            <li>Cross modality training of machine learning models. US Patent 11,587,228</li>
+            <li>Identification of a contrast phase depicted in a medical image. US Patent 11,727,087</li>
+        </ul>
+    </div>
+              
+    <div class="section researchers-section">
+        <h2 class="section-heading">Undergraduate and MA Collaborators</h2>
+        <p>If you are a student interested in collaborating on research projects or looking for advice, please reach out.</p>
+        <ul class="researchers-list">
+          <li>
+            <a href="https://www.linkedin.com/in/danny-tran-2764101a5/" target="_blank">Danny Tran</a>
+          </li>
+          <li>
+            <a href="https://alhojel.github.io/" target="_blank">Alberto Hojel</a>
+          </li>
+          <li>
+            <a href="https://scholar.google.com/citations?user=Y83XwowAAAAJ&hl=en" target="_blank">Arya Bakhtiar</a>, now MA at Stanford
+          </li>
+          <li>
+            <a href="https://scholar.google.com/citations?hl=en&user=AzlUrvUAAAAJ" target="_blank">Dantong Niu</a>, now PhD at UC Berkeley
+          </li>
+          <li>
+            <a href="https://scholar.google.com/citations?hl=en&user=G8sxJ_8AAAAJ" target="_blank">Elad Ben-Avraham</a>, now at Amazon
+          </li>
+        </ul>
+      </div>
+</div>
 
-      </table>
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <tr>
-            <td width="100%" valign="middle">
-              <heading>Patents</heading>
-            </td>
-          </tr>
-          <tr>
-              <td valign="middle" width="100%">
-                Systems and methods for automated detection of visual objects in medical images. US Patent 11,776,243 <br>
-                Cross modality training of machine learning models. US Patent 11,587,228. <br>
-                Identification of a contrast phase depicted in a medical image. US Patent 11,727,087
-            </td>
-          </tr>
-        </table>
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <tr>
-            <td width="100%" valign="middle">
-              <heading>Undergraduate and MA Researchers</heading>
-            <br>
-              </td>
-            <tr>
-              <td valign="middle" width="100%">
-                <a href="https://www.linkedin.com/in/danny-tran-2764101a5/">Danny Tran</a> <br>
-                <a href="https://scholar.google.com/citations?user=Y83XwowAAAAJ&hl=en">Arya Bakhtiar </a> <br>
-                <a href="https://alhojel.github.io/">Alberto Hojel</a>
-              </td>
-          </tr>
-        </table>
+  
+  <script>
+    document.querySelectorAll('.publication-media video').forEach(video => {
+    video.addEventListener('mouseenter', () => {
+      video.play();
+    });
 
-      </td>
-    </tr>
-  </table>
-  <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-              <td style="padding:0px">
-                <br>
-                <p style="text-align:center;font-size:small;">
-                   <a href="https://jonbarron.info/" target="_blank">Template</a>, Last update: 5/2024.
-                </p>
-              </td>
-            </tr>
-          </tbody></table>
+    video.addEventListener('mouseleave', () => {
+      video.pause();
+      video.currentTime = 0; // Reset to the first frame
+    });
+  });
+
+    
+  </script>
 </body>
+
+</html>
