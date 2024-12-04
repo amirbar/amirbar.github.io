@@ -260,7 +260,7 @@ header .authors a:hover {
                 <span>NYU & FAIR at Meta</span>
             </span>
             <span>
-                <a href="." target="_blank">Danny Tran</a>
+                <a href="https://dannytran123.github.io/" target="_blank">Danny Tran</a>
                 <span>Berkeley AI Research</span>
             </span>
             <span>
@@ -274,8 +274,8 @@ header .authors a:hover {
         </div>
         <div class="button-container">
             <a href="paper.pdf" target="_blank">Paper</a>
-            <a href="https://github.com/repo-link" target="_blank">Code</a>
-            <a href="https://model-link.com" target="_blank">Models</a>
+            <a target="_blank">Code (soon)</a>
+            <a target="_blank">Models (soon)</a>
         </div>
 
     </header>
@@ -293,51 +293,51 @@ header .authors a:hover {
         <section id="abstract" class="section alt-section">
             <h2>Abstract</h2>
             <p>
-                Navigation is a fundamental skill for agents with visual-motor capabilities. We propose a Navigation World Model (NWM), a controllable video generation model that predicts future visual observations based on past observations and navigation actions. NWM, a Conditional Diffusion Transformer (CDiT) with 1B parameters, is trained on diverse video data from human and robot agents, including unlabeled egocentric video. The model scales favorably across known and unknown environments and exhibits improved navigation planning skills, either by planning from scratch or ranking proposals from an external policy. Unlike supervised models, NWM adapts to new constraints and leverages learned visual priors to imagine navigation trajectories from a single input image.
+                Navigation is a fundamental skill of agents with visual-motor capabilities. We introduce a Navigation World Model (NWM), a controllable video generation model that predicts future visual observations based on past observations and navigation actions. To capture complex environment dynamics, NWM employs a Conditional Diffusion Transformer (CDiT), trained on a diverse collection of egocentric videos of both human and robotic agents, and scaled up to 1 billion parameters. In familiar environments, NWM can plan navigation trajectories by simulating them and evaluating whether they achieve the desired goal. Unlike supervised navigation policies with fixed behavior, NWM can dynamically incorporate constraints during planning. Experiments demonstrate its effectiveness in planning trajectories from scratch or by ranking trajectories sampled from an external policy. Furthermore, NWM leverages its learned visual priors to imagine trajectories in unfamiliar environments from a single input image, making it a flexible and powerful tool for next-generation navigation systems.
             </p>
         </section>
 
         <section id="known-environments" class="section">
             <h2>Following Trajectories in Known Environments</h2>
-            <p>Qualitative examples of NWM generating trajectory videos based on initial ground-truth frames and input actions.</p>
+            <p>Qualitative examples of NWM synthesizing videos based on a single input frame and actions. These environments were seen during training, the trajectories are novel.</p>
             <video class="custom-video2 custom-hover" muted loop playsinline>
-                <source src="assets/known_environments/recon_ours_1_480p.mp4" type="video/mp4">
+                <source src="assets/known_environments/recon_ours_1_1080p.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             <video class="custom-video2 custom-hover" muted loop playsinline>
-                <source src="assets/known_environments/recon_ours_2_480p.mp4" type="video/mp4">
+                <source src="assets/known_environments/recon_ours_2_1080p.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             <video class="custom-video2 custom-hover" muted loop playsinline>
-                <source src="assets/known_environments/sacson_ours_1_480p.mp4" type="video/mp4">
+                <source src="assets/known_environments/sacson_ours_1_1080p.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>        
             <video class="custom-video2 custom-hover" muted loop playsinline>
-                <source src="assets/known_environments/sacson_ours_2_480p.mp4" type="video/mp4">
+                <source src="assets/known_environments/sacson_ours_2_1080p.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>        
 
             <video class="custom-video2 custom-hover" muted loop playsinline>
-                <source src="assets/known_environments/scand_ours_1_480p.mp4" type="video/mp4">
+                <source src="assets/known_environments/scand_ours_1_1080p.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             <video class="custom-video2 custom-hover" muted loop playsinline>
-                <source src="assets/known_environments/scand_ours_2_480p.mp4" type="video/mp4">
+                <source src="assets/known_environments/scand_ours_2_1080p.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             <video class="custom-video2 custom-hover" muted loop playsinline>
-                <source src="assets/known_environments/tartan_drive_ours_1_480p.mp4" type="video/mp4">
+                <source src="assets/known_environments/tartan_drive_ours_1_1080p.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             <video class="custom-video2 custom-hover" muted loop playsinline>
-                <source src="assets/known_environments/tartan_drive_ours_2_480p.mp4" type="video/mp4">
+                <source src="assets/known_environments/tartan_drive_ours_2_1080p.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </section>
 
         <section id="unknown-environments" class="section alt-section">
             <h2>Navigating Unknown Environments</h2>
-            <p>NWM conditions on a single unseen image to autoregressively predict subsequent frames, given input actions.</p>
+            <p>NWM conditions on a single input image that is first seen at test time then autoregressively predict subsequent frames given input actions.</p>
             <video class="custom-hover" muted loop playsinline>
                 <source src="assets/unknown_environments/1.mp4" type="video/mp4">
                 Your browser does not support the video tag.
@@ -412,7 +412,7 @@ header .authors a:hover {
 
         <section id="limitations" class="section">
             <h2>Limitations</h2>
-            <p>One failure mode in unknown environments is mode collapse, where the model generates frames similar to the training data.</p>
+            <p>One common failure, especially in unknown environments is mode collapse, where the model slowly generates frames that are more similar to the training data.</p>
             <video class="custom-hover" muted loop playsinline>
                 <source src="assets/limitations/1.mp4" type="video/mp4">
                 Your browser does not support the video tag.
