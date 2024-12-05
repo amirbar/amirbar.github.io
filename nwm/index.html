@@ -382,20 +382,20 @@
             
 
     <div class="content">
+        <div class="teaser">
+            <!-- <h2>Teaser</h2> -->
+            <video class="custom-video2" autoplay muted playsinline>
+                <source src="assets/teaser.mov" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
         <section id="abstract" class="section alt-section">
             <h2>Abstract</h2>
             <p>
                 Navigation is a fundamental skill of agents with visual-motor capabilities. We introduce a Navigation World Model (NWM), a controllable video generation model that predicts future visual observations based on past observations and navigation actions. To capture complex environment dynamics, NWM employs a Conditional Diffusion Transformer (CDiT), trained on a diverse collection of egocentric videos of both human and robotic agents, and scaled up to 1 billion parameters. In familiar environments, NWM can plan navigation trajectories by simulating them and evaluating whether they achieve the desired goal. Unlike supervised navigation policies with fixed behavior, NWM can dynamically incorporate constraints during planning. Experiments demonstrate its effectiveness in planning trajectories from scratch or by ranking trajectories sampled from an external policy. Furthermore, NWM leverages its learned visual priors to imagine trajectories in unfamiliar environments from a single input image, making it a flexible and powerful tool for next-generation navigation systems.
             </p>
         </section>
-        <div class="teaser">
-            <!-- <h2>Teaser</h2> -->
-             <img src="assets/teaser.png" width="100%"/>
-            <!-- <video class="custom-video2" autoplay muted playsinline>
-                <source src="assets/teaser.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video> -->
-        </div>
 
         <section id="known-environments" class="section">
             <h2>Following Trajectories in Known Environments</h2>
