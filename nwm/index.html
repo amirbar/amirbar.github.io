@@ -6,224 +6,318 @@
     <title>Navigation World Models</title>
     <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="icon" href="assets/favicon.png" type="image/png">
+
 
     <style>
         /* General Reset */
-        header .authors {
-    margin-top: 10px;
+    header .authors {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        color: #dce6f1;
+        text-align: center;
+    }
+
+    header .authors span {
+        display: inline-block;
+        font-size: 0.9em;
+        color: #b0c4de;
+        text-align: center;
+    }
+
+    header .authors a {
+        text-decoration: none;
+        color: #8ecae6;
+        font-weight: bold;
+    }
+
+    header .authors a:hover {
+        color: #edf2f4;
+    }
+
+    body {
+        font-family: 'Google Sans', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9;
+        color: #333;
+    }
+    header {
+        text-align: center;
+        padding: 40px 20px;
+        background: linear-gradient(135deg, #2b2d42, #8d99ae);
+        color: #ffffff;
+    }
+    header h1 {
+        font-size: 2.8em;
+        margin: 0;
+        color: #edf2f4;
+    }
+    header h2 {
+        font-size: 1.2em;
+        font-weight: normal;
+        color: #dce6f1;
+    }
+    header .authors {
+        margin-top: 10px;
+        color: #dce6f1;
+    }
+    header .authors a {
+        text-decoration: none;
+        color: #8ecae6;
+        margin: 0 5px;
+    }
+    header .authors a:hover {
+        color: #edf2f4;
+    }
+    header .authors span {
+        font-size: 0.9em;
+        color: #b0c4de;
+        display: block;
+        margin-top: 5px;
+    }
+    .button-container {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin: 20px 0;
+    }
+    .button-container a {
+        text-decoration: none;
+        padding: 10px 20px;
+        background: #2b2d42;
+        color: #ffffff;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: background 0.3s;
+    }
+    .button-container a:hover {
+        background: #8d99ae;
+    }
+    .content {
+        max-width: 900px;
+        margin: auto;
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .teaser {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .teaser video {
+        max-width: 100%;
+        border-radius: 12px;
+    }
+    section h2 {
+        font-size: 1.8em;
+        margin: 0 0 10px;
+        color: #2b2d42;
+        /* text-transform: uppercase; */
+        letter-spacing: 1px;
+    }
+    section p {
+        font-size: 1em;
+        color: #555;
+    }
+    video {
+        display: block;
+        margin: 20px auto;
+        max-width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    footer {
+        text-align: center;
+        padding: 20px;
+        background: #2b2d42;
+        color: #dce6f1;
+    }
+    footer a {
+        color: #8ecae6;
+        text-decoration: none;
+    }
+    footer a:hover {
+        text-decoration: underline;
+    }
+    .section {
+        padding: 40px 20px;
+        margin: 20px 0;
+        background: #ffffff; /* Default light background */
+        border-radius: 12px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    }
+
+    .alt-section {
+        background: #f9f9f9; /* Slightly darker background for alternation */
+    }
+
+    /* Section Headings */
+    .section h2 {
+        font-size: 2em;
+        margin-bottom: 20px;
+        color: #2b2d42; /* Dark text for headings */
+        /* text-transform: uppercase; */
+        letter-spacing: 1px;
+        border-bottom: 2px solid #8d99ae;
+        display: inline-block;
+        padding-bottom: 5px;
+    }
+
+    /* Section Paragraphs */
+    .section p {
+        font-size: 1.1em;
+        color: #555; /* Muted text for readability */
+        line-height: 1.6;
+    }
+
+    /* Extra spacing between sections */
+    .content .section + .section {
+        margin-top: 50px;
+    }
+
+    /* Video Styling */
+    .custom-video {
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Teaser Video Styling */
+    #teaser {
+        text-align: center;
+    }
+    #teaser p {
+        font-size: 1em;
+        color: #666;
+        margin-top: 10px;
+    }
+    /* BibTeX Section Styling */
+    .bibtex-section {
+        padding: 40px 20px;
+        margin: 20px 0;
+        background: #ffffff; /* White box for the BibTeX code */
+        border-radius: 12px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        font-family: 'Courier New', Courier, monospace; /* Monospaced font for code */
+    }
+
+    .bibtex-section h2 {
+        font-size: 2em;
+        margin-bottom: 20px;
+        color: #2b2d42; /* Dark gray text for heading */
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-bottom: 2px solid #8d99ae;
+        display: inline-block;
+        padding-bottom: 5px;
+    }
+
+    .bibtex-section pre {
+        font-size: 1em;
+        color: #333; /* Dark text for BibTeX content */
+        background: #e8e8e8;
+        
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        overflow-x: auto; /* Allow horizontal scrolling if needed */
+    }
+    .header-container {
+        display: flex;
+        align-items: center; /* Vertically align the logo, title, authors, and buttons */
+        justify-content: center; /* Horizontally center everything in the header */
+        gap: 40px; /* Add space between the logo and the text/buttons */
+    }
+
+    .logo {
+    max-width: 100%; /* Fit within the container width */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensure no extra space around the image */
+    border-radius: 10px; /* Optional: Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow */
+}
+
+    .text-container {
+        text-align: left; /* Keep title, authors, and buttons left-aligned */
+    }
+
+    .text-container h1 {
+        font-size: 2.8em;
+        margin: 0;
+        color: #edf2f4;
+    }
+
+    .authors {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        color: #dce6f1;
+    }
+
+    .authors span {
+        font-size: 0.9em;
+        color: #b0c4de;
+        display: block;
+    }
+
+    .authors a {
+        text-decoration: none;
+        color: #8ecae6;
+        font-weight: bold;
+    }
+
+    .authors a:hover {
+        color: #edf2f4;
+    }
+
+    .button-container {
     display: flex;
-    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: left; /* Align buttons to the left */
+    margin-top: 20px;
+}
+
+    .button-container a {
+        text-decoration: none;
+        padding: 10px 20px;
+        background: #2b2d42;
+        color: #ffffff;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: background 0.3s;
+    }
+
+    .button-container a:hover {
+        background: #8d99ae;
+    }
+
+    @media (max-width: 768px) {
+        .header-container {
+            flex-direction: column; /* Stack everything on smaller screens */
+            text-align: left;
+        }
+
+        .logo {
+            margin-bottom: 20px; /* Add spacing below the logo */
+        }
+
+        .text-container {
+            max-width: 100%; /* Allow text to expand fully */
+        }
+    }
+    .logo-container {
+    width: 150px; /* Set the desired width of the container */
+    height: auto; /* Adjust automatically based on content */
+    display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 20px;
-    color: #dce6f1;
-    text-align: center;
 }
 
-header .authors span {
-    display: inline-block;
-    font-size: 0.9em;
-    color: #b0c4de;
-    text-align: center;
-}
-
-header .authors a {
-    text-decoration: none;
-    color: #8ecae6;
-    font-weight: bold;
-}
-
-header .authors a:hover {
-    color: #edf2f4;
-}
-
-        body {
-            font-family: 'Google Sans', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
-        }
-        header {
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, #2b2d42, #8d99ae);
-            color: #ffffff;
-        }
-        header h1 {
-            font-size: 2.8em;
-            margin: 0;
-            color: #edf2f4;
-        }
-        header h2 {
-            font-size: 1.2em;
-            font-weight: normal;
-            color: #dce6f1;
-        }
-        header .authors {
-            margin-top: 10px;
-            color: #dce6f1;
-        }
-        header .authors a {
-            text-decoration: none;
-            color: #8ecae6;
-            margin: 0 5px;
-        }
-        header .authors a:hover {
-            color: #edf2f4;
-        }
-        header .authors span {
-            font-size: 0.9em;
-            color: #b0c4de;
-            display: block;
-            margin-top: 5px;
-        }
-        .button-container {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 20px 0;
-        }
-        .button-container a {
-            text-decoration: none;
-            padding: 10px 20px;
-            background: #2b2d42;
-            color: #ffffff;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-        .button-container a:hover {
-            background: #8d99ae;
-        }
-        .content {
-            max-width: 900px;
-            margin: auto;
-            padding: 20px;
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .teaser {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .teaser video {
-            max-width: 100%;
-            border-radius: 12px;
-        }
-        section h2 {
-            font-size: 1.8em;
-            margin: 0 0 10px;
-            color: #2b2d42;
-            /* text-transform: uppercase; */
-            letter-spacing: 1px;
-        }
-        section p {
-            font-size: 1em;
-            color: #555;
-        }
-        video {
-            display: block;
-            margin: 20px auto;
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #2b2d42;
-            color: #dce6f1;
-        }
-        footer a {
-            color: #8ecae6;
-            text-decoration: none;
-        }
-        footer a:hover {
-            text-decoration: underline;
-        }
-        .section {
-    padding: 40px 20px;
-    margin: 20px 0;
-    background: #ffffff; /* Default light background */
-    border-radius: 12px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
-
-.alt-section {
-    background: #f9f9f9; /* Slightly darker background for alternation */
-}
-
-/* Section Headings */
-.section h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
-    color: #2b2d42; /* Dark text for headings */
-    /* text-transform: uppercase; */
-    letter-spacing: 1px;
-    border-bottom: 2px solid #8d99ae;
-    display: inline-block;
-    padding-bottom: 5px;
-}
-
-/* Section Paragraphs */
-.section p {
-    font-size: 1.1em;
-    color: #555; /* Muted text for readability */
-    line-height: 1.6;
-}
-
-/* Extra spacing between sections */
-.content .section + .section {
-    margin-top: 50px;
-}
-
-/* Video Styling */
-.custom-video {
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Teaser Video Styling */
-#teaser {
-    text-align: center;
-}
-#teaser p {
-    font-size: 1em;
-    color: #666;
-    margin-top: 10px;
-}
-/* BibTeX Section Styling */
-.bibtex-section {
-    padding: 40px 20px;
-    margin: 20px 0;
-    background: #ffffff; /* White box for the BibTeX code */
-    border-radius: 12px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    font-family: 'Courier New', Courier, monospace; /* Monospaced font for code */
-}
-
-.bibtex-section h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
-    color: #2b2d42; /* Dark gray text for heading */
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-bottom: 2px solid #8d99ae;
-    display: inline-block;
-    padding-bottom: 5px;
-}
-
-.bibtex-section pre {
-    font-size: 1em;
-    color: #333; /* Dark text for BibTeX content */
-    background: #e8e8e8;
-    
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    overflow-x: auto; /* Allow horizontal scrolling if needed */
-}
 
     </style>
 
@@ -248,40 +342,52 @@ header .authors a:hover {
         </div>
     </header> -->
     <header>
-        <!-- Logo Container -->
-        <h1>Navigation World Models</h1>
-        <div class="authors">
-            <span>
-                <a href="https://amirbar.net" target="_blank">Amir Bar</a>
-                <span>FAIR at Meta</span>
-            </span>
-            <span>
-                <a href="https://gaoyuezhou.github.io/" target="_blank">Gaoyue Zhou</a>
-                <span>NYU & FAIR at Meta</span>
-            </span>
-            <span>
-                <a href="https://dannytran123.github.io/" target="_blank">Danny Tran</a>
-                <span>Berkeley AI Research</span>
-            </span>
-            <span>
-                <a href="https://people.eecs.berkeley.edu/~trevor/" target="_blank">Trevor Darrell</a>
-                <span>Berkeley AI Research</span>
-            </span>
-            <span>
-                <a href="https://yann.lecun.com/" target="_blank">Yann LeCun</a>
-                <span>NYU & FAIR at Meta</span>
-            </span>
-        </div>
-        <div class="button-container">
-            <a href="paper.pdf" target="_blank">Paper</a>
-            <a target="_blank">Code (soon)</a>
-            <a target="_blank">Models (soon)</a>
-        </div>
+        <div class="header-container">           
+            <div class="text-container">
+                <h1>Navigation World Models</h1>
+                <div class="authors">
+                    <span>
+                        <a href="https://amirbar.net" target="_blank">Amir Bar</a>
+                        <span>FAIR at Meta</span>
+                    </span>
+                    <span>
+                        <a href="https://gaoyuezhou.github.io/" target="_blank">Gaoyue Zhou</a>
+                        <span>NYU & FAIR at Meta</span>
+                    </span>
+                    <span>
+                        <a href="https://dannytran123.github.io/" target="_blank">Danny Tran</a>
+                        <span>Berkeley AI Research</span>
+                    </span>
+                    <span>
+                        <a href="https://people.eecs.berkeley.edu/~trevor/" target="_blank">Trevor Darrell</a>
+                        <span>Berkeley AI Research</span>
+                    </span>
+                    <span>
+                        <a href="https://yann.lecun.com/" target="_blank">Yann LeCun</a>
+                        <span>NYU & FAIR at Meta</span>
+                    </span>
+                </div>
+                <div class="button-container">
+                    <a href="paper.pdf" target="_blank">Paper</a>
+                    <a target="_blank">Code (soon)</a>
+                    <a target="_blank">Models (soon)</a>
+                </div>
+            </div>
+            <div class="logo-container">
+                <img src="assets/nwm.png" alt="Navigation World Models Logo" class="logo">
+            </div>
 
+        </div>
     </header>
-
+            
 
     <div class="content">
+        <section id="abstract" class="section alt-section">
+            <h2>Abstract</h2>
+            <p>
+                Navigation is a fundamental skill of agents with visual-motor capabilities. We introduce a Navigation World Model (NWM), a controllable video generation model that predicts future visual observations based on past observations and navigation actions. To capture complex environment dynamics, NWM employs a Conditional Diffusion Transformer (CDiT), trained on a diverse collection of egocentric videos of both human and robotic agents, and scaled up to 1 billion parameters. In familiar environments, NWM can plan navigation trajectories by simulating them and evaluating whether they achieve the desired goal. Unlike supervised navigation policies with fixed behavior, NWM can dynamically incorporate constraints during planning. Experiments demonstrate its effectiveness in planning trajectories from scratch or by ranking trajectories sampled from an external policy. Furthermore, NWM leverages its learned visual priors to imagine trajectories in unfamiliar environments from a single input image, making it a flexible and powerful tool for next-generation navigation systems.
+            </p>
+        </section>
         <div class="teaser">
             <!-- <h2>Teaser</h2> -->
              <img src="assets/teaser.png" width="100%"/>
@@ -290,17 +396,11 @@ header .authors a:hover {
                 Your browser does not support the video tag.
             </video> -->
         </div>
-        <section id="abstract" class="section alt-section">
-            <h2>Abstract</h2>
-            <p>
-                Navigation is a fundamental skill of agents with visual-motor capabilities. We introduce a Navigation World Model (NWM), a controllable video generation model that predicts future visual observations based on past observations and navigation actions. To capture complex environment dynamics, NWM employs a Conditional Diffusion Transformer (CDiT), trained on a diverse collection of egocentric videos of both human and robotic agents, and scaled up to 1 billion parameters. In familiar environments, NWM can plan navigation trajectories by simulating them and evaluating whether they achieve the desired goal. Unlike supervised navigation policies with fixed behavior, NWM can dynamically incorporate constraints during planning. Experiments demonstrate its effectiveness in planning trajectories from scratch or by ranking trajectories sampled from an external policy. Furthermore, NWM leverages its learned visual priors to imagine trajectories in unfamiliar environments from a single input image, making it a flexible and powerful tool for next-generation navigation systems.
-            </p>
-        </section>
 
         <section id="known-environments" class="section">
             <h2>Following Trajectories in Known Environments</h2>
-            <p>Qualitative examples of NWM synthesizing videos based on a single input frame and actions. These environments were seen during training, the trajectories are novel.</p>
-            <video class="custom-video2 custom-hover" muted loop playsinline>
+            <p>Qualitative examples of NWM synthesizing videos based on a single input frame and actions. <b>Videos simulated entirely by the NWM</b>. These environments were seen during training, the trajectories are novel.</p>
+            <video class="custom-video2 custom-hover" muted loop autoplay playsinline>
                 <source src="assets/known_environments/recon_ours_1_1080p.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -337,8 +437,8 @@ header .authors a:hover {
 
         <section id="unknown-environments" class="section alt-section">
             <h2>Navigating Unknown Environments</h2>
-            <p>NWM conditions on a single input image that is first seen at test time then autoregressively predict subsequent frames given input actions.</p>
-            <video class="custom-hover" muted loop playsinline>
+            <p>NWM conditions on a single input image that is first seen at test time then autoregressively predict subsequent frames given input actions.</p> <strong>Videos simulated entirely by the NWM</strong>.
+            <video class="custom-hover" muted autoplay loop playsinline>
                 <source src="assets/unknown_environments/1.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -379,7 +479,7 @@ header .authors a:hover {
         <section id="baselines-ablation" class="section custom-video2">
             <h2>Baselines & Ablations</h2>
             <p>Qualitative comparisons of different models, showcasing video generation examples.</p>
-            <video class="custom-hover " muted loop playsinline>
+            <video class="custom-hover" autoplay muted loop playsinline>
                 <source src="assets/ablations/1.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -389,7 +489,7 @@ header .authors a:hover {
         <section id="ranking" class="section alt-section">
             <h2>Planning with NWM + NoMaD</h2>
             <p>We include planning examples using NWM with an external navigation policy (NoMaD). Trajectories from NoMaD are ranked by NWM, which generates trajectory videos and selects the highest-scoring one.</p>
-            <video class="custom-hover" muted loop playsinline>
+            <video class="custom-hover" muted loop playsinline autoplay>
                 <source src="assets/planning/recon_nomad_480p.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -413,7 +513,7 @@ header .authors a:hover {
         <section id="limitations" class="section">
             <h2>Limitations</h2>
             <p>One common failure, especially in unknown environments is mode collapse, where the model slowly generates frames that are more similar to the training data.</p>
-            <video class="custom-hover" muted loop playsinline>
+            <video class="custom-hover" autoplay muted loop playsinline>
                 <source src="assets/limitations/1.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
