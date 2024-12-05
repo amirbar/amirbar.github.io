@@ -536,20 +536,27 @@
     <script>
         // Set playback speed for all videos
         document.querySelectorAll('.custom-video2').forEach(video => {
-            video.playbackRate = 1.5; // Play videos at 1.25x speed
-        });
-        const videos = document.querySelectorAll('.custom-hover');
+    video.addEventListener('loadeddata', () => {
+        video.playbackRate = 1.5; // Play videos at 1.5x speed
+    });
+});
 
-        videos.forEach(video => {
+const videos = document.querySelectorAll('.custom-hover');
+
+videos.forEach(video => {
+    video.addEventListener('loadeddata', () => {
+        // Add hover event listeners only after the video has loaded
         video.addEventListener('mouseenter', () => {
             video.play();
         });
-        
+
         video.addEventListener('mouseleave', () => {
             video.pause();
             video.currentTime = 0;
         });
-        });
+    });
+});
+
 
     </script>
     
