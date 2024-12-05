@@ -400,7 +400,7 @@
         <section id="known-environments" class="section">
             <h2>Following Trajectories in Known Environments</h2>
             <p>Qualitative examples of NWM synthesizing videos based on a single input frame, the model then autoregressively predicts the subsequent frames given the input actions. The environments were seen during training, the trajectories are novel.</p>
-            <video class="custom-video2 custom-hover" muted loop playsinline>
+            <video class="custom-video2 custom-hover" muted loop autoplay playsinline>
                 <source src="assets/known_environments/recon_ours_1_1080p.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -438,7 +438,7 @@
         <section id="unknown-environments" class="section alt-section">
             <h2>Navigating Unknown Environments</h2>
             <p>NWM is conditioned on a single input image that was first seen at test time. The model then autoregressively predicts the subsequent frames given input actions. </p> 
-            <video class="custom-hover" muted loop playsinline>
+            <video class="custom-hover" muted autoplay loop playsinline>
                 <source src="assets/unknown_environments/1.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -479,7 +479,7 @@
         <section id="baselines-ablation" class="section custom-video2">
             <h2>Baselines & Ablations</h2>
             <p>Qualitative comparisons of different models, showcasing video generation examples.</p>
-            <video class="custom-hover" muted loop playsinline>
+            <video class="custom-hover" autoplay muted loop playsinline>
                 <source src="assets/ablations/1.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -489,7 +489,7 @@
         <section id="ranking" class="section alt-section">
             <h2>Planning with NWM + NoMaD</h2>
             <p>We include planning examples using NWM with an external navigation policy (NoMaD). Trajectories from NoMaD are ranked by NWM, which generates trajectory videos and selects the highest-scoring one.</p>
-            <video class="custom-hover" muted loop playsinline>
+            <video class="custom-hover" muted loop playsinline autoplay>
                 <source src="assets/planning/recon_nomad_480p.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -513,7 +513,7 @@
         <section id="limitations" class="section">
             <h2>Limitations</h2>
             <p>One common failure, especially in unknown environments is mode collapse, where the model slowly generates frames that are more similar to the training data.</p>
-            <video class="custom-hover" muted loop playsinline>
+            <video class="custom-hover" autoplay muted loop playsinline>
                 <source src="assets/limitations/1.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
