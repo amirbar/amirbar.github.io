@@ -319,14 +319,20 @@ ul {
       <a href="https://github.com/amirbar">GitHub</a>
       <a href="https://scholar.google.co.il/citations?user=L__n1LUAAAAJ&hl=en">Google Scholar</a>
       <a href="https://www.linkedin.com/in/amirbar/">LinkedIn</a>
-      <a href="CV_jan_25.pdf">CV</a>
+      <a href="Amir_Bar_CV.pdf">CV</a>
     </div>
 
     <div class="section news-section">
         <h2 class="section-heading">News</h2>
         <ul class="news-list">
-          <!-- <li>I gave a talk at Brown University.</li> -->
-          <li>
+            <!-- <li>
+            Blavatnik Prize for Computer Science Doctoral Fellows, 2025.
+           </li> -->
+
+           <li>
+            <a href="nwm">Navigation World Models</a> was selected as a Best Paper Award Candidate in CVPR 2025.
+           </li>
+           <li>
             I was a guest on the <a href="https://twimlai.com/podcast/twimlai/decoding-animal-behavior-to-train-robots-with-egopet/" target="_blank">TWIML AI podcast</a> where I talked about my recent research.
           </li>
           <li>
@@ -340,7 +346,21 @@ ul {
     <!-- Publications Section -->
     <section class="section">
       <div class="section-heading">Selected Publications</div>
-
+      <div class="publication">
+        <div class="publication-media">
+            <img src="images/before_cmtask.png" class="one" alt="Before Image" />
+            <img src="images/after_cmtask.png" class="two" alt="After Image" />
+        </div>
+        <div class="publication-details">
+          <p>
+            <a href="https://arxiv.org/abs/2410.22330"><strong>Vision-Language Models Create Cross-Modal Task Representations</strong></a><br>
+            Grace Luo, Trevor Darrell, <strong>Amir Bar</strong><br>
+            <em>ICML</em>, 2025<br>
+            <a href="https://vlm-cross-modal-reps.github.io/">Project Page</a> | <a href="https://github.com/g-luo/vlm_cross_modal_reps/">Code</a>
+          </p>
+          <p>Vision-Language Models (VLMs) answer questions by mapping inputs to shared cross-modal task representations, an important inductive bias that helps explain VLM's success.</p>
+        </div>
+      </div>
       <!-- Example Publication -->
       <div class="publication highlighted">
         <div class="publication-media">
@@ -350,32 +370,17 @@ ul {
             </video>          
         </div>
         <div class="publication-details">
-            
           <p>
             <a href="https://arxiv.org/abs/2412.03572"><strong>Navigation World Models</strong></a><br>
             <strong>Amir Bar</strong>, Gaoyue Zhou, Danny Tran, Trevor Darrell, Yann LeCun<br> 
-            <em>CVPR</em>, 2025 (Oral)<br>
+            <em>CVPR</em>, 2025 <span style="color:red">[Best Paper Award Candidate]</span><br>
             <a href="https://www.amirbar.net/nwm/">Project Page</a> | <a href="https://github.com/facebookresearch/nwm/">Code</a> | <a href="https://huggingface.co/facebook/nwm/">Models</a>
           </p>
           <p>Planning trajectories by simulating them using a video world model. Our conditional diffusion transformer (CDiT) generates videos that enable planning, counterfactual reasoning, and action.</p>
         </div>
       </div>
 
-      <div class="publication">
-        <div class="publication-media">
-            <img src="images/before_cmtask.png" class="one" alt="Before Image" />
-            <img src="images/after_cmtask.png" class="two" alt="After Image" />
-        </div>
-        <div class="publication-details">
-          <p>
-            <a href="https://arxiv.org/abs/2410.22330"><strong>Task Vectors are Cross-Modal</strong></a><br>
-            Grace Luo, Trevor Darrell, <strong>Amir Bar</strong><br>
-            <em>Technical Report</em>, 2024<br>
-            <a href="https://task-vectors-are-cross-modal.github.io/">Project Page</a> | <a href="https://github.com/g-luo/task_vectors_are_cross_modal/">Code</a>
-          </p>
-          <p>Vision-Language Models (VLMs) answer questions by mapping inputs to shared cross-modal task representations, an important inductive bias that helps explain VLM's success.</p>
-        </div>
-      </div>
+
       
       <!-- Publication: EgoPet -->
       <div class="publication">
