@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prospective Students &middot; Amir Bar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+/* ===== Design Tokens (shared with index.html) ===== */
+:root {
+  --navy:        #003E74;
+  --navy-deep:   #002544;
+  --navy-soft:   #1f5b94;
+  --gold:        #b88a2e;
+  --gold-light:  #d9b25e;
+  --ink:         #20313f;
+  --muted:       #5e7186;
+  --line:        #e3e9f0;
+  --bg:          #f6f8fc;
+  --card:        #ffffff;
+  --hero-text:   #eaf1f8;
+  --hero-link:   #aecdf0;
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans:  "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  font-family: var(--sans);
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+  color: var(--ink);
+  background-color: var(--bg);
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--navy);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover { color: var(--gold); }
+
+/* ===== Hero ===== */
+.hero {
+  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
+  color: var(--hero-text);
+  padding: 44px 20px 38px;
+  border-bottom: 3px solid var(--gold);
+}
+
+.hero-inner {
+  max-width: 760px;
+  margin: auto;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 18px;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--hero-link);
+}
+
+.back-link:hover { color: var(--gold-light); }
+
+.hero h1 {
+  color: #fff;
+  margin: 0 0 6px;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 2.5rem;
+  letter-spacing: 0.01em;
+}
+
+.hero .kicker {
+  margin: 0;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+
+/* ===== Layout ===== */
+.container {
+  max-width: 760px;
+  margin: auto;
+  padding: 36px 20px 60px;
+}
+
+.lead {
+  font-size: 1.18rem;
+  line-height: 1.7;
+  color: var(--ink);
+  margin: 0 0 12px;
+}
+
+.section { margin-bottom: 40px; }
+
+.section-heading {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 18px;
+  color: var(--navy);
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+
+.section-heading::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 52px;
+  height: 3px;
+  background-color: var(--gold);
+}
+
+p { margin: 0 0 14px; }
+
+ol, ul { padding-left: 22px; }
+li { margin-bottom: 8px; }
+
+strong { font-weight: 600; }
+
+/* Call-out card */
+.callout {
+  background-color: #eef3f9;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--gold);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 0 0 28px;
+}
+
+.callout p:last-child { margin-bottom: 0; }
+
+/* Primary action button */
+.btn {
+  display: inline-block;
+  background-color: var(--navy);
+  color: #fff;
+  padding: 11px 22px;
+  border-radius: 999px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background-color: var(--gold);
+  color: var(--navy-deep);
+  transform: translateY(-1px);
+}
+
+/* Deadlines */
+.deadlines {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+}
+
+.deadlines li {
+  background-color: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-weight: 500;
+  color: var(--navy);
+  margin: 0;
+}
+
+/* Editorial placeholder marker — remove before publishing */
+.todo {
+  background-color: #fff6e0;
+  border-bottom: 1px dashed var(--gold);
+  color: #6b4f12;
+  padding: 0 3px;
+}
+
+.muted { color: var(--muted); }
+
+@media screen and (max-width: 600px) {
+  .hero h1 { font-size: 2rem; }
+}
+  </style>
+</head>
+
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <a class="back-link" href="index.html">&larr; Amir Bar</a>
+      <p class="kicker">Join the Group</p>
+      <h1>Prospective Students</h1>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <p class="lead">
+      I am recruiting PhD students and looking for motivated interns and visitors to join my group at
+      Imperial College London. If you are excited about teaching machines to <strong>perceive, reason, and
+      act</strong> in the world from visual data &mdash; with little to no supervision &mdash; I would love to hear from you.
+    </p>
+    <p>
+      A PhD in my group is training for a research career: research scientist roles at leading labs,
+      academic positions toward eventually leading your own group, and the depth to turn ambitious ideas into
+      startups. I see part of my job as helping to grow you as an independent researcher.
+    </p>
+
+    <section class="section">
+      <h2 class="section-heading">Before you apply: get in touch</h2>
+      <div class="callout">
+        <p>
+          Before submitting a formal application, please complete my short preliminary form. This is the best
+          way to reach me &mdash; it helps me read your background and proposal carefully, and I prioritize
+          candidates who go through it.
+        </p>
+        <p>
+          <a class="btn" href="https://docs.google.com/forms/d/1Y4Ub0os7ZWm7bOKRRjRI6_ZgbWbU3wCiWeBvvVN27FU/viewform" target="_blank" rel="noopener">Complete the pre-application form</a>
+        </p>
+      </div>
+      <p class="muted">
+        I aim to review and reply to every form submission.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-heading">What I work on</h2>
+      <p>
+        My research centers on <strong>world models</strong>, <strong>self-supervised visual learning</strong>,
+        and <strong>embodied AI</strong> &mdash; learning representations and predictive models of the world that
+        enable perception, planning, and control. I am especially interested in students who want to work on:
+      </p>
+      <ul>
+        <li>World models for planning and control, including robotics and navigation.</li>
+        <li>Self-supervised and predictive learning from images and video.</li>
+        <li>Learning from human and egocentric video for embodied agents.</li>
+        <li>Connecting perception, reasoning, and action in real-world settings.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2 class="section-heading">Who I'm looking for</h2>
+      <p>
+        Admission is competitive, and strong grades alone are not enough. The candidates who thrive tend to
+        show clear evidence of research interest and ability &mdash; for example publications, substantial
+        personal or open-source projects, or a thoughtful research idea you can articulate well. Most of all I
+        look for curiosity, persistence, and the ability to <strong>identify the limitations of existing
+        methods and propose ways to address them</strong>.
+      </p>
+      <p>
+        Your application should highlight past experience around these areas, emphasizing publications in
+        top-tier venues like CVPR, ICLR, NeurIPS, ICCV, ECCV, CoRL, and ICML.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-heading">How to apply officially</h2>
+      <p>
+        Formal applications are made through Imperial's
+        <a href="https://www.imperial.ac.uk/computing/prospective-students/pg-research/" target="_blank">Department of Computing</a>
+        online system. When applying, please:
+      </p>
+      <ol>
+        <li>Select <strong>&ldquo;Computing Research (PhD)&rdquo;</strong> as the programme.</li>
+        <li>Enter <strong>Amir Bar</strong> as your proposed supervisor.</li>
+        <li>Include a research topic title and a short research proposal (see guidance below).</li>
+      </ol>
+    </section>
+
+    <section class="section">
+      <h2 class="section-heading">Eligibility</h2>
+      <p>
+        The formal requirement is a Master's degree (or equivalent) at a level corresponding to a UK
+        distinction, along with Imperial's
+        <a href="https://www.imperial.ac.uk/study/apply/postgraduate-doctoral/entry-requirements/english-language/" target="_blank">English language requirements</a>.
+        In practice, admitted students typically have outstanding academic records together with the evidence
+        of research interest described above.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-heading">Timeline &amp; deadlines</h2>
+      <p>
+        The Department of Computing offers two PhD intakes a year, in <strong>April</strong> and
+        <strong>October</strong>. Applications can be made at any time, and are reviewed at four deadlines
+        through the year:
+      </p>
+      <ul class="deadlines">
+        <li>15 October</li>
+        <li>15 December</li>
+        <li>15 February</li>
+        <li>15 April</li>
+      </ul>
+      <p class="muted" style="margin-top:14px;">
+        Overseas candidates who need funding are advised to apply by the <strong>15 December</strong> deadline
+        to maximise their chances. Please confirm the current year's exact dates and intakes on the
+        <a href="https://www.imperial.ac.uk/computing/prospective-students/phd/" target="_blank" rel="noopener">Department of Computing PhD page</a>.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-heading">Funding</h2>
+      <p>
+        Offers are conditional on securing funding for tuition and living costs. A PhD typically runs four
+        years, with tuition fees due for the first three. Imperial maintains separate scholarship pools for
+        Home students (UK nationals and those with settled status) and Overseas students, and additional
+        external scholarships may be available depending on your nationality and background. I'm happy to
+        discuss funding routes that fit your situation.
+      </p>
+      <p>Useful links:</p>
+      <ul>
+        <li><a href="https://www.imperial.ac.uk/students/fees-and-funding/tuition-fees/postgraduate-tuition-fees/2026-27/" target="_blank" rel="noopener">2026&ndash;27 postgraduate tuition fees</a></li>
+        <li><a href="https://www.imperial.ac.uk/study/fees-and-funding/living-costs/" target="_blank" rel="noopener">Estimated living costs</a></li>
+        <li><a href="https://www.imperial.ac.uk/study/fees-and-funding/other-funding-sources/external-scholarships/" target="_blank" rel="noopener">External scholarships</a></li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2 class="section-heading">Writing your research proposal</h2>
+      <p>
+        Your proposal is not a binding plan &mdash; it's a way to show how you think. I'm looking for
+        <strong>curiosity, creativity, and technical depth</strong> rather than a polished, final roadmap. A
+        few suggestions:
+      </p>
+      <ul>
+        <li>Keep it concise &mdash; <strong>no more than four pages</strong>, and skip the long literature review.</li>
+        <li>State a clear question or hypothesis, and how you would evaluate progress on it.</li>
+        <li>Show that you can identify a real limitation in existing work and sketch a plausible direction.</li>
+        <li>Favor depth and clarity over breadth and buzzwords.</li>
+      </ul>
+      <p>
+        Proposals connected to my research interests &mdash; world models, self-supervised learning, and
+        embodied AI &mdash; are especially welcome.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-heading">Contact</h2>
+      <p>
+        The fastest way to reach me is the preliminary form above. For administrative questions about the
+        application process, please contact the PhD administrator, Dr. Amani El-Kholy, at
+        <a href="mailto:a.o.el-kholy@imperial.ac.uk">a.o.el-kholy@imperial.ac.uk</a>.
+      </p>
+      <p class="muted">
+        General enquiries: <a href="mailto:amirb4r@gmail.com">amirb4r@gmail.com</a>.
+      </p>
+    </section>
+
+  </div>
+</body>
+
+</html>

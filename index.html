@@ -14,24 +14,111 @@
   </script>
 
   <title>Amir Bar</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-/* General Body Styling */
+/* ===== Design Tokens ===== */
+:root {
+  --navy:        #003E74; /* Imperial Blue */
+  --navy-deep:   #002544;
+  --navy-soft:   #1f5b94;
+  --gold:        #b88a2e; /* elegant accent */
+  --gold-light:  #d9b25e;
+  --ink:         #20313f; /* body text */
+  --muted:       #5e7186;
+  --line:        #e3e9f0;
+  --bg:          #f6f8fc; /* cool off-white */
+  --card:        #ffffff;
+  --hero-text:   #eaf1f8;
+  --hero-link:   #aecdf0;
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans:  "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* ===== General Body Styling ===== */
 body {
-  font-family: sans-serif;
-  line-height: 1.6;
+  font-family: var(--sans);
+  line-height: 1.7;
   margin: 0;
   padding: 0;
-  color: #333;
+  color: var(--ink);
+  background-color: var(--bg);
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
-  color: #1772d0;
+  color: var(--navy);
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 a:hover {
-  color: #f09228;
+  color: var(--gold);
+}
+
+/* ===== Imperial Blue Hero ===== */
+.hero {
+  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
+  color: var(--hero-text);
+  padding: 56px 20px 44px;
+  border-bottom: 3px solid var(--gold);
+}
+
+.hero-inner {
+  max-width: 800px;
+  margin: auto;
+}
+
+.hero h1 {
+  color: #fff;
+  margin: 0 0 6px;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 2.8rem;
+  letter-spacing: 0.01em;
+}
+
+.hero .subtitle {
+  text-align: center;
+  margin: 0 0 8px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+
+.hero .profile-text {
+  color: var(--hero-text);
+}
+
+.hero a {
+  color: var(--hero-link);
+}
+
+.hero a:hover {
+  color: var(--gold-light);
+}
+
+.hero .social-links {
+  margin-top: 22px;
+}
+
+.hero .social-links a {
+  color: var(--hero-text);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.hero .social-links a:hover {
+  color: var(--navy-deep);
+  background-color: var(--gold-light);
+  border-color: var(--gold-light);
 }
 
 /* Layout Container */
@@ -56,14 +143,14 @@ a:hover {
 }
 
 h1 {
-  font-weight: normal;
+  font-family: var(--serif);
+  font-weight: 600;
   text-align: center;
 }
 
 .profile-text h1 {
   font-size: 2rem;
   /* margin-bottom: 10px; */
-  font-weight: normal;
 }
 
 .profile-text p {
@@ -76,8 +163,10 @@ h1 {
 }
 
 .profile-image img {
-  max-width: 200px;
-  border-radius: 5%;
+  max-width: 190px;
+  border-radius: 10px;
+  border: 3px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
 }
 
 /* Social Links */
@@ -96,9 +185,24 @@ h1 {
 }
 
 .section-heading {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-  /* font-weight: bold; */
+  font-family: var(--serif);
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: var(--navy);
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+
+.section-heading::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 52px;
+  height: 3px;
+  background-color: var(--gold);
 }
 
 /* List Styling */
@@ -111,11 +215,23 @@ ul {
 .publication {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 10px;
+  gap: 24px;
+  background-color: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 18px;
+  box-shadow: 0 1px 3px rgba(20, 40, 70, 0.05);
   overflow: hidden; /* Ensures child elements stay within the border */
+}
+
+.publication-details strong {
+  font-family: var(--serif);
+  font-weight: 600;
+}
+
+.publication-details a strong {
+  color: var(--navy);
 }
 
 .publication-media {
@@ -205,7 +321,7 @@ ul {
 }
 
 .news-list a {
-  color: #1772d0;
+  color: #003E74;
   text-decoration: none;
 }
 
@@ -227,7 +343,7 @@ ul {
 }
 
 .researchers-list a {
-  color: #1772d0;
+  color: #003E74;
   text-decoration: none;
   font-weight: bold;
 }
@@ -237,21 +353,18 @@ ul {
 }
 .researchers-section {
   margin-bottom: 40px;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  padding: 24px;
+  background-color: #eef3f9;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--gold);
+  border-radius: 12px;
 }
 /* Patents Section */
 .patents-section {
   margin-bottom: 40px;
 }
 
-.section-heading {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-  font-weight: bold;
-}
+/* (Patents heading inherits the unified .section-heading style above) */
 
 .patents-list {
   list-style-type: disc;
@@ -265,13 +378,24 @@ ul {
   line-height: 1.5;
 }
 .publication {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .publication:hover {
-  transform: scale(1.02); /* Slight zoom on hover */
-  box-shadow: 0 0 15px; /* Intensify glow on hover */
+  transform: translateY(-3px); /* Gentle lift on hover */
+  border-color: var(--gold-light);
+  box-shadow: 0 12px 28px rgba(0, 62, 116, 0.16); /* Imperial blue depth on hover */
 }
+/* Award / venue distinction badges */
+.badge {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.publication-details em {
+  color: var(--muted);
+}
+
 .coming-soon .coming-soon-badge {
   display: inline-block;
   background-color: #f09228;
@@ -291,41 +415,50 @@ ul {
 </head>
 
 <body>
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-inner">
+      <h1>Amir Bar</h1>
+      <p class="subtitle">Assistant Professor, Imperial College London &middot; Member of Technical Staff, AMI Labs</p>
+
+      <div class="profile-section">
+        <div class="profile-image">
+          <img src="images/DSC06400_2.png" alt="Amir Bar">
+        </div>
+
+        <div class="profile-text">
+          <!-- <h2>Shalom!</h2> -->
+          <p>
+            My goal is to teach computers to <b>perceive, reason, and act</b> in the world from visual data, using little to no supervision. <br><br>
+            Previously, I was an RS and a Postdoc at Meta (FAIR), working with <a href="http://yann.lecun.com/">Yann LeCun</a>, and prior to this a <i>Ph.D. candidate</i> at Tel Aviv University and <a href="https://bair.berkeley.edu/">UC Berkeley</a>, advised by <a href="https://cs3801.wixsite.com/amirgloberson">Amir Globerson</a> and <a href="https://people.eecs.berkeley.edu/~trevor/">Trevor Darrell</a>.
+            <!-- Before my PhD, I've pioneered AI for medical imaging as an <i>AI Research Lead</i> at <a href="https://www.zebra-med.com/">Zebra Medical Vision</a> (acquired). My research team developed multiple FDA cleared algorithms for automatic analysis of medical images (e.g, [<a href="https://www.businesswire.com/news/home/20200518005487/en/Zebra-Medical-Vision-Secures-5th-FDA-Clearance">1</a>, <a href="https://www.radiologybusiness.com/topics/artificial-intelligence/ai-triage-brain-bleeds-gains-fda-clearance">2</a>]). -->
+            <br><br>
+            <b>Prospective students:</b> <a href="prospective.html">start here</a>.
+          </p>
+        </div>
+      </div>
+
+      <!-- Social Links -->
+      <div class="social-links">
+        <a href="mailto:amirb4r@gmail.com">Email</a>
+        <a href="https://twitter.com/_amirbar">Twitter</a>
+        <a href="https://github.com/amirbar">GitHub</a>
+        <a href="https://scholar.google.co.il/citations?user=L__n1LUAAAAJ&hl=en">Google Scholar</a>
+        <a href="https://www.linkedin.com/in/amirbar/">LinkedIn</a>
+        <a href="Amir_Bar_CV.pdf">CV</a>
+      </div>
+    </div>
+  </header>
+
   <div class="container">
-    <!-- Profile Section -->
-    <h1>Amir Bar</h1>
-
-    <div class="profile-section">
-      <div class="profile-image">
-        <img src="images/DSC06400_2.png" alt="Amir Bar">
-      </div>
-
-      <div class="profile-text">
-        <!-- <h2>Shalom!</h2> -->
-        <p>
-          I am an Assistant Professor at Imperial College London and a Member of the Technical Staff at AMI Labs. <br><br>
-          My goal is to teach computers to <b>perceive, reason, and act</b> in the world from visual data, using little to no supervision. <br><br>
-          Previously, I was an RS and a Postdoc at Meta (FAIR), working with <a href="http://yann.lecun.com/">Yann LeCun</a>, and prior to this a <i>Ph.D. candidate</i> at Tel Aviv University and <a href="https://bair.berkeley.edu/">UC Berkeley</a>, advised by <a href="https://cs3801.wixsite.com/amirgloberson">Amir Globerson</a> and <a href="https://people.eecs.berkeley.edu/~trevor/">Trevor Darrell</a>.
-          <!-- Before my PhD, I've pioneered AI for medical imaging as an <i>AI Research Lead</i> at <a href="https://www.zebra-med.com/">Zebra Medical Vision</a> (acquired). My research team developed multiple FDA cleared algorithms for automatic analysis of medical images (e.g, [<a href="https://www.businesswire.com/news/home/20200518005487/en/Zebra-Medical-Vision-Secures-5th-FDA-Clearance">1</a>, <a href="https://www.radiologybusiness.com/topics/artificial-intelligence/ai-triage-brain-bleeds-gains-fda-clearance">2</a>]). -->
-        </p>
-      </div>
-    </div>
-
-    <!-- Social Links -->
-    <div class="social-links">
-      <a href="mailto:amirb4r@gmail.com">Email</a>
-      <a href="https://twitter.com/_amirbar">Twitter</a>
-      <a href="https://github.com/amirbar">GitHub</a>
-      <a href="https://scholar.google.co.il/citations?user=L__n1LUAAAAJ&hl=en">Google Scholar</a>
-      <a href="https://www.linkedin.com/in/amirbar/">LinkedIn</a>
-      <a href="Amir_Bar_CV.pdf">CV</a>
-    </div>
-
     <div class="section news-section">
         <h2 class="section-heading">News</h2>
         <ul class="news-list">
            <li>
-            Our paper <a href="nwm"><i>Navigation World Models</i></a> won the Best Paper Honorable Mention at CVPR 2025.
+            <a href="https://arxiv.org/abs/2602.03604"><i>EB-JEPA</i></a> received the Outstanding Paper Award at the ICLR 2026 World Models Workshop.
+           </li>
+           <li>
+            <a href="nwm"><i>Navigation World Models</i></a> won the Best Paper Honorable Mention at CVPR 2025.
            </li>
            <li>
             I was a guest on the <a href="https://x.com/RoboPapers/status/1936424617922728270/" target="_blank">RoboPapers</a> podcast where I talked about Navigation World Models.
@@ -333,10 +466,6 @@ ul {
            <li>
             I was a guest on the <a href="https://twimlai.com/podcast/twimlai/decoding-animal-behavior-to-train-robots-with-egopet/" target="_blank">TWIML AI podcast</a> where I talked about my recent research.
           </li>
-          <li>
-            I organized the first workshop on <a href="https://prompting-in-vision.github.io/index_cvpr24.html" target="_blank">Prompting in Vision</a> at CVPR 24'.
-          </li>
-          <li>I served as an Assistant Program Chair at <a href="https://nips.cc/Conferences/2023/Committees" target="_blank">NeurIPS 2023</a>.</li>
         </ul>
       </div>
 
@@ -407,6 +536,20 @@ ul {
         </div>
       </div>
             <div class="publication">
+          <div class="publication-media">
+              <img src="images/ebjepa.png" alt="EB-JEPA"/>
+          </div>
+        <div class="publication-details">
+          <p>
+            <a href="https://arxiv.org/abs/2602.03604"><strong>A Lightweight Library for Energy-Based Joint-Embedding Predictive Architectures</strong></a><br>
+            Basile Terver, Randall Balestriero, Megi Dervishi, David Fan, Quentin Garrido, Tushar Nagarajan, Koustuv Sinha, Wancong Zhang, Mike Rabbat, Yann LeCun*, <strong>Amir Bar*</strong><br>
+            <em>ICLR World Models Workshop</em>, 2026 <span class="badge">[<i>Outstanding Paper Award</i>]</span><br>
+            <a href="https://github.com/facebookresearch/eb_jepa">Code</a>
+          </p>
+          <p>An open-source library for learning world models in representation space — runnable on a single GPU.</p>
+        </div>
+      </div>
+      <div class="publication">
         <div class="publication-media">
             <video width="100%" muted="" autoplay="" loop=""><source src="https://jaynye.github.io/images/genmimic-pick-book-combined.mp4" type="video/mp4">
               Your browser does not support the video tag.
@@ -444,7 +587,7 @@ ul {
           <p>
             <a href="https://arxiv.org/abs/2511.20766"><strong>OpenApps: Simulating Environment Variations to Measure UI-Agent Reliability</strong></a><br>
             Karen Ullrich, Jingtong Su, Claudia Shi, Arjun Subramonian, <strong>Amir Bar</strong>, Ivan Evtimov, Nikolaos Tsilivis, Randall Balestriero, Julia Kempe, Mark Ibrahim<br>
-            <em>ICLR</em>, 2025 <span style="color:red">[<i>Oral</i>]</span><br>
+            <em>ICLR</em>, 2025 <span class="badge">[<i>Oral</i>]</span><br>
             <a href="https://facebookresearch.github.io/OpenApps/">Project Page</a>
           </p>
           <p>A benchmark for webagents, measuring reliability across environment variations.</p>
@@ -489,7 +632,7 @@ ul {
           <p>
             <a href="https://arxiv.org/abs/2504.01017"><strong>Scaling Language-Free Visual Representation Learning</strong></a><br>
             David Fan*, Shengbang Tong*, Jiachen Zhu, Koustuv Sinha, Zhuang Liu, Xinlei Chen, Michael Rabbat, Nicolas Ballas, Yann LeCun, <strong>Amir Bar</strong><sup>&dagger;</sup>, Saining Xie<sup>&dagger;</sup> <br>
-            <em>ICCV</em>, 2025 <span style="color:red">[<i>Highlight</i>]</span><br>
+            <em>ICCV</em>, 2025 <span class="badge">[<i>Highlight</i>]</span><br>
             <a href="https://davidfan.io/webssl/">Project Page</a> | <a href="https://github.com/facebookresearch/webssl/">Code</a> | <a href="https://huggingface.co/collections/facebook/web-ssl-68094132c15fbd7808d1e9bb">Model Weights</a>
           </p>
           <p>Vision-only models scale with model and data size, catching up with CLIP models without language supervision.</p>
@@ -540,7 +683,7 @@ William Rudman*, Michal Golovanevsky*, <strong>Amir Bar</strong>, Vedant Palit, 
           <p>
             <a href="https://arxiv.org/abs/2412.03572"><strong>Navigation World Models</strong></a><br>
             <strong>Amir Bar</strong>, Gaoyue Zhou, Danny Tran, Trevor Darrell, Yann LeCun<br>
-            <em>CVPR</em>, 2025 <span style="color:red"> [<i>Best Paper Honorable Mention</i>]</span><br>
+            <em>CVPR</em>, 2025 <span class="badge"> [<i>Best Paper Honorable Mention</i>]</span><br>
             <a href="https://www.amirbar.net/nwm/">Project Page</a> | <a href="https://github.com/facebookresearch/nwm/">Code</a> | <a href="https://huggingface.co/facebook/nwm/">Models</a>
           </p>
           <p>Planning trajectories by simulating them using a video world model. Our conditional diffusion transformer (CDiT) generates videos that enable planning, counterfactual reasoning, and action.</p>
