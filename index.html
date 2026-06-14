@@ -386,6 +386,43 @@ ul {
   border-color: var(--gold-light);
   box-shadow: 0 12px 28px rgba(0, 62, 116, 0.16); /* Imperial blue depth on hover */
 }
+
+/* Publications filter toggle */
+.pub-toggle {
+  display: inline-flex;
+  gap: 4px;
+  background-color: #e9eef5;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px;
+  margin-bottom: 26px;
+}
+
+.pub-toggle-btn {
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--navy);
+  background: transparent;
+  border: none;
+  border-radius: 999px;
+  padding: 7px 22px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.pub-toggle-btn:hover { color: var(--gold); }
+
+.pub-toggle-btn.is-active { background-color: var(--navy); color: #fff; }
+
+.pub-toggle-btn.is-active:hover { color: #fff; }
+
+/* Selected-only filtering. JS marks chosen papers with .selected and toggles
+   body.filter-selected; with JS off, all publications remain visible. */
+body.filter-selected #publications .publication:not(.selected) {
+  display: none;
+}
+
 /* Award / venue distinction badges */
 .badge {
   color: var(--gold);
@@ -520,8 +557,12 @@ ul {
     </section>
 
     <!-- Publications Section -->
-    <section class="section">
-      <div class="section-heading">Selected Publications</div>
+    <section class="section" id="publications">
+      <div class="section-heading">Publications</div>
+      <div class="pub-toggle" role="group" aria-label="Filter publications">
+        <button type="button" class="pub-toggle-btn is-active" data-pub-mode="selected">Selected</button>
+        <button type="button" class="pub-toggle-btn" data-pub-mode="all">All</button>
+      </div>
             <div class="publication">
         <div class="publication-media">
             <img src="images/grasp.gif"/>
@@ -587,7 +628,7 @@ ul {
           <p>
             <a href="https://arxiv.org/abs/2511.20766"><strong>OpenApps: Simulating Environment Variations to Measure UI-Agent Reliability</strong></a><br>
             Karen Ullrich, Jingtong Su, Claudia Shi, Arjun Subramonian, <strong>Amir Bar</strong>, Ivan Evtimov, Nikolaos Tsilivis, Randall Balestriero, Julia Kempe, Mark Ibrahim<br>
-            <em>ICLR</em>, 2025 <span class="badge">[<i>Oral</i>]</span><br>
+            <em>ICLR</em>, 2026 <span class="badge">[<i>Oral</i>]</span><br>
             <a href="https://facebookresearch.github.io/OpenApps/">Project Page</a>
           </p>
           <p>A benchmark for webagents, measuring reliability across environment variations.</p>
@@ -913,12 +954,7 @@ William Rudman*, Michal Golovanevsky*, <strong>Amir Bar</strong>, Vedant Palit, 
   </div>
 
 
-    </section>
-
-    <div class="section medical-section">
-        <h2 class="section-heading">Medical Papers</h2>
-
-        <!-- Medical Paper 1 -->
+        <!-- Medical Paper 1 (merged into Publications; sorted by date via JS) -->
         <div class="publication">
           <div class="publication-media">
             <img src="images/cf_before.png" class="one" alt="Before Image">
@@ -936,7 +972,7 @@ William Rudman*, Michal Golovanevsky*, <strong>Amir Bar</strong>, Vedant Palit, 
         </div>
 
         <!-- Medical Paper 2 -->
-        <div class="publication">
+        <div class="publication" data-date="1912">
           <div class="publication-media">
             <img src="images/nature.png" alt="Nature Paper Image">
           </div>
@@ -1022,7 +1058,7 @@ William Rudman*, Michal Golovanevsky*, <strong>Amir Bar</strong>, Vedant Palit, 
               </p>
             </div>
           </div>
-            </div>
+    </section>
     <div class="section patents-section">
         <h2 class="section-heading">Patents</h2>
         <ul class="patents-list">
@@ -1068,6 +1104,60 @@ William Rudman*, Michal Golovanevsky*, <strong>Amir Bar</strong>, Vedant Palit, 
     });
   });
 
+  /* ===== Publications: date sort + selected/all toggle ===== */
+  (function () {
+    const pubSection = document.getElementById('publications');
+    if (!pubSection) return;
+
+    // Sort entries by date, newest first. Date comes from an explicit
+    // data-date="YYMM" attribute, otherwise from the arXiv id (YYMM.nnnnn).
+    function dateKey(pub) {
+      if (pub.dataset.date) return Number(pub.dataset.date);
+      const link = pub.querySelector('a[href*="arxiv.org"]');
+      if (link) {
+        const m = link.getAttribute('href').match(/(\d{4})\.(\d{4,5})/);
+        if (m) return parseFloat(m[1] + '.' + m[2]);
+      }
+      return 0;
+    }
+    Array.from(pubSection.querySelectorAll('.publication'))
+      .sort((a, b) => dateKey(b) - dateKey(a))
+      .forEach(pub => pubSection.appendChild(pub));
+
+    // Mark the selected papers by title.
+    const SELECTED = [
+      'Lifting Embodied World Models for Planning and Control',
+      'V-JEPA 2.1: Unlocking Dense Features in Video Self-Supervised Learning',
+      'World Models Can Leverage Human Videos for Dexterous Manipulation',
+      'Parallel Stochastic Gradient-Based Planning for World Models',
+      'From Generated Human Videos to Physically Plausible Robot Trajectories',
+      'Whole-Body Conditioned Egocentric Video Prediction',
+      'Scaling Language-Free Visual Representation Learning',
+      'Navigation World Models',
+      'Sequential Modeling Enables Scalable Learning for Large Vision Models',
+      'Visual Prompting via Image Inpainting',
+      'DETReg: Unsupervised Pretraining with Region Priors for Object Detection',
+      'Compositional Video Synthesis with Action Graphs',
+      'Learning Individual Styles of Conversational Gesture'
+    ];
+    const norm = s => s.replace(/\s+/g, ' ').trim().toLowerCase();
+    const selectedSet = new Set(SELECTED.map(norm));
+    pubSection.querySelectorAll('.publication').forEach(pub => {
+      const title = pub.querySelector('a strong');
+      if (title && selectedSet.has(norm(title.textContent))) {
+        pub.classList.add('selected');
+      }
+    });
+
+    // Toggle wiring. Default view = Selected.
+    const buttons = pubSection.querySelectorAll('.pub-toggle-btn');
+    function setMode(mode) {
+      document.body.classList.toggle('filter-selected', mode === 'selected');
+      buttons.forEach(b => b.classList.toggle('is-active', b.dataset.pubMode === mode));
+    }
+    buttons.forEach(b => b.addEventListener('click', () => setMode(b.dataset.pubMode)));
+    setMode('selected');
+  })();
 
   </script>
 </body>
