@@ -507,9 +507,13 @@ body.filter-selected #publications .publication:not(.selected) {
       </div>
 
 
-    <!-- Preprints Section -->
-    <section class="section">
-      <div class="section-heading">Preprints</div>
+    <!-- Publications Section -->
+    <section class="section" id="publications">
+      <div class="section-heading">Publications</div>
+      <div class="pub-toggle" role="group" aria-label="Filter publications">
+        <button type="button" class="pub-toggle-btn is-active" data-pub-mode="selected">Selected</button>
+        <button type="button" class="pub-toggle-btn" data-pub-mode="all">All</button>
+      </div>
 
       <div class="publication">
           <div class="publication-media">
@@ -519,7 +523,7 @@ body.filter-selected #publications .publication:not(.selected) {
           <p>
             <a href="https://arxiv.org/abs/2604.26182"><strong>Lifting Embodied World Models for Planning and Control</strong></a><br>
             Alex N. Wang, Trevor Darrell, Pavel Izmailov, Yutong Bai, <strong>Amir Bar</strong><br>
-            <em>arXiv</em>, 2026<br>
+            <em>ECCV</em>, 2026<br>
           </p>
           <p>A lightweight policy lifts high-level waypoint commands into low-level joint actions, enabling efficient planning and control in embodied world models.</p>
         </div>
@@ -533,7 +537,7 @@ body.filter-selected #publications .publication:not(.selected) {
           <p>
             <a href="https://arxiv.org/abs/2603.14482"><strong>V-JEPA 2.1: Unlocking Dense Features in Video Self-Supervised Learning</strong></a><br>
             Lorenzo Mur-Labadia, Matthew Muckley, <strong>Amir Bar</strong>, Mido Assran, Koustuv Sinha, Mike Rabbat, Yann LeCun, Nicolas Ballas, Adrien Bardes<br>
-            <em>arXiv</em>, 2026<br>
+            <em>ECCV</em>, 2026<br>
           </p>
           <p>A dense predictive loss with hierarchical supervision and unified image-video training yields state-of-the-art video self-supervised representations.</p>
         </div>
@@ -547,22 +551,13 @@ body.filter-selected #publications .publication:not(.selected) {
           <p>
             <a href="https://arxiv.org/pdf/2512.13644"><strong>World Models Can Leverage Human Videos for Dexterous Manipulation</strong></a><br>
             Raktim Goswami, <strong>Amir Bar</strong>, David Fan, Tsung-Yen Yang, Gaoyue Zhou, Prashanth Krishnamurthy, Michael Rabbat, Farshad Khorrami, Yann LeCun<br>
-            <em>arXiv</em>, 2025<br>
+            <em>ECCV</em>, 2026<br>
             <a href="https://raktimgg.github.io/dexwm/">Project Page</a>
           </p>
           <p>World models trained on human videos enable dexterous robot manipulation.</p>
         </div>
       </div>
 
-    </section>
-
-    <!-- Publications Section -->
-    <section class="section" id="publications">
-      <div class="section-heading">Publications</div>
-      <div class="pub-toggle" role="group" aria-label="Filter publications">
-        <button type="button" class="pub-toggle-btn is-active" data-pub-mode="selected">Selected</button>
-        <button type="button" class="pub-toggle-btn" data-pub-mode="all">All</button>
-      </div>
             <div class="publication">
         <div class="publication-media">
             <img src="images/grasp.gif"/>
@@ -1109,16 +1104,27 @@ William Rudman*, Michal Golovanevsky*, <strong>Amir Bar</strong>, Vedant Palit, 
     const pubSection = document.getElementById('publications');
     if (!pubSection) return;
 
-    // Sort entries by date, newest first. Date comes from an explicit
-    // data-date="YYMM" attribute, otherwise from the arXiv id (YYMM.nnnnn).
+    // Sort entries by publication venue year, newest first. The year comes
+    // from the venue line ("<em>Venue</em>, YYYY"), falling back to the
+    // data-date="YYMM" attribute. Within a year, the arXiv id (YYMM.nnnnn)
+    // breaks ties so newer preprints rank higher.
     function dateKey(pub) {
-      if (pub.dataset.date) return Number(pub.dataset.date);
+      let year = 0;
+      const em = pub.querySelector('.publication-details em');
+      const venueText = em && em.nextSibling ? (em.nextSibling.textContent || '') : '';
+      const ym = venueText.match(/(\d{4})/);
+      if (ym) {
+        year = Number(ym[1]);
+      } else if (pub.dataset.date) {
+        year = 2000 + Math.floor(Number(pub.dataset.date) / 100);
+      }
+      let sub = 0;
       const link = pub.querySelector('a[href*="arxiv.org"]');
       if (link) {
         const m = link.getAttribute('href').match(/(\d{4})\.(\d{4,5})/);
-        if (m) return parseFloat(m[1] + '.' + m[2]);
+        if (m) sub = parseFloat('0.' + m[1] + m[2]);
       }
-      return 0;
+      return year + sub;
     }
     Array.from(pubSection.querySelectorAll('.publication'))
       .sort((a, b) => dateKey(b) - dateKey(a))
