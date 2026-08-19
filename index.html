@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108048997-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-108048997-1');
+  </script>
+
+  <title>Amir Bar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+/* ===== Design Tokens ===== */
+:root {
+  --navy:        #003E74; /* Imperial Blue */
+  --navy-deep:   #002147;
+  --navy-soft:   #006EAF;
+  --gold:        #003E74; /* Imperial Blue accent */
+  --gold-light:  #006EAF;
+  --ink:         #20313f; /* body text */
+  --muted:       #5e7186;
+  --line:        #dde3e6;
+  --bg:          #ffffff;
+  --card:        #ffffff;
+  --hero-text:   #20313f;
+  --hero-link:   #003E74;
+  --serif: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --sans:  "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* ===== General Body Styling ===== */
+body {
+  font-family: var(--sans);
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+  color: var(--ink);
+  background-color: var(--bg);
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--navy);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--gold);
+}
+
+/* ===== Imperial Blue Hero ===== */
+.hero {
+  background: #ffffff;
+  color: var(--ink);
+  padding: 56px 20px 44px;
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-inner {
+  max-width: 800px;
+  margin: auto;
+}
+
+.hero h1 {
+  color: var(--navy-deep);
+  letter-spacing: -0.02em;
+  margin: 0 0 6px;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 2.8rem;
+}
+
+.hero .profile-text {
+  color: var(--hero-text);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.hero .profile-text p {
+  margin: 7px 0;
+}
+
+.hero a {
+  color: var(--hero-link);
+}
+
+.hero a:hover {
+  color: var(--gold-light);
+}
+
+.hero .social-links {
+  margin-top: 22px;
+}
+
+.hero .social-links a {
+  color: var(--navy);
+  border: 1px solid var(--line);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.hero .social-links a:hover {
+  color: var(--navy-deep);
+  background-color: #D4EFFC;
+  border-color: #D4EFFC;
+}
+
+/* Layout Container */
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Profile Section Styling */
+.profile-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  /* margin-bottom: 40px; */
+}
+
+.profile-text {
+  flex: 1 1 60%;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.profile-text p:first-child { margin-top: 0; }
+.profile-text p:last-child { margin-bottom: 0; }
+
+h1 {
+  font-family: var(--serif);
+  font-weight: 600;
+  text-align: center;
+}
+
+.profile-text h1 {
+  font-size: 2rem;
+  /* margin-bottom: 10px; */
+}
+
+.profile-text p {
+  margin: 10px 0;
+}
+
+.profile-image {
+  flex: 1 1 30%;
+  text-align: center;
+}
+
+.profile-image img {
+  display: block;
+  margin: 0 auto;
+  max-width: 230px;
+  padding: 4px;
+  background-color: #fff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  box-shadow: 0 4px 14px rgba(0, 33, 71, 0.10);
+}
+
+/* Social Links */
+.social-links {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.social-links a {
+  margin: 0 10px;
+}
+
+/* Section Styling */
+.section {
+  margin-bottom: 40px;
+}
+
+.section-heading {
+  font-family: var(--serif);
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: var(--navy);
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+
+.section-heading::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 52px;
+  height: 3px;
+  background-color: var(--gold);
+}
+
+/* List Styling */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Publications Section */
+.publication {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  background-color: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 18px;
+  box-shadow: 0 1px 3px rgba(20, 40, 70, 0.05);
+  overflow: hidden; /* Ensures child elements stay within the border */
+}
+
+.publication-details strong {
+  font-family: var(--serif);
+  font-weight: 600;
+}
+
+.publication-details a strong {
+  color: var(--navy);
+}
+
+.publication-media {
+  flex: 1 1 35%; /* Allocates 35% of the space for media */
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 1; /* Ensures a square layout */
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.publication-media img,
+.publication-media video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensures the image or video fills the container */
+  transition: opacity 0.3s ease-in-out;
+}
+
+.publication-media .one {
+  opacity: 1; /* Show the "before" image by default */
+  z-index: 1; /* Ensure it is on top */
+}
+
+.publication-media .two {
+  opacity: 0; /* Hide the "after" image by default */
+  z-index: 2; /* Stack it above the "before" image */
+}
+
+.publication-media:hover .one {
+  opacity: 0; /* Hide the "before" image on hover */
+}
+
+.publication-media:hover .two {
+  opacity: 1; /* Show the "after" image on hover */
+}
+
+
+.publication-details {
+  flex: 1 1 60%;
+}
+
+.publication-details p {
+  margin: 10px 0;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .profile-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* .profile-text {
+    text-align: center;
+  } */
+
+  .publication {
+    flex-direction: column;
+  }
+
+  .publication-media {
+    flex: 1 1 100%;
+  }
+
+  .publication-details {
+    flex: 1 1 100%;
+  }
+}
+
+.news-section {
+  margin-bottom: 40px;
+}
+
+.news-list {
+  list-style-type: disc;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.news-list li {
+  /* margin-bottom: 10px; */
+  line-height: 1.6;
+}
+
+.news-list a {
+  color: #003E74;
+  text-decoration: none;
+}
+
+.news-list a:hover {
+  color: #006EAF;
+}
+.researchers-section {
+  margin-bottom: 40px;
+}
+
+.researchers-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.researchers-list li {
+  margin-bottom: 10px;
+}
+
+.researchers-list a {
+  color: #003E74;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.researchers-list a:hover {
+  color: #006EAF;
+}
+.researchers-section {
+  margin-bottom: 40px;
+  padding: 24px;
+  background-color: #eef3f9;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--gold);
+  border-radius: 12px;
+}
+/* Talks Section */
+.talks-section {
+  margin-bottom: 40px;
+}
+
+.talks-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.talks-list li {
+  margin-bottom: 6px;
+  line-height: 1.6;
+}
+
+/* Patents Section */
+.patents-section {
+  margin-bottom: 40px;
+}
+
+/* (Patents heading inherits the unified .section-heading style above) */
+
+.patents-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.patents-list li {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.publication {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.publication:hover {
+  transform: translateY(-3px); /* Gentle lift on hover */
+  border-color: var(--gold-light);
+  box-shadow: 0 10px 24px rgba(0, 33, 71, 0.10); /* Imperial blue depth on hover */
+}
+
+/* Publications filter toggle */
+.pub-toggle {
+  display: inline-flex;
+  gap: 4px;
+  background-color: #e9eef5;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px;
+  margin-bottom: 26px;
+}
+
+.pub-toggle-btn {
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--navy);
+  background: transparent;
+  border: none;
+  border-radius: 999px;
+  padding: 7px 22px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.pub-toggle-btn:hover { color: var(--gold); }
+
+.pub-toggle-btn.is-active { background-color: var(--navy); color: #fff; }
+
+.pub-toggle-btn.is-active:hover { color: #fff; }
+
+/* Selected-only filtering. JS marks chosen papers with .selected and toggles
+   body.filter-selected; with JS off, all publications remain visible. */
+body.filter-selected #publications .publication:not(.selected) {
+  display: none;
+}
+
+/* Award / venue distinction badges */
+.badge {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.publication-details em {
+  color: var(--muted);
+}
+
+.coming-soon .coming-soon-badge {
+  display: inline-block;
+  background-color: #006EAF;
+  color: white;
+  padding: 2px 8px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border-radius: 12px;
+  margin-top: 5px;
+}
+.coming-soon img {
+  opacity: 0.5; /* Optional: Make the placeholder image look subdued */
+}
+
+
+  </style>
+</head>
+
+<body>
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-inner">
+      <h1>Amir Bar</h1>
+
+      <div class="profile-section">
+        <div class="profile-image">
+          <img src="images/DSC06400_2.png" alt="Amir Bar">
+        </div>
+
+        <div class="profile-text">
+          <!-- <h2>Shalom!</h2> -->
+          <p>
+            I am an Assistant Professor at <a href="https://www.imperial.ac.uk/">Imperial College London</a> and a Founding Member of Technical Staff at <a href="https://amilabs.xyz/">AMI Labs</a>. My goal is to teach computers to <b>perceive, reason, and act</b> in the world from visual data, using little to no supervision.</p>
+          <p>
+            Previously, I was an RS and a Postdoc at Meta (FAIR), working with <a href="http://yann.lecun.com/">Yann LeCun</a>, and prior to this a <i>Ph.D. candidate</i> at Tel Aviv University and <a href="https://bair.berkeley.edu/">UC Berkeley</a>, advised by <a href="https://cs3801.wixsite.com/amirgloberson">Amir Globerson</a> and <a href="https://people.eecs.berkeley.edu/~trevor/">Trevor Darrell</a>.
+            <!-- Before my PhD, I've pioneered AI for medical imaging as an <i>AI Research Lead</i> at <a href="https://www.zebra-med.com/">Zebra Medical Vision</a> (acquired). My research team developed multiple FDA cleared algorithms for automatic analysis of medical images (e.g, [<a href="https://www.businesswire.com/news/home/20200518005487/en/Zebra-Medical-Vision-Secures-5th-FDA-Clearance">1</a>, <a href="https://www.radiologybusiness.com/topics/artificial-intelligence/ai-triage-brain-bleeds-gains-fda-clearance">2</a>]). -->
+          </p>
+          <p><b>Prospective PhD students:</b> <a href="prospective.html">start here</a>.
+          </p>
+        </div>
+      </div>
+
+      <!-- Social Links -->
+      <div class="social-links">
+        <a href="mailto:amirb4r@gmail.com">Email</a>
+        <a href="https://twitter.com/_amirbar">Twitter</a>
+        <a href="https://github.com/amirbar">GitHub</a>
+        <a href="https://scholar.google.co.il/citations?user=L__n1LUAAAAJ&hl=en">Google Scholar</a>
+        <a href="https://www.linkedin.com/in/amirbar/">LinkedIn</a>
+        <a href="Amir_Bar_CV.pdf">CV</a>
+        <a href="bio.txt">Bio</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="section news-section">
+        <h2 class="section-heading">News</h2>
+        <ul class="news-list">
+           <li>
+            <a href="https://arxiv.org/abs/2602.03604"><i>EB-JEPA</i></a> received the Outstanding Paper Award at the ICLR 2026 World Models Workshop.
+           </li>
+           <li>
+            <a href="nwm"><i>Navigation World Models</i></a> won the Best Paper Honorable Mention at CVPR 2025.
+           </li>
+           <li>
+            I was a guest on the <a href="https://x.com/RoboPapers/status/1936424617922728270/" target="_blank">RoboPapers</a> podcast where I talked about Navigation World Models.
+          </li>
+           <li>
+            I was a guest on the <a href="https://twimlai.com/podcast/twimlai/decoding-animal-behavior-to-train-robots-with-egopet/" target="_blank">TWIML AI podcast</a> where I talked about my recent research.
+          </li>
+        </ul>
+      </div>
+
+    <div class="section talks-section">
+        <h2 class="section-heading">Upcoming Talks</h2>
+        <ul class="talks-list">
+            <li><a href="https://eccv26woop.github.io/" target="_blank">WOOP Workshop</a>, ECCV, September 2026</li>
+            <li><a href="https://www.votchallenge.net/vots2026/" target="_blank">VOTS Workshop</a>, ECCV, September 2026</li>
+            <li><a href="https://eccv2026-found-workshop.limitlab.xyz/" target="_blank">FOUND Workshop</a>, ECCV, September 2026</li>
+            <li><a href="https://lsvos.github.io/" target="_blank">LSVOS Workshop</a>, ECCV, September 2026</li>
+            <li><a href="https://socialnav2026.pages.dev/" target="_blank">Social Robot Navigation Workshop</a>, IROS, September 2026</li>
+            <li><a href="https://www.bmva.org/meetings/26-11-18-WorldModels.html" target="_blank">BMVA Symposium on World Models</a>, November 2026</li>
+            <li>University of Bristol, November 2026</li>
+        </ul>
+    </div>
+
+    <!-- Publications Section -->
+    <section class="section" id="publications">
+      <div class="section-heading">Publications</div>
+      <div class="pub-toggle" role="group" aria-label="Filter publications">
+        <button type="button" class="pub-toggle-btn is-active" data-pub-mode="selected">Selected</button>
+        <button type="button" class="pub-toggle-btn" data-pub-mode="all">All</button>
+      </div>
+
+      <div class="publication">
+          <div class="publication-media">
+              <img src="images/gt_actions.gif"/>
+          </div>
+        <div class="publication-details">
+          <p>
+            <a href="https://arxiv.org/abs/2604.26182"><strong>Lifting Embodied World Models for Planning and Control</strong></a><br>
+            Alex N. Wang, Trevor Darrell, Pavel Izmailov, Yutong Bai, <strong>Amir Bar</strong><br>
+            <em>ECCV</em>, 2026<br>
+          </p>
+          <p>A lightweight policy lifts high-level waypoint commands into low-level joint actions, enabling efficient planning and control in embodied world models.</p>
+        </div>
+      </div>
+
+      <div class="publication">
+          <div class="publication-media">
+              <img src="images/vjepa.jpg"/>
+          </div>
+        <div class="publication-details">
+          <p>
+            <a href="https://arxiv.org/abs/2603.14482"><strong>V-JEPA 2.1: Unlocking Dense Features in Video Self-Supervised Learning</strong></a><br>
+            Lorenzo Mur-Labadia, Matthew Muckley, <strong>Amir Bar</strong>, Mido Assran, Koustuv Sinha, Mike Rabbat, Yann LeCun, Nicolas Ballas, Adrien Bardes<br>
+            <em>ECCV</em>, 2026<br>
+          </p>
+          <p>A dense predictive loss with hierarchical supervision and unified image-video training yields state-of-the-art video self-supervised representations.</p>
+        </div>
+      </div>
+
+      <div class="publication">
+          <div class="publication-media">
+              <img src="images/dexwm.png" alt="DexWM" />
+          </div>
+        <div class="publication-details">
+          <p>
+            <a href="https://arxiv.org/pdf/2512.13644"><strong>World Models Can Leverage Human Videos for Dexterous Manipulation</strong></a><br>
+            Raktim Goswami, <strong>Amir Bar</strong>, David Fan, Tsung-Yen Yang, Gaoyue Zhou, Prashanth Krishnamurthy, Michael Rabbat, Farshad Khorrami, Yann LeCun<br>
+            <em>ECCV</em>, 2026<br>
+            <a href="https://raktimgg.github.io/dexwm/">Project Page</a>
+          </p>
+          <p>World models trained on human videos enable dexterous robot manipulation.</p>
+        </div>
+      </div>
+            <div class="publication">
+        <div class="publication-media">
+            <img src="images/grasp.gif"/>
+        </div>
+        <div class="publication-details">
+          <p>
+            <a href="https://arxiv.org/abs/2602.00475"><strong>Parallel Stochastic Gradient-Based Planning for World Models</strong></a><br>
+            Michael Psenka, Michael Rabbat, Aditi Krishnapriyan, Yann LeCun, <strong>Amir Bar</strong><br>
+            <em>ICML</em>, 2026<br>
+          </p>
+          <p>GRASP, a parallelizable gradient-based planner that exploits world-model differentiability with stochastic exploration for long-horizon visual control.</p>
+        </div>
+      </div>
+            <div class="publication">
+          <div class="publication-media">
+              <img src="images/ebjepa.svg" alt="EB-JEPA"/>
+          </div>
+        <div class="publication-details">
+          <p>
+            <a href="https://arxiv.org/abs/2602.03604"><strong>A Lightweight Library for Energy-Based Joint-Embedding Predictive Architectures</strong></a><br>
+            Basile Terver, Randall Balestriero, Megi Dervishi, David Fan, Quentin Garrido, Tushar Nagarajan, Koustuv Sinha, Wancong Zhang, Mike Rabbat, Yann LeCun*, <strong>Amir Bar*</strong><br>
+            <em>ICLR World Models Workshop</em>, 2026 <span class="badge">[<i>Outstanding Paper Award</i>]</span><br>
+            <a href="https://github.com/facebookresearch/eb_jepa">Code</a>
+          </p>
+          <p>An open-source library for learning world models in representation space — runnable on a single GPU.</p>
+        </div>
+      </div>
+      <div class="publication">
+        <div class="publication-media">
+            <video width="100%" muted="" autoplay="" loop=""><source src="https://jaynye.github.io/images/genmimic-pick-book-combined.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="publication-details">
+          <p>
+            <a href="https://arxiv.org/abs/2512.05094"><strong>From Generated Human Videos to Physically Plausible Robot Trajectories</strong></a><br>
+            James Ni*, Zekai Wang*, Wei Lin*, <strong>Amir Bar*</strong>, Trevor Darrell<sup>&dagger;</sup>, Yann LeCun<sup>&dagger;</sup>, Jitendra Malik<sup>&dagger;</sup>, Roei Herzig<sup>&dagger;</sup><br>
+            <em>CVPR</em>, 2026 <span style="color:blue">[<i>Findings</i>]<br>
+            <a href="https://genmimic.github.io/">Project Page</a>
+          </p>
+          <p>Generating human videos to control humanoid motion.</p>
+        </div>
+      </div>
+
+        <div class="publication">
+        <div class="publication-media">
+            <img src="images/tv2tv.jpeg"/>
+        </div>
+        <div class="publication-details">
+          <p>
+            <a href="https://arxiv.org/abs/2512.05103"><strong>TV2TV: A Unified Framework for Interleaved Language and Video Generation</strong></a><br>
+            Xiaochuang Han, Youssef Emad, Melissa Hall, John Nguyen, Karthik Padthe, Liam Robbins, <strong>Amir Bar</strong>, Delong Chen, Michal Drozdzal, Maha Elbayad, Yushi Hu, Shang-Wen Li, Sreya Dutta Roy, Jakob Verbeek, XuDong Wang, Marjan Ghazvininejad, Luke Zettlemoyer, Emily Dinan<br>
+            <em>CVPR</em>, 2026<br>
+          </p>
+          <p>A unified framework for interleaved text and video generation. This allows the model to "think in words" before "acting in pixels".</p>
+        </div>
+      </div>
+      <div class="publication">
+        <div class="publication-media">
+            <img src="images/openapps.png"/>
+        </div>
+        <div class="publication-details">
+          <p>
+            <a href="https://arxiv.org/abs/2511.20766"><strong>OpenApps: Simulating Environment Variations to Measure UI-Agent Reliability</strong></a><br>
+            Karen Ullrich, Jingtong Su, Claudia Shi, Arjun Subramonian, <strong>Amir Bar</strong>, Ivan Evtimov, Nikolaos Tsilivis, Randall Balestriero, Julia Kempe, Mark Ibrahim<br>
+            <em>ICLR</em>, 2026 <span class="badge">[<i>Oral</i>]</span><br>
+            <a href="https://facebookresearch.github.io/OpenApps/">Project Page</a>
+          </p>
+          <p>A benchmark for webagents, measuring reliability across environment variations.</p>
+        </div>
+      </div>
+      <div class="publication">
+        <div class="publication-media">
+            <video width="100%" muted="" autoplay="" loop=""><source src="images/PEVA_cover_video.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="publication-details">
+          <p>
+            <a href="https://arxiv.org/abs/2506.21552"><strong>Whole-Body Conditioned Egocentric Video Prediction</strong></a><br>
+            Yutong Bai*, Danny Tran*, <strong>Amir Bar*,</strong> Yann LeCun<sup>&dagger;</sup> , Trevor Darrell<sup>&dagger;</sup>, Jitendra Malik<sup>&dagger;</sup> <br>
+            <em>NeurIPS</em>, 2025<br>
+            <a href="https://dannytran123.github.io/PEVA/">Project Page</a>
+          </p>
+          <p>A world model for whole-body control.</p>
+        </div>
+      </div>
+      <div class="publication">
+        <div class="publication-media">
+            <img src="images/pixels_vs_priors.png"/>
+        </div>
+        <div class="publication-details">
+          <p>
+            <a href="https://arxiv.org/abs/2505.17127"><strong>Pixels Versus Priors: Controlling Knowledge Priors in Vision-Language Models through Visual Counterfacts            </strong></a><br>
+            Michal Golovanevsky*, William Rudman*, Michael Lepori, <strong>Amir Bar</strong>, Ritambhara Singh, Carsten Eickhoff <br>
+            <em>EMNLP</em>, 2025<br>
+            <a href="https://github.com/rsinghlab/pixels_vs_priors">Code</a> | <a href="https://huggingface.co/datasets/mgolov/Visual-Counterfact">Data</a>
+          </p>
+          <p></p>
+        </div>
+      </div>
+
+      <div class="publication">
+        <div class="publication-media">
+            <img src="images/WebSSL.png"/>
+        </div>
+        <div class="publication-details">
+          <p>
+            <a href="https://arxiv.org/abs/2504.01017"><strong>Scaling Language-Free Visual Representation Learning</strong></a><br>
+            David Fan*, Shengbang Tong*, Jiachen Zhu, Koustuv Sinha, Zhuang Liu, Xinlei Chen, Michael Rabbat, Nicolas Ballas, Yann LeCun, <strong>Amir Bar</strong><sup>&dagger;</sup>, Saining Xie<sup>&dagger;</sup> <br>
+            <em>ICCV</em>, 2025 <span class="badge">[<i>Highlight</i>]</span><br>
+            <a href="https://davidfan.io/webssl/">Project Page</a> | <a href="https://github.com/facebookresearch/webssl/">Code</a> | <a href="https://huggingface.co/collections/facebook/web-ssl-68094132c15fbd7808d1e9bb">Model Weights</a>
+          </p>
+          <p>Vision-only models scale with model and data size, catching up with CLIP models without language supervision.</p>
+        </div>
+      </div>
+
+      <div class="publication">
+        <div class="publication-media">
+            <img src="images/fpolygons.png"/>
+        </div>
+        <div class="publication-details">
+          <p>
+            <a href="https://arxiv.org/abs/2502.15969"><strong>Forgotten Polygons: Multimodal Large Language Models are Shape-Blind
+</strong></a><br>
+William Rudman*, Michal Golovanevsky*, <strong>Amir Bar</strong>, Vedant Palit, Yann LeCun, Carsten Eickhoff, Ritambhara Singh
+<br>
+            <em>ACL</em>, 2025<br>
+            <a href="https://github.com/rsinghlab/Shape-Blind/">Code</a>
+          </p>
+          <p>MLLMs struggle with understanding geometic primitives.</p>
+        </div>
+      </div>
+
+      <div class="publication">
+        <div class="publication-media">
+            <img src="images/before_cmtask.png" class="one" alt="Before Image" />
+            <img src="images/after_cmtask.png" class="two" alt="After Image" />
+        </div>
+        <div class="publication-details">
+          <p>
+            <a href="https://arxiv.org/abs/2410.22330"><strong>Vision-Language Models Create Cross-Modal Task Representations</strong></a><br>
+            Grace Luo, Trevor Darrell, <strong>Amir Bar</strong><br>
+            <em>ICML</em>, 2025<br>
+            <a href="https://vlm-cross-modal-reps.github.io/">Project Page</a> | <a href="https://github.com/g-luo/vlm_cross_modal_reps/">Code</a>
+          </p>
+          <p>Vision-Language Models (VLMs) answer questions by mapping inputs to shared cross-modal task representations, an important inductive bias that helps explain VLM's success.</p>
+        </div>
+      </div>
+      <!-- Example Publication -->
+      <div class="publication highlighted">
+        <div class="publication-media">
+            <img src="images/before_nwm.png" class="one" alt="Before Image" />
+            <video autoplay muted loop id="nwm" class="two">
+                <source src="images/after_nwm.mp4">
+            </video>
+        </div>
+        <div class="publication-details">
+          <p>
+            <a href="https://arxiv.org/abs/2412.03572"><strong>Navigation World Models</strong></a><br>
+            <strong>Amir Bar</strong>, Gaoyue Zhou, Danny Tran, Trevor Darrell, Yann LeCun<br>
+            <em>CVPR</em>, 2025 <span class="badge"> [<i>Best Paper Honorable Mention</i>]</span><br>
+            <a href="https://www.amirbar.net/nwm/">Project Page</a> | <a href="https://github.com/facebookresearch/nwm/">Code</a> | <a href="https://huggingface.co/facebook/nwm/">Models</a>
+          </p>
+          <p>Planning trajectories by simulating them using a video world model. Our conditional diffusion transformer (CDiT) generates videos that enable planning, counterfactual reasoning, and action.</p>
+        </div>
+      </div>
+
+
+
+      <!-- Publication: EgoPet -->
+      <div class="publication">
+        <div class="publication-media">
+            <video muted loop preload="metadata">
+              <source src="images/egopet.mov" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        <div class="publication-details">
+          <p>
+            <a href="https://arxiv.org/abs/2404.09991"><strong>EgoPet: Egomotion and Interaction Data from an Animal's Perspective</strong></a><br>
+            <strong>Amir Bar</strong>, Arya Bakhtiar, Danny Tran, Antonio Loquercio, Jathushan Rajasegaran, Yann LeCun, Amir Globerson, Trevor Darrell<br>
+            <em>ECCV</em>, 2024<br>
+            <a href="https://www.amirbar.net/egopet/">Project Page</a> | <a href="https://huggingface.co/datasets/amirbar1/egopet/">Data</a> | <a href="https://github.com/dannyTran123/egopet/">Code</a>
+          </p>
+          <p>We present EgoPet, a new egocentric video dataset of animals.</p>
+        </div>
+      </div>
+
+      <!-- Publication: Finding Visual Task Vectors -->
+      <div class="publication">
+          <div class="publication-media">
+              <img src="images/vp_before.png" class="one" alt="Before Image" />
+              <img src="images/vp.png" class="two" alt="After Image" />
+          </div>
+        <div class="publication-details">
+          <p>
+            <a href="https://arxiv.org/abs/2404.05729"><strong>Finding Visual Task Vectors</strong></a><br>
+            Alberto Hojel, Yutong Bai, Trevor Darrell, Amir Globerson, <strong>Amir Bar</strong><br>
+            <em>ECCV</em>, 2024<br>
+            <a href="https://github.com/alhojel/visual_task_vectors">Code</a>
+          </p>
+          <p>We discover Task Vectors, latent representations in a model's activation space that encode task information. We propose a method to find and use them to guide models for performing tasks.</p>
+        </div>
+      </div>
+
+      <!-- Publication: Stochastic Positional Embeddings -->
+      <div class="publication">
+        <div class="publication-media">
+          <img src="images/stop_before.png" class="one" alt="Before Image" />
+          <img src="images/stop_after.png" class="two" alt="After Image" />
+        </div>
+        <div class="publication-details">
+          <p>
+            <a href="https://arxiv.org/abs/2308.00566"><strong>Stochastic Positional Embeddings Improve Masked Image Modeling</strong></a><br>
+            <strong>Amir Bar</strong>, Florian Bordes, Assaf Shocher, Mahmoud Assran, Pascal Vincent, Nicolas Ballas, Trevor Darrell, Amir Globerson, Yann LeCun<br>
+            <em>ICML</em>, 2024<br>
+            <a href="https://github.com/amirbar/StoP">Code</a>
+          </p>
+          <p>Modeling location uncertainties via stochastic positional embeddings (StoP) improves masked image modeling.</p>
+        </div>
+      </div>
+
+      <!-- Publication: IMProv -->
+      <div class="publication">
+        <div class="publication-media">
+            <img src="images/improv_before.png" class="one" alt="Before Image" />
+            <img src="images/improv_after.png" class="two" alt="After Image" />
+        </div>
+        <div class="publication-details">
+          <p>
+            <a href="https://arxiv.org/abs/2312.01771"><strong>IMProv: Inpainting-based Multimodal Prompting for Computer Vision Tasks</strong></a><br>
+            Jiarui Xu, Yossi Gandelsman, <strong>Amir Bar</strong>, Jianwei Yang, Jianfeng Gao, Trevor Darrell, Xiaolong Wang<br>
+            <em>TMLR</em>, 2024<br>
+            <a href="https://jerryxu.net/IMProv">Project Page</a> | <a href="https://github.com/xvjiarui/IMProv">Code/Data</a> | <a href="https://colab.research.google.com/drive/1mJlZutYhVcwW9AMFcuEZ-d2SvuLnXLIh?usp=sharing">Demo</a>
+          </p>
+          <p>IMProv performs multimodal in-context learning to solve computer vision tasks.</p>
+        </div>
+      </div>
+
+      <!-- Publication: Sequential Modeling Enables Scalable Learning -->
+<div class="publication">
+    <div class="publication-media">
+      <img src="images/lvm_after.png" alt="LVM">
+    </div>
+    <div class="publication-details">
+      <p>
+        <a href="https://arxiv.org/abs/2312.00785"><strong>Sequential Modeling Enables Scalable Learning for Large Vision Models</strong></a><br>
+        Yutong Bai, Xinyang Geng, Karttikeya Mangalam, <strong>Amir Bar</strong>, Alan Yuille, Trevor Darrell, Jitendra Malik, Alexei A Efros<br>
+        <em>CVPR</em>, 2024<br>
+        <a href="https://yutongbai.com/lvm.html">Project Page</a> | <a href="https://github.com/ytongbai/LVM">Code</a>
+      </p>
+      <p>Large Vision Model trained on 420B tokens; exhibits interesting in-context learning capabilities.</p>
+    </div>
+  </div>
+
+  <!-- Publication: Visual Prompting via Image Inpainting -->
+  <div class="publication">
+    <div class="publication-media">
+        <img src="images/vp_before.png" class="one" alt="Before Image" />
+        <img src="images/vp_after.png" class="two" alt="After Image" />
+    </div>
+    <div class="publication-details">
+      <p>
+        <a href="https://arxiv.org/abs/2209.00647"><strong>Visual Prompting via Image Inpainting</strong></a><br>
+        <strong>Amir Bar</strong>*, Yossi Gandelsman*, Trevor Darrell, Amir Globerson, Alexei A. Efros<br>
+        <em>NeurIPS</em>, 2022<br>
+        <a href="https://yossigandelsman.github.io/visual_prompt/">Project Page</a> | <a href="https://github.com/amirbar/visual_prompting">Code/Data</a>
+      </p>
+      <p>Adapt a pre-trained visual model to novel downstream tasks without task-specific fine-tuning or any model modification.</p>
+    </div>
+  </div>
+
+  <!-- Publication: Bringing Image Scene Structure to Video -->
+  <div class="publication">
+    <div class="publication-media">
+        <img src="images/svit.png" alt="SViT Image" />
+    </div>
+          <div class="publication-details">
+      <p>
+        <a href="https://arxiv.org/abs/2206.06346"><strong>Bringing Image Scene Structure to Video via Frame-Clip Consistency of Object Tokens</strong></a><br>
+        Elad Ben-Avraham, Roei Herzig, Karttikeya Mangalam, <strong>Amir Bar</strong>, Anna Rohrbach, Leonid Karlinsky, Trevor Darrell, Amir Globerson<br>
+        <em>NeurIPS</em>, 2022<br>
+        <a href="https://eladb3.github.io/SViT/">Project Page</a> | <a href="https://github.com/eladb3/SViT">Code</a>
+      </p>
+      <p>Incorporating image-level scene structure during training improves video transformers.</p>
+    </div>
+  </div>
+
+  <!-- Publication: Object-Region Video Transformers -->
+  <div class="publication">
+    <div class="publication-media">
+        <img src="images/ORViT.gif" alt="ORViT Animation" />
+      </div>
+    <div class="publication-details">
+      <p>
+        <a href="https://arxiv.org/abs/2110.06915"><strong>Object-Region Video Transformers</strong></a><br>
+        Roei Herzig, Elad Ben-Avraham, Karttikeya Mangalam, <strong>Amir Bar</strong>, Gal Chechik, Anna Rohrbach, Trevor Darrell, Amir Globerson<br>
+        <em>CVPR</em>, 2022<br>
+        <a href="https://roeiherz.github.io/ORViT/">Project Page</a> | <a href="https://github.com/roeiherz/ORViT">Code</a>
+      </p>
+      <p>Incorporating objects into transformer layers improves video transformers.</p>
+    </div>
+  </div>
+
+  <!-- Publication: DETReg -->
+  <div class="publication">
+    <div class="publication-media">
+        <img src="images/detreg_before.png" class="one" alt="Before Image" />
+        <img src="images/detreg_after.png" class="two" alt="After Image" />
+      </div>
+          <div class="publication-details">
+      <p>
+        <a href="https://arxiv.org/abs/2106.04550"><strong>DETReg: Unsupervised Pretraining with Region Priors for Object Detection</strong></a><br>
+        <strong>Amir Bar</strong>, Xin Wang, Vadim Kantorov, Colorado J Reed, Roei Herzig, Gal Chechik, Anna Rohrbach, Trevor Darrell, Amir Globerson<br>
+        <em>CVPR</em>, 2022<br>
+        <a href="https://www.amirbar.net/detreg/">Project Page</a> | <a href="https://github.com/amirbar/detreg">Code</a> | <a href="https://youtu.be/1rxz_SWB7gQ?t=443">Video</a> | <a href="https://colab.research.google.com/drive/1ByFXJClyzNVelS7YdT53_bMbwYeMoeNb?usp=sharing">Demo</a>
+      </p>
+      <p>Pretraining transformers to localize potential objects improves object detection.</p>
+    </div>
+  </div>
+
+  <!-- Publication: Compositional Video Synthesis with Action Graphs -->
+  <div class="publication">
+    <div class="publication-media">
+        <img src="images/ag2vid_task.gif" alt="Action Graphs Animation" />
+      </div>
+    <div class="publication-details">
+      <p>
+        <a href="https://arxiv.org/abs/2006.15327"><strong>Compositional Video Synthesis with Action Graphs</strong></a><br>
+        <strong>Amir Bar</strong>*, Roei Herzig*, Xiaolong Wang, Anna Rohrbach, Gal Chechik, Trevor Darrell, Amir Globerson<br>
+        <em>ICML</em>, 2021<br>
+        <a href="https://roeiherz.github.io/AG2Video/">Project Page</a> | <a href="https://github.com/roeiherz/AG2Video">Code</a> | <a href="https://www.youtube.com/watch?v=9HOFC4ffOuY&feature=youtu.be&t=8660">Video</a>
+      </p>
+      <p>We introduce Action Graphs, a structure that can better capture the compositional and hierarchical nature of actions.</p>
+    </div>
+  </div>
+
+  <!-- Publication: Learning Canonical Representations for Scene Graphs -->
+  <div class="publication">
+    <div class="publication-media">
+        <img src="images/canonical_baseline.png" class="one" alt="Before Image" />
+        <img src="images/canonical_ours.png" class="two" alt="After Image" />
+      </div>
+          <div class="publication-details">
+      <p>
+        <a href="https://arxiv.org/abs/1912.07414"><strong>Learning Canonical Representations for Scene Graph to Image Generation</strong></a><br>
+        Roei Herzig*, <strong>Amir Bar</strong>*, Huijuan Xu, Gal Chechik, Trevor Darrell, Amir Globerson<br>
+        <em>ECCV</em>, 2020<br>
+        <a href="https://roeiherz.github.io/CanonicalSg2Im/">Project Page</a> | <a href="https://github.com/roeiherz/CanonicalSg2Im">Code</a> | <a href="https://youtu.be/9HOFC4ffOuY?t=8543">Video</a>
+      </p>
+      <p>We present a model for Scene Graph to Image generation which is more robust to complex input scene graphs.</p>
+    </div>
+  </div>
+
+  <!-- Publication: Learning Individual Styles of Conversational Gesture -->
+  <div class="publication">
+    <div class="publication-media">
+        <img src="images/gestures_CVPR_2019_demo.gif" alt="Gestures Animation" />
+    </div>
+          <div class="publication-details">
+      <p>
+        <a href="https://arxiv.org/abs/1906.04160"><strong>Learning Individual Styles of Conversational Gesture</strong></a><br>
+        Shiry Ginosar*, <strong>Amir Bar</strong>*, Gefen Kohavi, Caroline Chan, Andrew Owens, Jitendra Malik<br>
+        <em>CVPR</em>, 2019<br>
+        <a href="https://people.eecs.berkeley.edu/~shiry/projects/speech2gesture/index.html">Project Page</a> | <a href="https://github.com/amirbar/speech2gesture">Code</a> | <a href="https://drive.google.com/drive/folders/1qvvnfGwas8DUBrwD4DoBnvj8anjSLldZ?usp=sharing">Data</a>
+      </p>
+      <p>We predict plausible gestures to go along with someone's speech.</p>
+    </div>
+  </div>
+
+  <!-- Publication: Language Generation with RNNs -->
+  <div class="publication">
+    <div class="publication-media">
+        <code>
+          <h4>Sample:</h4>
+          The man allowed that about health captain played that alleged to Marks live up in the club comes the handed up moved to a brief
+        </code>
+      </div>
+          <div class="publication-details">
+      <p>
+        <a href="https://arxiv.org/abs/1706.01399"><strong>Language Generation with Recurrent Generative Adversarial Networks without Pre-training</strong></a><br>
+        Ofir Press*, <strong>Amir Bar</strong>*, Ben Bogin*, Jonathan Berant, Lior Wolf<br>
+        <em>1st Workshop on Learning to Generate Natural Language at ICML</em>, 2017<br>
+        <a href="https://github.com/amirbar/rnn.wgan">Code</a>
+      </p>
+      <p>We show that recurrent neural networks can be trained to generate text with GANs from scratch and vastly improve the quality of generated sequences compared to a convolutional baseline.</p>
+    </div>
+  </div>
+
+
+        <!-- Medical Paper 1 (merged into Publications; sorted by date via JS) -->
+        <div class="publication">
+          <div class="publication-media">
+            <img src="images/cf_before.png" class="one" alt="Before Image">
+            <img src="images/cf_after.png" class="two" alt="After Image">
+          </div>
+          <div class="publication-details">
+            <p>
+              <a href="https://arxiv.org/abs/2010.03739"><strong>3D Convolutional Sequence to Sequence Model for Vertebral Compression Fractures Identification in CT</strong></a><br>
+              David Chettrit, Tomer Meir, Hila Lebel, Mila Orlovsky, Ronen Gordon, Ayelet Akselrod-Ballin, <strong>Amir Bar</strong><br>
+              <em>MICCAI</em>, 2020<br>
+              Press: <a href="https://nocamels.com/2020/05/fda-zebra-medical-compression-fractures/">1</a>, <a href="https://www.businesswire.com/news/home/20200518005487/en/Zebra-Medical-Vision-Secures-5th-FDA-Clearance">2</a>
+            </p>
+            <p>We present a novel architecture used to detect vertebral compression fractures in Chest and Abdomen CT.</p>
+          </div>
+        </div>
+
+        <!-- Medical Paper 2 -->
+        <div class="publication" data-date="1912">
+          <div class="publication-media">
+            <img src="images/nature.png" alt="Nature Paper Image">
+          </div>
+          <div class="publication-details">
+            <p>
+              <a href="https://www.nature.com/articles/s41591-019-0720-z"><strong>Automated Opportunistic Osteoporotic Fracture Risk Assessment Using Computed Tomography Scans to Aid in FRAX Underutilization</strong></a><br>
+              Noa Dagan, Eldad Elnekave, Noam Barda, Orna Bregman-Amitai, <strong>Amir Bar</strong>, Mila Orlovsky, Eitan Bachmat, Ran D. Balicer<br>
+              <em>Nature Medicine</em>, 2020<br>
+              Press: <a href="https://www.healthdatamanagement.com/news/algorithm-assess-ct-scans-to-find-patients-at-risk-for-bone-fractures">1</a>, <a href="https://www.prnewswire.com/il/news-releases/new-study-published-on-nature-medicine-unveils-the-power-of-ai-in-predicting-osteoporotic-fractures-300990287.html">2</a>
+            </p>
+            <p>We demonstrate it is feasible to automatically evaluate risk based on routine abdomen or chest computed tomography (CT) scans.</p>
+          </div>
+        </div>
+
+        <div class="publication">
+            <div class="publication-media">
+              <img src="images/ich.png" alt="ICH Classification">
+            </div>
+            <div class="publication-details">
+              <p>
+                <a href="https://arxiv.org/abs/1907.00148"><strong>Improved ICH Classification Using Task-Dependent Learning</strong></a><br>
+                <strong>Amir Bar</strong>, Michal Mauda-Havakuk, Yoni Turner, Michal Safadi, Eldad Elnekave<br>
+                <em>ISBI</em>, 2019<br>
+                <a href="https://sg.finance.yahoo.com/news/zebra-medical-vision-announces-ce-140400903.html">Press</a>
+              </p>
+              <p>
+                Intracranial hemorrhage (ICH) is among the most critical and time-sensitive findings to be detected on Head CT. We present a new architecture designed for optimal triaging of Head CTs, with the goal of decreasing the time from CT acquisition to accurate ICH detection.
+              </p>
+            </div>
+          </div>
+
+          <!-- Medical Paper: Dual-Energy X-Ray Absorptiometry -->
+          <div class="publication">
+            <div class="publication-media">
+              <img src="images/before_dexa.png" class="one" alt="Before Image">
+              <img src="images/after_dexa.png" class="two" alt="After Image">
+            </div>
+            <div class="publication-details">
+              <p>
+                <a href="https://arxiv.org/pdf/1706.01671"><strong>Simulating Dual-Energy X-Ray Absorptiometry in CT Using Deep-Learning Segmentation Cascade</strong></a><br>
+                Arun Krishnaraj, Spencer Barrett, Orna Bregman-Amitai, Michael Cohen-Sfady, <strong>Amir Bar</strong>, David Chettrit, Mila Orlovsky, Eldad Elnekave<br>
+                <em>Journal of the American College of Radiology</em>, 2019
+              </p>
+              <p>
+                Osteoporosis is an underdiagnosed condition despite effective screening modalities. This study describes a method to simulate lumbar DEXA scores from routine CT studies using a machine-learning algorithm.
+              </p>
+            </div>
+          </div>
+
+          <!-- Medical Paper: PHT-bot -->
+          <div class="publication">
+            <div class="publication-media">
+              <img src="images/pht_before.png" class="one" alt="Before Image">
+              <img src="images/pht_after.png" class="two" alt="After Image">
+            </div>
+            <div class="publication-details">
+              <p>
+                <a href="https://arxiv.org/pdf/1905.11773"><strong>PHT-bot: A Deep Learning-Based System for Automatic Risk Stratification of COPD Patients Based Upon Signs of Pulmonary Hypertension</strong></a><br>
+                David Chettrit, Orna Bregman Amitai, Itamar Tamir, <strong>Amir Bar</strong>, and Eldad Elnekave<br>
+                <em>SPIE</em>, 2019
+              </p>
+              <p>
+                Chronic Obstructive Pulmonary Disease (COPD) is a leading cause of morbidity and mortality worldwide. We applied a deep learning algorithm to detect those at risk.
+              </p>
+            </div>
+          </div>
+
+          <!-- Medical Paper: Compression Fractures Detection -->
+          <div class="publication">
+            <div class="publication-media">
+              <img src="images/cf_before.png" class="one" alt="Before Image">
+              <img src="images/cf_after.png" class="two" alt="After Image">
+            </div>
+            <div class="publication-details">
+              <p>
+                <a href="https://arxiv.org/abs/1706.01671"><strong>Compression Fractures Detection on CT</strong></a><br>
+                <strong>Amir Bar</strong>, Lior Wolf, Orna Bregman Amitai, Eyal Toledano, Eldad Elnekave<br>
+                <em>SPIE</em>, 2017<br>
+                Press: <a href="https://www.businesswire.com/news/home/20170117005827/en/Zebra-Medical-Vision-Announces-New-Algorithm-Detect">1</a>, <a href="https://www.calcalist.co.il/internet/articles/0,7340,L-3705948,00.html">2</a>
+              </p>
+              <p>
+                The presence of a vertebral compression fracture is highly indicative of osteoporosis and represents the single most robust predictor for development of a second osteoporotic fracture. We present an automated method for detecting spine compression fractures in CT scans.
+              </p>
+            </div>
+          </div>
+    </section>
+
+    <div class="section talks-section">
+        <h2 class="section-heading">Invited Talks</h2>
+        <ul class="talks-list">
+            <li>Cohere ML Summer School, Summer 2026 [<a href="https://youtu.be/s7i7y9JEZnM" target="_blank">Recording</a>]</li>
+            <li>CVEU Workshop, CVPR, June 2026</li>
+            <li>Princeton University, November 2025</li>
+            <li>Oxford University, September 2025</li>
+            <li>Meta (FAIR), June 2025</li>
+            <li>Imperial College London, March 2025</li>
+            <li>Johns Hopkins University, March 2025</li>
+            <li>Toyota Technological Institute at Chicago, February 2025</li>
+            <li>University of Washington, February 2025</li>
+            <li>Brown University, November 2024</li>
+            <li>Hebrew University of Jerusalem, July 2024</li>
+            <li>Weizmann Institute of Science, July 2024</li>
+            <li>Meta (FAIR), June 2024</li>
+            <li>NVIDIA AI, June 2024</li>
+            <li>ByteDance, June 2024</li>
+            <li>Berkeley AI Research, December 2023</li>
+            <li>Structured Representations for Video Understanding Workshop, ICCV 2021</li>
+            <li>Learning from Limited and Imperfect Data Workshop, CVPR 2021</li>
+            <li>Hebrew University of Jerusalem, 2019</li>
+            <li>Medical Machine Learning Israel, 2019</li>
+        </ul>
+    </div>
+
+    <div class="section patents-section">
+        <h2 class="section-heading">Patents</h2>
+        <ul class="patents-list">
+            <li>Systems and methods for automated detection of visual objects in medical images. US Patent 11,776,243</li>
+            <li>Cross modality training of machine learning models. US Patent 11,587,228</li>
+            <li>Identification of a contrast phase depicted in a medical image. US Patent 11,727,087</li>
+        </ul>
+    </div>
+
+    <!--
+    <div class="section researchers-section">
+        <h2 class="section-heading">Undergraduate and MA Collaborators</h2>
+        <p>If you are a student interested in collaborating on research projects or looking for advice, please reach out.</p>
+        <ul class="researchers-list">
+          <li>
+            <a href="https://dannytran123.github.io/" target="_blank">Danny Tran</a>, now incoming PhD at UT Austin.
+          </li>
+          <li>
+            <a href="https://alhojel.github.io/" target="_blank">Alberto Hojel</a>, now founder and CEO at Lucid Simulations.
+          </li>
+          <li>
+            <a href="https://scholar.google.com/citations?user=Y83XwowAAAAJ&hl=en" target="_blank">Arya Bakhtiar</a>, now MA at Stanford
+          </li>
+          <li>
+            <a href="https://scholar.google.com/citations?hl=en&user=AzlUrvUAAAAJ" target="_blank">Dantong Niu</a>, now PhD at UC Berkeley
+          </li>
+          <li>
+            <a href="https://scholar.google.com/citations?hl=en&user=G8sxJ_8AAAAJ" target="_blank">Elad Ben-Avraham</a>, now at Amazon
+          </li>
+        </ul>
+      </div>
+    -->
+</div>
+
+
+  <script>
+    document.querySelectorAll('.publication-media video').forEach(video => {
+    video.addEventListener('mouseenter', () => {
+      video.play();
+    });
+
+    video.addEventListener('mouseleave', () => {
+      video.pause();
+      video.currentTime = 0; // Reset to the first frame
+    });
+  });
+
+  /* ===== Publications: date sort + selected/all toggle ===== */
+  (function () {
+    const pubSection = document.getElementById('publications');
+    if (!pubSection) return;
+
+    // Sort entries by date, newest first. Date comes from an explicit
+    // data-date="YYMM" attribute, otherwise from the arXiv id (YYMM.nnnnn).
+    function dateKey(pub) {
+      if (pub.dataset.date) return Number(pub.dataset.date);
+      const link = pub.querySelector('a[href*="arxiv.org"]');
+      if (link) {
+        const m = link.getAttribute('href').match(/(\d{4})\.(\d{4,5})/);
+        if (m) return parseFloat(m[1] + '.' + m[2]);
+      }
+      return 0;
+    }
+    Array.from(pubSection.querySelectorAll('.publication'))
+      .sort((a, b) => dateKey(b) - dateKey(a))
+      .forEach(pub => pubSection.appendChild(pub));
+
+    // Mark the selected papers by title.
+    const SELECTED = [
+      'Lifting Embodied World Models for Planning and Control',
+      'V-JEPA 2.1: Unlocking Dense Features in Video Self-Supervised Learning',
+      'World Models Can Leverage Human Videos for Dexterous Manipulation',
+      'Parallel Stochastic Gradient-Based Planning for World Models',
+      'From Generated Human Videos to Physically Plausible Robot Trajectories',
+      'Whole-Body Conditioned Egocentric Video Prediction',
+      'Scaling Language-Free Visual Representation Learning',
+      'Navigation World Models',
+      'Sequential Modeling Enables Scalable Learning for Large Vision Models',
+      'Visual Prompting via Image Inpainting',
+      'DETReg: Unsupervised Pretraining with Region Priors for Object Detection',
+      'Compositional Video Synthesis with Action Graphs',
+      'Learning Individual Styles of Conversational Gesture'
+    ];
+    const norm = s => s.replace(/\s+/g, ' ').trim().toLowerCase();
+    const selectedSet = new Set(SELECTED.map(norm));
+    pubSection.querySelectorAll('.publication').forEach(pub => {
+      const title = pub.querySelector('a strong');
+      if (title && selectedSet.has(norm(title.textContent))) {
+        pub.classList.add('selected');
+      }
+    });
+
+    // Toggle wiring. Default view = Selected.
+    const buttons = pubSection.querySelectorAll('.pub-toggle-btn');
+    function setMode(mode) {
+      document.body.classList.toggle('filter-selected', mode === 'selected');
+      buttons.forEach(b => b.classList.toggle('is-active', b.dataset.pubMode === mode));
+    }
+    buttons.forEach(b => b.addEventListener('click', () => setMode(b.dataset.pubMode)));
+    setMode('selected');
+  })();
+
+  </script>
+</body>
+
+</html>
